@@ -3,6 +3,8 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MinimalLayout from 'layout/MinimalLayout';
+import DoesItWorks from 'components/DoesItWorks/DoesItWorks';
+import Contact from 'pages/Contact/Contact';
 
 // render - login
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
@@ -21,6 +23,14 @@ const LoginRoutes = {
         {
             path: 'register',
             element: <AuthRegister />
+        },
+        {
+            path: 'doesItWorks',
+            element: <DoesItWorks />
+        },
+        {
+            path: 'contact',
+            element: <Contact />
         }
     ]
 };
