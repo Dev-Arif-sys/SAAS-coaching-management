@@ -11,6 +11,7 @@ import ThemeOption from './theme';
 
 const Palette = (mode) => {
     const colors = presetPalettes;
+    console.log(colors);
 
     const greyPrimary = [
         '#ffffff',
@@ -41,11 +42,14 @@ const Palette = (mode) => {
             },
             ...paletteColor,
             text: {
-                primary: paletteColor.grey[700],
+                primary: paletteColor.grey[600],
                 secondary: paletteColor.grey[500],
+                highlightHeading: paletteColor.primary.dark,
+                heading: paletteColor.primary[900],
                 disabled: paletteColor.grey[400]
             },
             action: {
+                primary: paletteColor.primary.main,
                 disabled: paletteColor.grey[300]
             },
             divider: paletteColor.grey[200],
