@@ -63,6 +63,7 @@ export default function Menu() {
                 aria-expanded={open ? 'true' : undefined}
                 aria-haspopup="true"
                 onMouseEnter={handleToggle}
+                sx={{ padding: 0 }}
             >
                 {language}
             </Button>

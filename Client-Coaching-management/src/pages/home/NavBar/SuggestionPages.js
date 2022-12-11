@@ -47,25 +47,7 @@ export default function SuggestionPages({ LiStyled, menuNavItems, pages }) {
     }, [open]);
 
     const lngOption = ['English - Australia', 'English - Canadian'];
-    const pagesMenuItems = pages.map((e, index) => (
-        <MenuItem key={index} onClick={() => dispatch(clickItem(e))}>
-            {e}
-        </MenuItem>
-    ));
-    // const navItem = menuNavItems.map((e, index) => (
-    //     <LiStyled
-    //         key={index}
-    //         ref={anchorRef}
-    //         id="composition-button"
-    //         aria-controls={open ? 'composition-menu' : undefined}
-    //         aria-expanded={open ? 'true' : undefined}
-    //         aria-haspopup="true"
-    //         onMouseOver={handleToggle}
-    //     >
-    //         {e}
-    //     </LiStyled>
-    // ));
-
+    const pagesMenuItems = pages.map((e, index) => <MenuItem key={index}>{e}</MenuItem>);
     return (
         <div onMouseLeave={() => setOpen(false)}>
             <LiStyled

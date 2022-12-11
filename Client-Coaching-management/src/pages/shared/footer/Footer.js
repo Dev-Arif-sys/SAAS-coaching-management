@@ -31,12 +31,12 @@ const caption = {
 const Footer = () => {
     return (
         <div style={{ marginTop: '100px' }}>
-            <Grid container spacing={3} columns={25}>
-                <Grid item xs={6} md={8} lg={10}>
+            <Grid container spacing={3} columns={{ xs: 12, sm: 12, md: 25, lg: 25 }}>
+                <Grid item xs={12} sm={12} md={10} lg={10}>
                     <LogoSection />
                     <Typography sx={{ marginTop: '25px' }}>
-                        Ut et quam ut odio viverra cursus a id purus. <br /> Donec pretium neque sapien, id eleifend est <br /> suscipit
-                        non. Ut in nunc molestie, dictum velit id, <br /> laoreet libero.
+                        Ut et quam ut odio viverra cursus a id purus. Donec pretium neque sapien, id eleifend est suscipit non. Ut in nunc
+                        molestie, dictum velit id, laoreet libero.
                     </Typography>
                     <UlStyled>
                         <TwitterCircleFilled style={{ ...iconStyle }} />
@@ -45,21 +45,21 @@ const Footer = () => {
                         <TwitterCircleFilled style={{ ...iconStyle }} />
                     </UlStyled>
                 </Grid>
-                <Grid item xs={6} md={4} lg={5}>
+                <Grid item xs={12} sm={4} md={5} lg={5}>
                     <ListTag sx={{ ...caption }}>Services</ListTag>
                     <ListTag>UI/Ux Design</ListTag>
                     <ListTag>Web Development</ListTag>
                     <ListTag>App Development</ListTag>
                     <ListTag>Digital Marketing</ListTag>
                 </Grid>
-                <Grid item xs={6} md={4} lg={5}>
+                <Grid item xs={12} sm={4} md={5} lg={5}>
                     <ListTag sx={{ ...caption }}>Links</ListTag>
                     <ListTag>UI/Ux Design</ListTag>
                     <ListTag>Web Development</ListTag>
                     <ListTag>App Development</ListTag>
                     <ListTag>Digital Marketing</ListTag>
                 </Grid>
-                <Grid item xs={6} md={8} lg={5}>
+                <Grid item xs={12} sm={4} md={5} lg={5}>
                     <ListTag sx={{ ...caption }}>Keep in touch</ListTag>
                     <ListTag>UI/Ux Design</ListTag>
                     <ListTag>Web Development</ListTag>
