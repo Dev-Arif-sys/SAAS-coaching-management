@@ -47,10 +47,9 @@ const StyledButton = styled('button')(({ theme }) => ({
 }));
 
 const PricingCard = ({ card }) => {
-    
     const { name, price, tags } = card || {};
     const theme = useTheme();
-    
+
     //  rendering tag list
     const tagList = tags.map((tag) => (
         <Typography

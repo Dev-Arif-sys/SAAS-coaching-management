@@ -13,6 +13,7 @@
         }
     },
     "parser": "@babel/eslint-parser",
+    "requireConfigFile": false,
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
