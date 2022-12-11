@@ -19,9 +19,9 @@ const Counter = () => {
                         color={theme.palette.text.heading}
                         textAlign="center"
                     >
-                        <CountUp end={30}>
+                        <CountUp end={30} duration={2}>
                             {({ countUpRef, start }) => (
-                                <VisibilitySensor>
+                                <VisibilitySensor onChange={() => start()}>
                                     <span ref={countUpRef} />
                                 </VisibilitySensor>
                             )}
@@ -74,9 +74,9 @@ const Counter = () => {
                         color={theme.palette.text.heading}
                         textAlign="center"
                     >
-                        <CountUp end={700}>
+                        <CountUp end={400} duration={1.5}>
                             {({ countUpRef, start }) => (
-                                <VisibilitySensor>
+                                <VisibilitySensor onChange={() => start()}>
                                     <span ref={countUpRef} />
                                 </VisibilitySensor>
                             )}
@@ -101,9 +101,9 @@ const Counter = () => {
                         color={theme.palette.text.heading}
                         textAlign="center"
                     >
-                        <CountUp end={500}>
+                        <CountUp end={500} duration={1.5}>
                             {({ countUpRef, start }) => (
-                                <VisibilitySensor>
+                                <VisibilitySensor onChange={() => start()}>
                                     <span ref={countUpRef} />
                                 </VisibilitySensor>
                             )}
