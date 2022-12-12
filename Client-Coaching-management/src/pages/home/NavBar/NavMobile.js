@@ -8,7 +8,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { HomeFilled, DownOutlined, AlignRightOutlined } from '@ant-design/icons';
+import { HomeFilled, DownOutlined, AlignRightOutlined, CaretDownOutlined } from '@ant-design/icons';
 import SuggestionPages from './SuggestionPages';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -28,9 +28,6 @@ const navItems = [
 ];
 const iconStyle = {
     fontSize: '23px'
-    // padding: '8px'
-    // border: '2px solid'
-    // borderRadius: '50%'
 };
 
 export default function NavMobile({ menuNavItems, pages, blogPages, systemPages, LayStyled }) {
@@ -128,19 +125,19 @@ function ControlledAccordions({ menuNavItems, pages, blogPages, systemPages, tog
     return (
         <div>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                <AccordionSummary expandIcon={<DownOutlined />} aria-controls="panel1bh-content" id="panel1bh-header">
+                <AccordionSummary expandIcon={<CaretDownOutlined />} aria-controls="panel1bh-content" id="panel1bh-header">
                     <Typography sx={{ width: '100%', flexShrink: 0 }}>{menuNavItems[0]}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>{pagesItem}</AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                <AccordionSummary expandIcon={<DownOutlined />} aria-controls="panel2bh-content" id="panel2bh-header">
+                <AccordionSummary expandIcon={<CaretDownOutlined />} aria-controls="panel2bh-content" id="panel2bh-header">
                     <Typography sx={{ width: '100%', flexShrink: 0 }}>{menuNavItems[1]}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>{systemPagesItem}</AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                <AccordionSummary expandIcon={<DownOutlined />} aria-controls="panel3bh-content" id="panel3bh-header">
+                <AccordionSummary expandIcon={<CaretDownOutlined />} aria-controls="panel3bh-content" id="panel3bh-header">
                     <Typography sx={{ width: '100%', flexShrink: 0 }}>{menuNavItems[2]}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>{blogItem}</AccordionDetails>
