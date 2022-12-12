@@ -6,17 +6,25 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import CardMedia from '@mui/material/CardMedia';
 
 const BannerContainerStyle = styled('section')(({ theme }) => ({
     backgroundImage:
         'url("https://20093980.fs1.hubspotusercontent-na1.net/hubfs/20093980/raw_assets/public/saasweb/images/icons/banner-shape-1.jpg")',
     position: 'relative',
-    padding: '185px 0 0px',
+
     backgroundColor: '#320fa1',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
 }));
+const BannerPadding = {
+    padding: {
+        md: '185px 0 0px',
+        sm: '145px 0 0px',
+        xs: '130px 0 0px'
+    }
+};
 const LayerOuter = styled('div')(({ theme }) => ({
     position: 'absolute',
     right: '0',
@@ -32,7 +40,8 @@ const LayerImage = styled('div')(({ theme }) => ({
     height: '958px',
     backgroundImage: 'url(https://f.hubspotusercontent30.net/hubfs/20093980/saasweb/big-shape-10.png)',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'bottom center'
+    backgroundPosition: 'bottom center',
+    display: 'initial'
 }));
 const AutoContainer = styled('div')(({ theme }) => ({
     position: 'static',
@@ -67,15 +76,41 @@ const Lay = styled('div')(({ theme }) => ({
 const Small = styled('small')(({ theme }) => ({
     color: theme.palette.common.white
 }));
+
+const mystery = {
+    display: {
+        md: 'block',
+        sm: 'none',
+        xs: 'none'
+    }
+};
+const mysteryActive = {
+    display: {
+        md: 'none',
+        sm: 'block',
+        xs: 'block'
+    }
+};
+
+const CardImage = {
+    zIndex: '500',
+    position: 'absolute',
+    width: '470px',
+    ...mystery
+};
+const CardImageMobile = {
+    width: '70%',
+    ...mysteryActive
+};
 const Banner = () => {
     const theme = useTheme();
     return (
-        <BannerContainerStyle>
-            <LayerOuter>
+        <BannerContainerStyle sx={{ ...BannerPadding }}>
+            <LayerOuter sx={{ ...mystery }}>
                 <LayerImage></LayerImage>
             </LayerOuter>
             <AutoContainer>
-                <Grid container spacing={2} sx={{ pb: 20 }}>
+                <Grid container spacing={2} rowSpacing={8} sx={{ pb: { xs: 8, sm: 20 } }}>
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                         <H1>
                             Intelligent Business <br />
@@ -97,17 +132,23 @@ const Banner = () => {
                     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                         <TrackVisibility>
                             {({ isVisible }) => (
-                                <div
-                                    style={{ display: 'flex', justifyContent: 'end' }}
+                                <Box
+                                    sx={{ display: 'flex', justifyContent: { md: 'end', sm: 'start', xs: 'start' } }}
                                     className={isVisible ? 'animate__animated animate__zoomIn' : ''}
                                 >
-                                    <img
-                                        style={{ zIndex: '500', position: 'absolute', height: '450px' }}
-                                        src="https://20093980.fs1.hubspotusercontent-na1.net/hubfs/20093980/raw_assets/public/saasweb/images/resource/illustration-5.png"
-                                        alt="Header Img"
-                                        className=""
+                                    <CardMedia
+                                        component="img"
+                                        image="https://20093980.fs1.hubspotusercontent-na1.net/hubfs/20093980/raw_assets/public/saasweb/images/resource/illustration-5.png"
+                                        alt="green iguana"
+                                        sx={{ ...CardImage }}
                                     />
-                                </div>
+                                    <CardMedia
+                                        component="img"
+                                        image="https://20093980.fs1.hubspotusercontent-na1.net/hubfs/20093980/raw_assets/public/saasweb/images/resource/illustration-5.png"
+                                        alt="green iguana"
+                                        sx={{ ...CardImageMobile }}
+                                    />
+                                </Box>
                             )}
                         </TrackVisibility>
                     </Grid>
