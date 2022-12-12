@@ -11,11 +11,14 @@ const Typography = (fontFamily) => ({
     fontWeightBold: 600,
     h1: {
         fontWeight: 600,
-        fontSize: '2.375rem',
+        fontSize: '2.1rem',
         fontFamily: ['Poppins', 'sans-serif'].join(','),
         lineHeight: 1.21,
         [theme.breakpoints.down('md')]: {
-            fontSize: '2rem'
+            fontSize: '1.7rem'
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '1.5rem'
         }
     },
     h2: {
@@ -72,7 +75,13 @@ const Typography = (fontFamily) => ({
         fontSize: '0.875rem',
         fontWeight: 600,
         fontFamily: ['Poppins', 'sans-serif'].join(','),
-        lineHeight: 1.57
+        lineHeight: 1.57,
+        [theme.breakpoints.down('md')]: {
+            fontSize: '.775rem'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '675rem'
+        }
     },
     subtitle2: {
         fontSize: '0.75rem',
