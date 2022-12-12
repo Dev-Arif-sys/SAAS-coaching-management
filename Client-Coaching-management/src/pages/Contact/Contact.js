@@ -5,11 +5,10 @@ import ContactForm from './ContactForm';
 
 const Contact = () => {
     return (
-        <Box sx={{ overflowX: 'hidden' }}>
-            <Box className="home-container">
-                <Address></Address>
-                <ContactForm />
-            </Box>
+        <Box container maxWidth="lg" sx={{ mx: 'auto' }}>
+            <Address></Address>
+
+            <ContactForm />
         </Box>
     );
 };

@@ -1,4 +1,4 @@
-import { Box, Stack, styled, Typography } from '@mui/material';
+import { Box, Stack, styled, Typography, useTheme } from '@mui/material';
 import React from 'react';
 import { FiPhoneCall } from 'react-icons/fi';
 import { GoMailRead } from 'react-icons/go';
@@ -10,7 +10,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    boxShadow: 'red',
+    boxShadow: theme.customShadows.z1,
     padding: '25px 70px',
     borderRadius: '5px',
     [theme.breakpoints.down('sm')]: {
@@ -28,9 +28,10 @@ const StyledBox = styled(Box)(({ theme }) => ({
 }));
 
 const Address = () => {
+    const theme = useTheme();
     return (
         <Box mt={4}>
-            <Stack direction={{ xs: 'column', sm: 'row', md: 'row' }} justifyContent="space-between" spacing={2} fontFamily={FAMILY.hind}>
+            <Stack direction={{ xs: 'column', sm: 'row', md: 'row' }} justifyContent="space-between" spacing={2}>
                 <Link
                     to="#"
                     onClick={(e) => {
@@ -42,84 +43,20 @@ const Address = () => {
                         color: 'black'
                     }}
                 >
-                    <StyledBox
-                        sx={{
-                            boxShadow: 'rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px'
-                        }}
-                    >
-                        <GoMailRead color={COLORS.primary} className="address-icon" />
+                    <StyledBox>
+                        <GoMailRead style={{ fontSize: ' 23px', color: theme.palette.text.heading }} />
                         <Box ml={2}>
-                            <Typography
-                                fontFamily={FAMILY.hind}
-                                fontWeight={FONTS.semiBold}
-                                sx={{
-                                    fontSize: {
-                                        lg: SIZES.large,
-                                        md: SIZES.medium,
-                                        sm: SIZES.font,
-                                        xs: SIZES.regular
-                                    },
-                                    textDecoration: 'none'
-                                }}
-                            >
-                                Mail Address
-                            </Typography>
-                            <Typography
-                                mt={-0.5}
-                                color={COLORS.darkgray}
-                                fontFamily={FAMILY.inter}
-                                variant="subtitle2"
-                                sx={{
-                                    fontSize: {
-                                        md: SIZES.moderateSmall,
-                                        sm: SIZES.small,
-                                        xs: SIZES.small
-                                    },
-                                    textDecoration: 'none'
-                                }}
-                            >
-                                support@qawmiuniversity.com
-                            </Typography>
+                            <Typography variant="body1">Mail Address</Typography>
+                            <Typography variant="body2">support@qawmiuniversity.com</Typography>
                         </Box>
                     </StyledBox>
                 </Link>
 
-                <StyledBox
-                    sx={{
-                        boxShadow: 'rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px'
-                    }}
-                >
-                    <MdOutlineLocationOn color={COLORS.primary} className="address-icon" />
+                <StyledBox>
+                    <MdOutlineLocationOn style={{ fontSize: ' 23px', color: theme.palette.text.heading }} />
                     <Box ml={2}>
-                        <Typography
-                            fontFamily={FAMILY.hind}
-                            fontWeight={FONTS.semiBold}
-                            sx={{
-                                fontSize: {
-                                    lg: SIZES.large,
-                                    md: SIZES.medium,
-                                    sm: SIZES.font,
-                                    xs: SIZES.regular
-                                }
-                            }}
-                        >
-                            Office Address
-                        </Typography>
-                        <Typography
-                            mt={-0.5}
-                            color={COLORS.darkgray}
-                            fontFamily={FAMILY.inter}
-                            variant="subtitle2"
-                            sx={{
-                                fontSize: {
-                                    md: SIZES.moderateSmall,
-                                    sm: SIZES.small,
-                                    xs: SIZES.small
-                                }
-                            }}
-                        >
-                            6206,Motihar,Rajshahi
-                        </Typography>
+                        <Typography variant="body1">Office Address</Typography>
+                        <Typography variant="body2">6206,Motihar,Rajshahi</Typography>
                     </Box>
                 </StyledBox>
 
@@ -134,43 +71,11 @@ const Address = () => {
                         color: 'black'
                     }}
                 >
-                    <StyledBox
-                        sx={{
-                            boxShadow: 'rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px'
-                        }}
-                    >
-                        <FiPhoneCall color={COLORS.primary} className="address-icon" />
+                    <StyledBox>
+                        <FiPhoneCall style={{ fontSize: ' 23px', color: theme.palette.text.heading }} />
                         <Box ml={2}>
-                            <Typography
-                                fontFamily={FAMILY.hind}
-                                fontSize={SIZES.large - 2}
-                                fontWeight={FONTS.semiBold}
-                                sx={{
-                                    fontSize: {
-                                        lg: SIZES.large,
-                                        md: SIZES.medium,
-                                        sm: SIZES.font,
-                                        xs: SIZES.regular
-                                    }
-                                }}
-                            >
-                                Phone Number
-                            </Typography>
-                            <Typography
-                                mt={-0.5}
-                                color={COLORS.darkgray}
-                                fontFamily={FAMILY.inter}
-                                variant="subtitle2"
-                                sx={{
-                                    fontSize: {
-                                        md: SIZES.moderateSmall,
-                                        sm: SIZES.small,
-                                        xs: SIZES.small
-                                    }
-                                }}
-                            >
-                                +8801970560470
-                            </Typography>
+                            <Typography variant="body1">Phone Number</Typography>
+                            <Typography variant="body2">+8801970560470</Typography>
                         </Box>
                     </StyledBox>
                 </Link>
