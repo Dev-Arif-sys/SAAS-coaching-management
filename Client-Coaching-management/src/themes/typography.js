@@ -85,6 +85,21 @@ const Typography = (fontFamily) => ({
     },
     button: {
         textTransform: 'capitalize'
+    },
+    curcleStyle: {
+        // color: 'success.main',
+        // bgcolor: 'success.lighter'
+        background: '#fff',
+        width: '80px',
+        height: '80px',
+        borderRadius: '100px',
+        overflow: 'hidden',
+        margin: '0 auto',
+        fontSize: '30px',
+        color: '#878991',
+        boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+        fontWeight: '400',
+        padding: '27px'
     }
 });
 
