@@ -1,6 +1,11 @@
 import HomeLayout from 'layout/HomeLayout.js/Index';
+
 import Footer from 'pages/shared/footer/Footer';
 import NavBar from './NavBar/index';
+
+import IdealogySection from './idealogy/index';
+import Power from './power/index';
+
 import Pricing from './pricing/index';
 
 const Home = () => {
@@ -8,7 +13,12 @@ const Home = () => {
         <HomeLayout>
             <NavBar />
             <Pricing />
-            <Footer />
+
+     
+
+            <IdealogySection />
+            <Power />
+       <Footer />
         </HomeLayout>
     );
 };
