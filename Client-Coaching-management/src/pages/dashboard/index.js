@@ -12,9 +12,7 @@ import {
     ListItemButton,
     ListItemSecondaryAction,
     ListItemText,
-    MenuItem,
     Stack,
-    TextField,
     Typography
 } from '@mui/material';
 
@@ -194,21 +192,15 @@ const DashboardDefault = () => {
                         <Typography variant="h5">Sales Report</Typography>
                     </Grid>
                     <Grid item>
-                        <TextField
+                        <CustomSelect
+                            options={status}
                             id="standard-select-currency"
                             size="small"
                             select
                             label="Filter"
                             value={value}
                             onChange={(e) => setValue(e.target.value)}
-                            sx={{ '& .MuiInputBase-input': { py: 0.5, fontSize: '0.875rem' } }}
-                        >
-                            {status.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
+                        />
                     </Grid>
                 </Grid>
                 <MainCard sx={{ mt: 1.75 }}>

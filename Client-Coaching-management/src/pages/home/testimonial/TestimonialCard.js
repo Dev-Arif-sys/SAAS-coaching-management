@@ -3,7 +3,7 @@ const CardWrapper = styled('div')(({ theme }) => ({
     border: `1px solid ${theme.palette.divider}`,
     padding: `${theme.spacing(3)} ${theme.spacing(6)}`,
     width: '580px',
-    maxWidth: '95%',
+    maxWidth: '90%',
     margin: '0 auto',
     borderRadius: `10px`,
     background: theme.palette.common.white,
