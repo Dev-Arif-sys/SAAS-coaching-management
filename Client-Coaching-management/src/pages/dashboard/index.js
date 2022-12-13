@@ -19,13 +19,13 @@ import {
 } from '@mui/material';
 
 // project import
-import OrdersTable from './OrdersTable';
+import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+import MainCard from 'components/MainCard';
 import IncomeAreaChart from './IncomeAreaChart';
 import MonthlyBarChart from './MonthlyBarChart';
+import OrdersTable from './OrdersTable';
 import ReportAreaChart from './ReportAreaChart';
 import SalesColumnChart from './SalesColumnChart';
-import MainCard from 'components/MainCard';
-import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 
 // assets
 import { GiftOutlined, MessageOutlined, SettingOutlined } from '@ant-design/icons';
@@ -33,6 +33,8 @@ import avatar1 from 'assets/images/users/avatar-1.png';
 import avatar2 from 'assets/images/users/avatar-2.png';
 import avatar3 from 'assets/images/users/avatar-3.png';
 import avatar4 from 'assets/images/users/avatar-4.png';
+import CustomSelect from 'components/ui/CustomSelect';
+import CustomTextField from 'components/ui/CustomTextField';
 
 // avatar style
 const avatarSX = {
@@ -196,6 +198,7 @@ const DashboardDefault = () => {
                             id="standard-select-currency"
                             size="small"
                             select
+                            label="Filter"
                             value={value}
                             onChange={(e) => setValue(e.target.value)}
                             sx={{ '& .MuiInputBase-input': { py: 0.5, fontSize: '0.875rem' } }}
@@ -340,6 +343,8 @@ const DashboardDefault = () => {
                     </Stack>
                 </MainCard>
             </Grid>
+            <CustomSelect options={[{ value: '1', label: '1' }]} label="filter" />
+            <CustomTextField label={'hello'} size="small" />
         </Grid>
     );
 };

@@ -5,6 +5,9 @@ import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout/index';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
 import SalesProduct from 'pages/dashboard/SalesProduct';
+import ExamMarkEntry from 'pages/dashboard/exams/ExamMarkEntry/index';
+import ViewResult from 'pages/dashboard/exams/ViewResult/Index';
+import FormTest from 'pages/FormTest';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -49,8 +52,20 @@ const MainRoutes = {
             element: <AntIcons />
         },
         {
+            path: 'form-test',
+            element: <FormTest />
+        },
+        {
             path: 'table',
             element: <SalesProduct />
+        },
+        {
+            path: 'exam-mark',
+            element: <ExamMarkEntry />
+        },
+        {
+            path: 'view-result',
+            element: <ViewResult />
         }
     ]
 };

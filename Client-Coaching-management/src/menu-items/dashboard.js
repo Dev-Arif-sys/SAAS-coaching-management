@@ -16,7 +16,7 @@ const dashboard = {
         {
             id: 'dashboard',
             title: 'Dashboard',
-            type: 'item',
+            type: 'collapse',
             url: '/',
             icon: icons.DashboardOutlined,
             breadcrumbs: false
