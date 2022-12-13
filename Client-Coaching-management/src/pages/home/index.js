@@ -15,15 +15,11 @@ const Home = () => {
             <NavBar />
             <Pricing />
 
-
-     
-
             <IdealogySection />
             <Power />
 
             <Testimonial />
             <Footer />
-
         </HomeLayout>
     );
 };
