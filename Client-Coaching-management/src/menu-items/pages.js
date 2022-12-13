@@ -12,7 +12,7 @@ const icons = {
 const pages = {
     id: 'authentication',
     title: 'Authentication',
-    type: 'group',
+    type: 'item',
     children: [
         {
             id: 'login1',

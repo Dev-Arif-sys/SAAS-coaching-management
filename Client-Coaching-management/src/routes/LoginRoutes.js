@@ -4,6 +4,9 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MinimalLayout from 'layout/MinimalLayout';
 
+import Contact from 'pages/Contact/Contact';
+import About from 'pages/About/About';
+
 // render - login
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 const AuthRegister = Loadable(lazy(() => import('pages/authentication/Register')));
@@ -21,6 +24,14 @@ const LoginRoutes = {
         {
             path: 'register',
             element: <AuthRegister />
+        },
+        {
+            path: 'contact',
+            element: <Contact />
+        },
+        {
+            path: 'about',
+            element: <About />
         }
     ]
 };

@@ -9,28 +9,26 @@ const icons = {
 
 // ==============================|| MENU ITEMS - SAMPLE PAGE & DOCUMENTATION ||============================== //
 
-const support = {
-    id: 'support',
-    title: 'Support',
+const exams = {
+    id: 'exams',
+    title: 'Exams',
     type: 'item',
     children: [
         {
-            id: 'sample-page',
-            title: 'Sample Page',
+            id: 'Exam-Mark',
+            title: 'Exam Mark Entry',
             type: 'item',
-            url: '/sample-page',
+            url: '/exam-mark',
             icon: icons.ChromeOutlined
         },
         {
-            id: 'documentation',
-            title: 'Documentation',
+            id: 'view-result',
+            title: 'View Result and SMS',
             type: 'item',
-            url: 'https://codedthemes.gitbook.io/mantis-react/',
-            icon: icons.QuestionOutlined,
-            external: true,
-            target: true
+            url: '/view-result',
+            icon: icons.QuestionOutlined
         }
     ]
 };
 
-export default support;
+export default exams;

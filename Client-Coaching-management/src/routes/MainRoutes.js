@@ -3,6 +3,9 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout/index';
+import ExamMarkEntry from 'pages/dashboard/exams/ExamMarkEntry/index';
+import ViewResult from 'pages/dashboard/exams/ViewResult/Index';
+import FormTest from 'pages/FormTest';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -45,6 +48,18 @@ const MainRoutes = {
         {
             path: 'icons/ant',
             element: <AntIcons />
+        },
+        {
+            path: 'form-test',
+            element: <FormTest />
+        },
+        {
+            path: 'exam-mark',
+            element: <ExamMarkEntry />
+        },
+        {
+            path: 'view-result',
+            element: <ViewResult />
         }
     ]
 };
