@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import { MdOutlineExpandLess, MdOutlineExpandMore } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 
 // material-ui
-import { Box, List, Typography } from '@mui/material';
+import { Box, Collapse, List, ListItemButton, ListItemText, Typography } from '@mui/material';
 
 // project import
+import { useState } from 'react';
 import NavItem from './NavItem';
 
 // ==============================|| NAVIGATION - LIST GROUP ||============================== //
@@ -12,24 +14,18 @@ import NavItem from './NavItem';
 const NavGroup = ({ item }) => {
     const menu = useSelector((state) => state.menu);
     const { drawerOpen } = menu;
+    const [open, setOpen] = useState(false);
+
+    const handleTitleClick = () => {
+        setOpen(!open);
+    };
 
     const navCollapse = item.children?.map((menuItem) => {
-        switch (menuItem.type) {
-            case 'collapse':
-                return (
-                    <Typography key={menuItem.id} variant="caption" color="error" sx={{ p: 2.5 }}>
-                        collapse - only available in paid version
-                    </Typography>
-                );
-            case 'item':
-                return <NavItem key={menuItem.id} item={menuItem} level={1} />;
-            default:
-                return (
-                    <Typography key={menuItem.id} variant="h6" color="error" align="center">
-                        Fix - Group Collapse or Items
-                    </Typography>
-                );
-        }
+        return (
+            <Collapse in={open}>
+                <NavItem key={menuItem.id} item={menuItem} level={1} />
+            </Collapse>
+        );
     });
 
     return (
@@ -37,11 +33,17 @@ const NavGroup = ({ item }) => {
             subheader={
                 item.title &&
                 drawerOpen && (
-                    <Box sx={{ pl: 3, mb: 1.5 }}>
-                        <Typography variant="subtitle2" color="textSecondary">
-                            {item.title}
-                        </Typography>
-                        {/* only available in paid version */}
+                    <Box>
+                        <ListItemButton onClick={handleTitleClick} timeout="auto" unmountOnExit>
+                            <ListItemText
+                                primary={
+                                    <Typography variant="body1" fontSize={'14px'}>
+                                        {item.title}
+                                    </Typography>
+                                }
+                            />
+                            {open ? <MdOutlineExpandLess /> : <MdOutlineExpandMore />}
+                        </ListItemButton>
                     </Box>
                 )
             }

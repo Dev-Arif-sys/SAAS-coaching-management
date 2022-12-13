@@ -7,6 +7,7 @@ import IdealogySection from './idealogy/index';
 import Power from './power/index';
 
 import Pricing from './pricing/index';
+import Testimonial from './testimonial/index';
 
 const Home = () => {
     return (
@@ -14,11 +15,15 @@ const Home = () => {
             <NavBar />
             <Pricing />
 
+
      
 
             <IdealogySection />
             <Power />
-       <Footer />
+
+            <Testimonial />
+            <Footer />
+
         </HomeLayout>
     );
 };

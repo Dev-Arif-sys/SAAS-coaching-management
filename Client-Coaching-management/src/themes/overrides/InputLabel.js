@@ -9,11 +9,13 @@ export default function InputLabel(theme) {
                 },
                 outlined: {
                     lineHeight: '0.8em',
+                    outline: 'none',
+
                     '&.MuiInputLabel-sizeSmall': {
                         lineHeight: '1em'
                     },
                     '&.MuiInputLabel-shrink': {
-                        background: theme.palette.background.paper,
+                        background: '#FAFAFB',
                         padding: '0 8px',
                         marginLeft: -6,
                         lineHeight: '1.4375em'

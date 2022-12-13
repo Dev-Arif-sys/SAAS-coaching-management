@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { Grid, Typography, Avatar, Box, useMediaQuery, useTheme } from '@mui/material';
-const Abouttopbar = () => {
+import { Box, useTheme } from '@mui/material';
+import Tab from '@mui/material/Tab';
+const AboutTopBar = () => {
     const theme = useTheme();
     const [value, setValue] = useState('1');
     const handleChange = (event, newValue) => {
@@ -55,4 +55,4 @@ const Abouttopbar = () => {
     );
 };
 
-export default Abouttopbar;
+export default AboutTopBar;

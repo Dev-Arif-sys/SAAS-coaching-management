@@ -1,7 +1,7 @@
 // assets
 import {
-    AppstoreAddOutlined,
     AntDesignOutlined,
+    AppstoreAddOutlined,
     BarcodeOutlined,
     BgColorsOutlined,
     FontSizeOutlined,
@@ -23,7 +23,7 @@ const icons = {
 const utilities = {
     id: 'utilities',
     title: 'Utilities',
-    type: 'group',
+    type: 'collapse',
     children: [
         {
             id: 'util-typography',

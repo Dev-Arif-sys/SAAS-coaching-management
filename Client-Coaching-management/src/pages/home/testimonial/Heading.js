@@ -3,9 +3,9 @@ import { Box, Typography, useTheme } from '@mui/material';
 const Heading = () => {
     const theme = useTheme();
     return (
-        <Box mb={8}>
+        <Box mb={8} mt={14}>
             <Typography variant="h1" color={theme.palette.text.heading} textAlign="center">
-                Best pricing plan
+                What our client says
             </Typography>
             <Box
                 sx={{
@@ -16,10 +16,9 @@ const Heading = () => {
                     lineHeight: '14px'
                 }}
             >
-                <Typography variant="subtitle1" color={theme.palette.text.primary} fontWeight="400" textAlign="center">
-                    Samu lets you manage software development and track bugs. Samu's streamlined design is built for speed and efficiency
-                    helping high performing team.
-                </Typography>
+                {/* <Typography variant="subtitle1" color={theme.palette.text.primary} fontWeight="400" textAlign="center">
+                    
+                </Typography> */}
             </Box>
         </Box>
     );
