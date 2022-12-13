@@ -16,7 +16,8 @@ const BannerContainerStyle = styled('section')(({ theme }) => ({
     backgroundColor: '#320fa1',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    overflow: 'hidden'
 }));
 const BannerPadding = {
     padding: {

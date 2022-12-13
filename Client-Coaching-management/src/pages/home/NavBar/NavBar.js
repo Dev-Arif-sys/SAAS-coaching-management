@@ -5,6 +5,7 @@ import LogoSection from 'components/Logo/index';
 import Menu from './Menu';
 import SuggestionPages from './SuggestionPages';
 import NavMobile from './NavMobile';
+import Profile from '../../../layout/MainLayout/Header/HeaderContent/Profile/index';
 
 const Header = styled('header')(({ theme }) => ({
     position: 'fixed',
@@ -67,7 +68,8 @@ const NavBar = () => {
                     <SuggestionPages LiStyled={LiStyled} menuNavItems={menuNavItems[2]} pages={blogPages} />
                     <LiStyled>Contact</LiStyled>
                 </UlStyled>
-                <Menu />
+                {/* <Menu /> */}
+                <Profile />
             </LayStyled>
             <LayStyled sx={{ ...mysteryActive }}>
                 <NavMobile

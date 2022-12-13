@@ -3,6 +3,8 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout/index';
+import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
+import SalesProduct from 'pages/dashboard/SalesProduct';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -45,6 +47,10 @@ const MainRoutes = {
         {
             path: 'icons/ant',
             element: <AntIcons />
+        },
+        {
+            path: 'table',
+            element: <SalesProduct />
         }
     ]
 };
