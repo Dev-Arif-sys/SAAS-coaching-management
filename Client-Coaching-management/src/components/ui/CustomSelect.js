@@ -1,7 +1,7 @@
 import { InputLabel, MenuItem, Stack, TextField } from '@mui/material';
 const CustomSelect = ({ options, label, required, ...others }) => {
     return (
-        <Stack spacing={1}>
+        <Stack spacing={0.25}>
             <InputLabel
                 sx={{
                     fontSize: '14px'
@@ -13,10 +13,10 @@ const CustomSelect = ({ options, label, required, ...others }) => {
                 id="standard-select-currency"
                 select
                 {...others}
-                sx={{ '& .MuiInputBase-input': { py: 0.5, fontSize: '0.875rem', minWidth: '50px' } }}
+                sx={{ '& .MuiInputBase-input': { py: 0.88, minWidth: '50px', fontSize: '14px' } }}
             >
                 {options.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
+                    <MenuItem sx={{ fontSize: '14px' }} key={option.value} value={option.value}>
                         {option.label}
                     </MenuItem>
                 ))}

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Grid, Typography, Avatar, Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Grid, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const AterBefotWrapper = styled('div')(({ theme }) => ({

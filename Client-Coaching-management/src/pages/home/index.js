@@ -1,16 +1,23 @@
+import { Box } from '@mui/material';
 import HomeLayout from 'layout/HomeLayout.js/Index';
 import Footer from 'pages/shared/footer/Footer';
-import NavBar from './NavBar/index';
+import NavBar from './NavBar/NavBar';
 import Pricing from './pricing/index';
 import Testimonial from './testimonial/index';
 
 const Home = () => {
     return (
         <HomeLayout>
-            <NavBar />
-            <Pricing />
-            <Testimonial />
-            <Footer />
+            <Box
+                sx={{
+                    overflowX: 'hidden'
+                }}
+            >
+                <NavBar />
+                <Pricing />
+                <Testimonial />
+                <Footer />
+            </Box>
         </HomeLayout>
     );
 };

@@ -2,7 +2,7 @@ import { InputLabel, OutlinedInput, Stack } from '@mui/material';
 
 const CustomTextField = ({ label, required, ...others }) => {
     return (
-        <Stack spacing={1}>
+        <Stack spacing={0.25}>
             <InputLabel
                 sx={{
                     fontSize: '14px'
