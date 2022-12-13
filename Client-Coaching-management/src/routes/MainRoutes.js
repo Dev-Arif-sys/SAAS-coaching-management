@@ -7,6 +7,11 @@ import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
 import SalesProduct from 'pages/dashboard/SalesProduct';
 import ExamMarkEntry from 'pages/dashboard/exams/ExamMarkEntry/index';
 import ViewResult from 'pages/dashboard/exams/ViewResult/Index';
+import DueOverview from 'pages/dashboard/payment/DueOverview/index';
+import FeeOverview from 'pages/dashboard/payment/FeeOverview/index';
+import ManagePayment from 'pages/dashboard/payment/ManagePayment/index';
+import PayDue from 'pages/dashboard/payment/PayDue/index';
+import PayFee from 'pages/dashboard/payment/PayFee/index';
 import FormTest from 'pages/FormTest';
 
 // render - dashboard
@@ -66,6 +71,26 @@ const MainRoutes = {
         {
             path: 'view-result',
             element: <ViewResult />
+        },
+        {
+            path: 'pay-fees',
+            element: <PayFee />
+        },
+        {
+            path: 'pay-due',
+            element: <PayDue />
+        },
+        {
+            path: 'fee-overview',
+            element: <FeeOverview />
+        },
+        {
+            path: 'due-overview',
+            element: <DueOverview />
+        },
+        {
+            path: 'manage-payment',
+            element: <ManagePayment />
         }
     ]
 };
