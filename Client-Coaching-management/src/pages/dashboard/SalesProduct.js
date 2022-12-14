@@ -4,6 +4,8 @@ import { Link as RouterLink } from 'react-router-dom';
 
 // material-ui
 import { Box, Link, TableCell, TableRow, TableBody } from '@mui/material';
+import MultiPurposeSearch from 'components/search/MultiPurposeSearch';
+import { useState } from 'react';
 
 /* :::::::::MultiPurpose TABLE - HEADER CELL::::::::::: */
 const headCells = [
@@ -41,27 +43,64 @@ const headCells = [
 ];
 
 /* :::::::::MultiPurpose TABLE - Row CELL::::::::::: */
-function createData(trackingNo, name, fat, carbs, protein) {
-    return { trackingNo, name, fat, carbs, protein };
-}
 const rows = [
-    createData(84564564, 'Camera Lens', 40, 2, 40570),
-    createData(98764564, 'Laptop', 300, 0, 180139),
-    createData(98756325, 'Mobile', 355, 1, 90989),
-    createData(98652366, 'Handset', 50, 1, 10239),
-    createData(13286564, 'Computer Accessories', 100, 1, 83348),
-    createData(86739658, 'TV', 99, 0, 410780),
-    createData(13256498, 'Keyboard', 125, 2, 70999),
-    createData(98753263, 'Mouse', 89, 2, 10570),
-    createData(98753275, 'Desktop', 185, 1, 98063),
-    createData(98753291, 'Chair', 100, 0, 14001)
+    {
+        trackingNo: 'trackingNo',
+        name: 'Book Value',
+        fat: 'Handsome',
+        carbs: 'Pending',
+        protein: '$5532'
+    },
+    {
+        trackingNo: 'trackingNo',
+        name: 'Book Value',
+        fat: 'Handsome',
+        carbs: 'Pending',
+        protein: '$553532'
+    },
+    {
+        trackingNo: 'trackingNo',
+        name: 'Book Value',
+        fat: 'Handsome',
+        carbs: 'Pending',
+        protein: '$550832'
+    },
+    {
+        trackingNo: 'trackingNo',
+        name: 'Book Value',
+        fat: 'Handsome',
+        carbs: 'Pending',
+        protein: '$55532'
+    },
+    {
+        trackingNo: 'trackingNo',
+        name: 'Book Value',
+        fat: 'Handsome',
+        carbs: 'Pending',
+        protein: '$556932'
+    },
+    {
+        trackingNo: 'trackingNo',
+        name: 'Book Value',
+        fat: 'Handsome',
+        carbs: 'Pending',
+        protein: '$5512532'
+    }
 ];
 
 const SalesProduct = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    /* :::::Dynamic Search || Just send 'setSearchTerm={setSearchTerm} searchTerm={searchTerm} 
+    these as props to the multiPurpose table and get search term and then find it from JSON data'::::: */
+
+    const re = new RegExp(searchTerm, 'i');
+    const filtered = rows.filter((entry) => Object.values(entry).some((val) => typeof val === 'string' && val.match(re)));
+
     return (
         <div>
-            <MultiPurposeTable headCells={headCells}>
-                <Tag />
+            <MultiPurposeTable headCells={headCells} setSearchTerm={setSearchTerm} searchTerm={searchTerm}>
+                <Tag filtered={filtered} />
             </MultiPurposeTable>
         </div>
     );
@@ -69,28 +108,18 @@ const SalesProduct = () => {
 
 export default SalesProduct;
 
-const Tag = () => {
+const Tag = ({ filtered }) => {
     return (
         <TableBody>
-            {rows.map((row, index) => (
-                <TableRow
-                    hover
-                    role="checkbox"
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                    tabIndex={-1}
-                    key={row.trackingNo}
-                >
+            {filtered?.map((row, index) => (
+                <TableRow hover role="checkbox" sx={{ '&:last-child td, &:last-child th': { border: 0 } }} tabIndex={-1} key={index}>
                     <TableCell component="th" /* id={labelId} */ scope="row" align="left">
-                    {row.trackingNo}
+                        {row.trackingNo}
                     </TableCell>
                     <TableCell align="left">{row.name}</TableCell>
                     <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="left">
-                        {row.carbs}
-                    </TableCell>
-                    <TableCell align="right">
-                        {row.protein}
-                    </TableCell>
+                    <TableCell align="left">{row.carbs}</TableCell>
+                    <TableCell align="right">{row.protein}</TableCell>
                 </TableRow>
             ))}
         </TableBody>
