@@ -81,16 +81,12 @@ const Tag = () => {
                     key={row.trackingNo}
                 >
                     <TableCell component="th" /* id={labelId} */ scope="row" align="left">
-                    {row.trackingNo}
+                        {row.trackingNo}
                     </TableCell>
                     <TableCell align="left">{row.name}</TableCell>
                     <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="left">
-                        {row.carbs}
-                    </TableCell>
-                    <TableCell align="right">
-                        {row.protein}
-                    </TableCell>
+                    <TableCell align="left">{row.carbs}</TableCell>
+                    <TableCell align="right">{row.protein}</TableCell>
                 </TableRow>
             ))}
         </TableBody>

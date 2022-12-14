@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
+import SearchStudentsData from './SearchStudentsData';
 
 const classData = [
     {
@@ -132,6 +133,15 @@ const yearData = [
 
 const SearchStudents = () => {
     const theme = useTheme();
+    const [classes, setClasses] = useState('');
+    const [batch, setBatch] = useState('');
+    const [year, setYear] = useState('');
+    const [show, setShow] = useState(false);
+
+    const searchHandle = () => {
+        console.log('ravi');
+        setShow(true);
+    };
 
     return (
         <Box>
@@ -151,17 +161,31 @@ const SearchStudents = () => {
                     }}
                     // alignItems='center'
                 >
-                    <CustomSelect style={{ marginRight: '10px' }} options={classData} label="Class" required={true} />
-                    <CustomSelect style={{ marginRight: '10px' }} options={batchData} label="Batch" required={true} />
+                    <CustomSelect
+                        style={{ marginRight: '10px' }}
+                        options={classData}
+                        label="Class"
+                        required={true}
+                        onChange={(e) => setClasses(e.target.value)}
+                    />
+                    <CustomSelect
+                        style={{ marginRight: '10px' }}
+                        options={batchData}
+                        label="Batch"
+                        required={true}
+                        onChange={(e) => setBatch(e.target.value)}
+                    />
                     <CustomSelect
                         style={{ marginRight: '10px' }}
                         options={yearData}
                         label="Year"
                         required={true}
-                        others={[{ label: 'Select Year' }]}
+                        onChange={(e) => setYear(e.target.value)}
                     />
-                    <CustomSearchButton />
+                    <CustomSearchButton handle={searchHandle} />
                 </Box>
+
+                {show ? <SearchStudentsData /> : ''}
             </Box>
         </Box>
     );
