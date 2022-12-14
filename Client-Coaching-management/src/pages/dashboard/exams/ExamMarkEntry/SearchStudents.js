@@ -185,7 +185,11 @@ const SearchStudents = () => {
                     <CustomSearchButton handle={searchHandle} />
                 </Box>
 
-                {show ? <SearchStudentsData /> : ''}
+                {show ? <SearchStudentsData data={[
+                    classes,
+                    batch,
+                    year
+                ]} /> : ''}
             </Box>
         </Box>
     );

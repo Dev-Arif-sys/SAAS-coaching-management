@@ -54,9 +54,9 @@ const rows = [
     createData(98753291, 'Chair', 100, 0, 14001)
 ];
 
-const SearchStudentsData = () => {
+const SearchStudentsData = ({ data }) => {
     const theme = useTheme();
-
+    const [classes, batch, year] = data;
     return (
         <Box>
             <Box sx={{}}>
@@ -68,7 +68,7 @@ const SearchStudentsData = () => {
                     }}
                 >
                     <Typography variant="h2" color={'white'}>
-                        Students Of Class 10 , Batch 20, Year 2022
+                        Students Of Class {classes} , Batch {batch}, Year {year}
                     </Typography>
                 </Box>
 
