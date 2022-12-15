@@ -21,7 +21,7 @@ const ProfileTab = ({ handleLogout }) => {
         navigate(`/${event}`);
     };
 
-    //NB: Add function name inside handleListItemClick function's first parameter 
+    //NB: Add function name inside handleListItemClick function's first parameter
 
     return (
         <List component="nav" sx={{ p: 0, '& .MuiListItemIcon-root': { minWidth: 32, color: theme.palette.grey[500] } }}>
