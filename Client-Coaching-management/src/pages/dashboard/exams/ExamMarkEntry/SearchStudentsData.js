@@ -1,39 +1,33 @@
-import React from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody, Button } from '@mui/material';
 import CustomTextField from 'components/ui/CustomTextField';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
 
 const headCells = [
     {
-        id: 'trackingNo',
+        id: 'rollNo',
         align: 'left',
         disablePadding: false,
-        label: 'Tracking No.'
+        label: 'Roll.'
     },
     {
         id: 'name',
         align: 'left',
         disablePadding: true,
-        label: 'Product Name'
+        label: 'Student Name'
     },
     {
-        id: 'fat',
-        align: 'right',
+        id: 'cq',
+        align: 'left',
         disablePadding: false,
-        label: 'Total Order'
+        label: 'CQ Mark'
     },
     {
-        id: 'carbs',
+        id: 'mcq',
         align: 'left',
         disablePadding: false,
 
-        label: 'Status'
-    },
-    {
-        id: 'protein',
-        align: 'right',
-        disablePadding: false,
-        label: 'Total Amount'
+        label: 'MCQ Mark'
     }
 ];
 
@@ -57,6 +51,7 @@ const rows = [
 const SearchStudentsData = ({ data }) => {
     const theme = useTheme();
     const [classes, batch, year] = data;
+    const [searchText, setSearchText] = useState('');
     return (
         <Box>
             <Box sx={{}}>
@@ -128,6 +123,7 @@ const SearchStudentsData = ({ data }) => {
                             sx={{
                                 mr: 1
                             }}
+                            onChange={(e) => setSearchText(e.target.value)}
                         >
                             Search
                         </Typography>
@@ -147,6 +143,9 @@ const SearchStudentsData = ({ data }) => {
                         <Tag />
                     </MultiPurposeTable>
                 </Box>
+                <Button target="_blank" href="" variant="contained" color="success" size="small">
+                    Submit
+                </Button>
             </Box>
         </Box>
     );
@@ -169,9 +168,24 @@ const Tag = () => {
                         {row.trackingNo}
                     </TableCell>
                     <TableCell align="left">{row.name}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="left">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    <TableCell align="left">
+                        <CustomTextField
+                            // label="Title"
+                            // required={true}
+                            size="small"
+
+                            // onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </TableCell>
+                    <TableCell align="left">
+                        <CustomTextField
+                            // label="Title"
+                            // required={true}
+                            size="small"
+
+                            // onChange={(e) => setTitle(e.target.value)}
+                        />
+                    </TableCell>
                 </TableRow>
             ))}
         </TableBody>

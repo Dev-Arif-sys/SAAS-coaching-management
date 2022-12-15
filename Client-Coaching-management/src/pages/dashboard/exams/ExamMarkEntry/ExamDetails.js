@@ -21,6 +21,9 @@ const ExamDetails = ({ data }) => {
     const [cqMark, setCqMark] = useState('');
     const [mcqMark, setMCqMark] = useState('');
     const [date, setDate] = useState('');
+
+
+    
     return (
         <Box>
             <Box sx={{}}>

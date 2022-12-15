@@ -186,16 +186,16 @@ const SearchStudents = () => {
                     <CustomSearchButton handle={searchHandle} />
                 </Box>
 
-                {/* {show ? ( */}
-                <>
-                    {' '}
-                    <ExamDetails data={[classes, batch, year]} />
-                    <hr />
-                    <SearchStudentsData data={[classes, batch, year]} />{' '}
-                </>
-                {/* ) : (
+                {show ? (
+                    <>
+                        {' '}
+                        <ExamDetails data={[classes, batch, year]} />
+                        <hr />
+                        <SearchStudentsData data={[classes, batch, year]} />{' '}
+                    </>
+                ) : (
                     ''
-                )} */}
+                )}
             </Box>
         </Box>
     );
