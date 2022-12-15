@@ -13,6 +13,8 @@ import ManagePayment from 'pages/dashboard/payment/ManagePayment/index';
 import PayDue from 'pages/dashboard/payment/PayDue/index';
 import PayFee from 'pages/dashboard/payment/PayFee/index';
 import FormTest from 'pages/FormTest';
+import MessageAbsent from 'pages/dashboard/message/MessageAbsent';
+import TargetSMS from 'pages/dashboard/message/TargetSMS';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -91,6 +93,14 @@ const MainRoutes = {
         {
             path: 'manage-payment',
             element: <ManagePayment />
+        },
+        {
+            path: 'sms-absent',
+            element: <MessageAbsent />
+        },
+        {
+            path: 'target-sms',
+            element: <TargetSMS />
         }
     ]
 };

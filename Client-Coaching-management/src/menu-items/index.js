@@ -5,11 +5,12 @@ import pages from './pages';
 import payment from './payment';
 import support from './support';
 import utilities from './utilities';
+import SMS from './sms';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, pages, utilities, support, exams, payment]
+    items: [dashboard, pages, utilities, support, exams, payment, SMS]
 };
 
 export default menuItems;
