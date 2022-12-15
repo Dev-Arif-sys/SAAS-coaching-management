@@ -3,6 +3,7 @@ import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
 import SearchStudentsData from './SearchStudentsData';
+import ExamDetails from './ExamDetails';
 
 const classData = [
     {
@@ -185,11 +186,16 @@ const SearchStudents = () => {
                     <CustomSearchButton handle={searchHandle} />
                 </Box>
 
-                {show ? <SearchStudentsData data={[
-                    classes,
-                    batch,
-                    year
-                ]} /> : ''}
+                {/* {show ? ( */}
+                <>
+                    {' '}
+                    <ExamDetails data={[classes, batch, year]} />
+                    <hr />
+                    <SearchStudentsData data={[classes, batch, year]} />{' '}
+                </>
+                {/* ) : (
+                    ''
+                )} */}
             </Box>
         </Box>
     );

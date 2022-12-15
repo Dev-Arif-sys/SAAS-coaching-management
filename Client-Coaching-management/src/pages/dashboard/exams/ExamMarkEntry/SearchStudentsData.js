@@ -60,7 +60,7 @@ const SearchStudentsData = ({ data }) => {
     return (
         <Box>
             <Box sx={{}}>
-                <Box
+                {/* <Box
                     sx={{
                         background: theme.palette.text.heading,
                         mt: '10px',
@@ -70,12 +70,11 @@ const SearchStudentsData = ({ data }) => {
                     <Typography variant="h2" color={'white'}>
                         Students Of Class {classes} , Batch {batch}, Year {year}
                     </Typography>
-                </Box>
+                </Box> */}
 
                 <Box
                     sx={{
                         display: 'flex',
-                        mt: 2,
                         justifyContent: 'space-between',
                         alignItems: 'center'
                     }}
@@ -115,7 +114,25 @@ const SearchStudentsData = ({ data }) => {
                             Entries
                         </Typography>
                     </Box>
-                    <CustomTextField size="small" />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Typography
+                            variant="h4"
+                            color={theme.palette.text.primary}
+                            fontWeight="400"
+                            sx={{
+                                mr: 1
+                            }}
+                        >
+                            Search
+                        </Typography>
+                        <CustomTextField size="small" />
+                    </Box>
                 </Box>
                 <Box
                     sx={
