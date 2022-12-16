@@ -111,6 +111,22 @@ const MainRoutes = {
         {
             path: 'sms',
             element: <SMSNotice />
+        },
+        {
+            path: 'expense-entry',
+            element: "call your component Kibria vai"
+        },
+        {
+            path: 'expense-details',
+            element: "call your component Kibria vai"
+        },
+        {
+            path: 'income-vs-expense',
+            element: "call your component Kibria vai"
+        },
+        {
+            path: 'daily-report',
+            element: "call your component Kibria vai"
         }
     ]
 };

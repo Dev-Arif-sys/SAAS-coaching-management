@@ -6,11 +6,12 @@ import payment from './payment';
 import support from './support';
 import utilities from './utilities';
 import SMS from './sms';
+import accounts from './accounts';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-    items: [dashboard, pages, utilities, support, exams, payment, SMS]
+    items: [dashboard, pages, utilities, support, exams, payment, SMS, accounts]
 };
 
 export default menuItems;
