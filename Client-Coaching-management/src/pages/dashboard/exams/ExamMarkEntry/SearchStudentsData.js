@@ -69,7 +69,7 @@ const SearchStudentsData = ({ data }) => {
 
                 <Box
                     sx={{
-                        display: 'flex',
+                        display: { xs: 'block', md: 'flex' },
                         justifyContent: 'space-between',
                         alignItems: 'center'
                     }}

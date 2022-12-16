@@ -41,12 +41,12 @@ const SearchExpense = () => {
 
                 <Box
                     sx={{
-                        display: 'flex',
+                        display: { xs: 'block', md: 'flex' },
                         alignItems: 'end'
                     }}
                 >
                     <DatePicker
-                        label={'Expense Date'}
+                        label={'From Date'}
                         required={true}
                         // style={{
                         //     width: '250px'
@@ -54,7 +54,7 @@ const SearchExpense = () => {
                         onChange={(e) => setFromDate(e.target.value)}
                     />
                     <DatePicker
-                        label={'Expense Date'}
+                        label={'To Date'}
                         required={true}
                         // style={{
                         //     width: '250px'

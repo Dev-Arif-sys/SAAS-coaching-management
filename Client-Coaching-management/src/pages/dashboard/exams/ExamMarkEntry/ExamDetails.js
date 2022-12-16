@@ -22,8 +22,6 @@ const ExamDetails = ({ data }) => {
     const [mcqMark, setMCqMark] = useState('');
     const [date, setDate] = useState('');
 
-
-    
     return (
         <Box>
             <Box sx={{}}>
@@ -42,7 +40,8 @@ const ExamDetails = ({ data }) => {
                 <Box sx={{}}>
                     <Box
                         sx={{
-                            display: 'flex',
+                            display: { xs: 'block', md: 'flex' },
+
                             mt: 3
                         }}
                     >
@@ -74,7 +73,7 @@ const ExamDetails = ({ data }) => {
                     </Box>
                     <Box
                         sx={{
-                            display: 'flex',
+                            display: { xs: 'block', md: 'flex' },
                             mt: 3
                         }}
                     >
