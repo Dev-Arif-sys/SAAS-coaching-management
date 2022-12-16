@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useTheme } from '@mui/material';
 
 // material-ui
 import { Box, Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
@@ -63,11 +64,18 @@ OrderTableHead.propTypes = {
 // ==============================|| MultiPurpose TABLE ||============================== //
 
 export default function MultiPurposeTable({ headCells, children, setSearchTerm, searchTerm }) {
+    const theme = useTheme();
     const [order] = useState('asc');
     const [orderBy] = useState('trackingNo');
     const [selected] = useState([]);
+    const container = {
+        backgroundColor: theme.palette.common.white,
+        p: 2,
+        borderRadius: '10px',
+        boxShadow: 1
+    };
     return (
-        <Box>
+        <Box sx={{ ...container }}>
             <MultiPurposeSearch setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
             <TableContainer
                 sx={{
