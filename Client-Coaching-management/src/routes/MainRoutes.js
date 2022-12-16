@@ -17,6 +17,8 @@ import MessageAbsent from 'pages/dashboard/message/MessageAbsent';
 import TargetSMS from 'pages/dashboard/message/TargetSMS';
 import Advertising from 'pages/dashboard/message/Advertising';
 import SMSNotice from 'pages/dashboard/message/SMSNotice';
+import ExpenseEntry from 'pages/dashboard/accounts/ExpenseEntry/index';
+import ExpenseDetails from 'pages/dashboard/accounts/ExpenseDetails/index';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -114,19 +116,19 @@ const MainRoutes = {
         },
         {
             path: 'expense-entry',
-            element: "call your component Kibria vai"
+            element: <ExpenseEntry />
         },
         {
             path: 'expense-details',
-            element: "call your component Kibria vai"
+            element: <ExpenseDetails />
         },
         {
             path: 'income-vs-expense',
-            element: "call your component Kibria vai"
+            element: 'call your component Kibria vai'
         },
         {
             path: 'daily-report',
-            element: "call your component Kibria vai"
+            element: 'call your component Kibria vai'
         }
     ]
 };

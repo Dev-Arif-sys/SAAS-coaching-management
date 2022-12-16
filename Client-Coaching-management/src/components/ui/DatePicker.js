@@ -1,11 +1,12 @@
 import React from 'react';
 import { InputLabel, MenuItem, Stack, TextField } from '@mui/material';
-const DatePicker = ({ label, required, ...others }) => {
+const DatePicker = ({ label, required, lablegaping, ...others }) => {
     return (
-        <div>
+        <Stack spacing={0.25}>
             <InputLabel
                 sx={{
-                    fontSize: '14px'
+                    fontSize: '14px',
+                    margin: lablegaping
                 }}
             >
                 {label} {required && '*'}{' '}
@@ -16,14 +17,16 @@ const DatePicker = ({ label, required, ...others }) => {
                     fontSize: '18px',
                     background: 'none',
                     marginTop: '0px',
+                    marginRight: '10px',
                     border: '2px solid #ebecf0',
                     color: '#9a9a9a',
                     padding: '5px',
-                    borderRadius: '5px'
+                    borderRadius: '5px',
+                    width: '250px'
                 }}
                 {...others}
             />
-        </div>
+        </Stack>
     );
 };
 
