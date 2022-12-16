@@ -15,6 +15,8 @@ import PayFee from 'pages/dashboard/payment/PayFee/index';
 import FormTest from 'pages/FormTest';
 import MessageAbsent from 'pages/dashboard/message/MessageAbsent';
 import TargetSMS from 'pages/dashboard/message/TargetSMS';
+import Advertising from 'pages/dashboard/message/Advertising';
+import SMSNotice from 'pages/dashboard/message/SMSNotice';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -101,6 +103,14 @@ const MainRoutes = {
         {
             path: 'target-sms',
             element: <TargetSMS />
+        },
+        {
+            path: 'advertising',
+            element: <Advertising />
+        },
+        {
+            path: 'sms',
+            element: <SMSNotice />
         }
     ]
 };

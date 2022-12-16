@@ -36,7 +36,7 @@ const sms = {
             id: 'notice',
             title: 'SMS Notice',
             type: 'item',
-            url: '/color',
+            url: '/sms',
             icon: icons.BgColorsOutlined
         },
         {
@@ -50,7 +50,7 @@ const sms = {
             id: 'advertise',
             title: 'Advertising',
             type: 'item',
-            url: '/icons/ant',
+            url: '/advertising',
             icon: icons.AntDesignOutlined,
             breadcrumbs: false
         },
