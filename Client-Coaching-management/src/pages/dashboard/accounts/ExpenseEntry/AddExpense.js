@@ -4,6 +4,7 @@ import CustomSelect from 'components/ui/CustomSelect';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
 import DatePicker from 'components/ui/DatePicker';
 import CustomTextField from 'components/ui/CustomTextField';
+import CustomHeading from 'components/ui/CustomHeading';
 
 const AddExpense = () => {
     const theme = useTheme();
@@ -24,7 +25,7 @@ const AddExpense = () => {
                     p: '50px'
                 }}
             >
-                <Box
+                {/* <Box
                     sx={{
                         background: theme.palette.text.heading,
                         mb: '10px',
@@ -34,7 +35,9 @@ const AddExpense = () => {
                     <Typography variant="h2" color={'white'}>
                         Add Expense Data
                     </Typography>
-                </Box>
+                </Box> */}
+
+                <CustomHeading>Add Expense Data</CustomHeading>
 
                 <Box
                     sx={
