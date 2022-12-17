@@ -4,6 +4,7 @@ import CustomTextField from 'components/ui/CustomTextField';
 import CustomSelect from 'components/ui/CustomSelect';
 import { useState } from 'react';
 import DatePicker from 'components/ui/DatePicker';
+import CustomHeading from 'components/ui/CustomHeading';
 
 const examData = [
     { label: 'Theory (CQ)', value: 'Theory (CQ)' },
@@ -22,27 +23,18 @@ const ExamDetails = ({ data }) => {
     const [mcqMark, setMCqMark] = useState('');
     const [date, setDate] = useState('');
 
-
-    
     return (
         <Box>
-            <Box sx={{}}>
-                <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        mt: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Students Of Class {classes} , Batch {batch}, Year {year}
-                    </Typography>
-                </Box>
+            <Box sx={{ my: 2 }}>
+                <CustomHeading>
+                    Students Of Class {classes} , Batch {batch}, Year {year}
+                </CustomHeading>
 
-                <Box sx={{}}>
+                <Box sx={{ my: 3 }}>
                     <Box
                         sx={{
-                            display: 'flex',
+                            display: { xs: 'block', md: 'flex' },
+
                             mt: 3
                         }}
                     >
@@ -74,7 +66,7 @@ const ExamDetails = ({ data }) => {
                     </Box>
                     <Box
                         sx={{
-                            display: 'flex',
+                            display: { xs: 'block', md: 'flex' },
                             mt: 3
                         }}
                     >

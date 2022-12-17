@@ -20,6 +20,10 @@
         },
         "ecmaVersion": 12
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0b837072e029aa026ad883b02c2f57ab4428cccb
     "plugins": ["prettier", "react", "react-hooks"],
     "rules": {
         "react/jsx-filename-extension": 0,

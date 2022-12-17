@@ -2,32 +2,59 @@ import React, { useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody, Button } from '@mui/material';
 import CustomTextField from 'components/ui/CustomTextField';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
+import CustomHeading from 'components/ui/CustomHeading';
 
 const headCells = [
     {
-        id: 'rollNo',
+        id: 'sl',
         align: 'left',
         disablePadding: false,
-        label: 'Roll.'
+        label: 'SL.'
     },
     {
-        id: 'name',
+        id: 'subject',
         align: 'left',
         disablePadding: true,
-        label: 'Student Name'
+        label: 'Subject'
+    },
+    {
+        id: 'title',
+        align: 'left',
+        disablePadding: false,
+        label: 'Title'
+    },
+    {
+        id: 'examdate',
+        align: 'left',
+        disablePadding: false,
+
+        label: 'Exam Date'
     },
     {
         id: 'cq',
         align: 'left',
-        disablePadding: false,
-        label: 'CQ Mark'
+        disablePadding: true,
+        label: 'CQ'
     },
     {
         id: 'mcq',
         align: 'left',
         disablePadding: false,
+        label: 'MCQ'
+    },
+    {
+        id: 'total',
+        align: 'left',
+        disablePadding: false,
 
-        label: 'MCQ Mark'
+        label: 'Total'
+    },
+    {
+        id: 'action',
+        align: 'left',
+        disablePadding: false,
+
+        label: 'Action'
     }
 ];
 
@@ -48,30 +75,23 @@ const rows = [
     createData(98753291, 'Chair', 100, 0, 14001)
 ];
 
-const SearchStudentsData = ({ data }) => {
+const ExamData = ({ data }) => {
     const theme = useTheme();
     const [classes, batch, year] = data;
     const [searchText, setSearchText] = useState('');
     return (
         <Box>
-            <Box sx={{}}>
-                {/* <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        mt: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Students Of Class {classes} , Batch {batch}, Year {year}
-                    </Typography>
-                </Box> */}
+            <Box sx={{ my: 2 }}>
+                <CustomHeading>
+                    Students Of Class {classes} , Batch {batch}, Year {year}
+                </CustomHeading>
 
                 <Box
                     sx={{
                         display: { xs: 'block', md: 'flex' },
                         justifyContent: 'space-between',
-                        alignItems: 'center'
+                        alignItems: 'center',
+                        my: 3
                     }}
                     alignItems="center"
                 >
@@ -151,7 +171,7 @@ const SearchStudentsData = ({ data }) => {
     );
 };
 
-export default SearchStudentsData;
+export default ExamData;
 
 const Tag = () => {
     return (
@@ -168,24 +188,14 @@ const Tag = () => {
                         {row.trackingNo}
                     </TableCell>
                     <TableCell align="left">{row.name}</TableCell>
-                    <TableCell align="left">
-                        <CustomTextField
-                            // label="Title"
-                            // required={true}
-                            size="small"
-
-                            // onChange={(e) => setTitle(e.target.value)}
-                        />
+                    <TableCell align="left">{row.trackingNo}</TableCell>
+                    <TableCell align="left">{row.trackingNo}</TableCell>
+                    <TableCell component="th" /* id={labelId} */ scope="row" align="left">
+                        {row.trackingNo}
                     </TableCell>
-                    <TableCell align="left">
-                        <CustomTextField
-                            // label="Title"
-                            // required={true}
-                            size="small"
-
-                            // onChange={(e) => setTitle(e.target.value)}
-                        />
-                    </TableCell>
+                    <TableCell align="left">{row.name}</TableCell>
+                    <TableCell align="left">{row.trackingNo}</TableCell>
+                    <TableCell align="left">{row.trackingNo}</TableCell>
                 </TableRow>
             ))}
         </TableBody>
