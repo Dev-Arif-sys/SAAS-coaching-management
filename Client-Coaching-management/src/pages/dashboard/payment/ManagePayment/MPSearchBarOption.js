@@ -9,7 +9,7 @@ import { styled } from '@mui/material/styles';
 import MPDetails from './MPDetails';
 import CustomTextField from 'components/ui/CustomTextField';
 
-const disItemWrapper = styled('div')(({ theme }) => ({
+const DisItemWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'end',
     [theme.breakpoints.down('md')]: {
@@ -39,10 +39,10 @@ const MPSearchBarOption = () => {
                     Add Payment Type *
                 </Typography>
 
-                <disItemWrapper>
+                <DisItemWrapper>
                     <CustomTextField size="small" onChange={(e) => setAddPay(e.target.value)} />
                     <CustomSearchButton handle={searchHandle} />
-                </disItemWrapper>
+                </DisItemWrapper>
 
                 {show ? (
                     <>

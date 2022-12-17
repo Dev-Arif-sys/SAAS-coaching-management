@@ -147,7 +147,7 @@ const PaymentType = [
     }
 ];
 
-const disItemWrapper = styled('div')(({ theme }) => ({
+const DisItemWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'end',
     [theme.breakpoints.down('md')]: {
@@ -180,7 +180,7 @@ const DueSearchBarOption = () => {
                     Student Payment Due
                 </Typography>
 
-                <disItemWrapper>
+                <DisItemWrapper>
                     <CustomSelect
                         style={{ marginRight: '10px' }}
                         options={classData}
@@ -222,7 +222,7 @@ const DueSearchBarOption = () => {
                         onChange={(e) => setToDate(e.target.value)}
                     />
                     <CustomSearchButton handle={searchHandle} />
-                </disItemWrapper>
+                </DisItemWrapper>
 
                 {show ? (
                     <>

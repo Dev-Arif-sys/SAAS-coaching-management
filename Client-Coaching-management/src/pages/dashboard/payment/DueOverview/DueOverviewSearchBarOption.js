@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 
 import DueOverviewDetails from './DueOverviewDetails';
 
-const disItemWrapper = styled('div')(({ theme }) => ({
+const DisItemWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'end',
     [theme.breakpoints.down('md')]: {
@@ -38,7 +38,7 @@ const DueOverviewSearchBarOption = () => {
                     Student Payment Due
                 </Typography>
 
-                <disItemWrapper>
+                <DisItemWrapper>
                     <DatePicker
                         style={{ marginRight: '10px' }}
                         label="From Date "
@@ -52,7 +52,7 @@ const DueOverviewSearchBarOption = () => {
                         onChange={(e) => setToDate(e.target.value)}
                     />
                     <CustomSearchButton handle={searchHandle} />
-                </disItemWrapper>
+                </DisItemWrapper>
 
                 {show ? (
                     <>

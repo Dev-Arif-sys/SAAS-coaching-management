@@ -8,11 +8,11 @@ import { styled } from '@mui/material/styles';
 
 import FeesOverviewDetails from './FeesOverviewDetails';
 
-const disItemWrapper = styled('div')(({ theme }) => ({
+const DisItemWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'end',
     [theme.breakpoints.down('md')]: {
-        display: 'black'
+        display: 'block'
     }
 }));
 const FeesSearchBarOption = () => {
@@ -38,7 +38,7 @@ const FeesSearchBarOption = () => {
                     Student Payment Due
                 </Typography>
 
-                <disItemWrapper>
+                <DisItemWrapper>
                     <DatePicker
                         style={{ marginRight: '10px' }}
                         label="From Date "
@@ -52,7 +52,7 @@ const FeesSearchBarOption = () => {
                         onChange={(e) => setToDate(e.target.value)}
                     />
                     <CustomSearchButton handle={searchHandle} />
-                </disItemWrapper>
+                </DisItemWrapper>
 
                 {show ? (
                     <>
