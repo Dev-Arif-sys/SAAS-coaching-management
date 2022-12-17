@@ -108,7 +108,6 @@ const MessageAbsent = () => {
                         <HiSearch style={{ fontSize: '26px' }} />
                     </Button>
                 </Grid>
-                
             </Grid>
         </Box>
     );

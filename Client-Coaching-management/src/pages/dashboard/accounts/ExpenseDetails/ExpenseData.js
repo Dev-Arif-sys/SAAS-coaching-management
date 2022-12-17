@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody, Button } from '@mui/material';
 import CustomTextField from 'components/ui/CustomTextField';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
+import CustomHeading from 'components/ui/CustomHeading';
 
 const headCells = [
     {
@@ -47,96 +48,21 @@ const rows = [
     createData(98753275, 'Desktop', 185, 1, 98063),
     createData(98753291, 'Chair', 100, 0, 14001)
 ];
-
-const SearchStudentsData = ({ data }) => {
+const ExpenseData = ({ data }) => {
     const theme = useTheme();
-    const [classes, batch, year] = data;
+    const [fromDate, toDate] = data;
     const [searchText, setSearchText] = useState('');
     return (
         <Box>
-            <Box sx={{}}>
-                {/* <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        mt: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Students Of Class {classes} , Batch {batch}, Year {year}
-                    </Typography>
-                </Box> */}
+            <Box sx={{ my: 2 }}>
+                <CustomHeading>
+                    Expense Details : From : {fromDate} To : {toDate}
+                </CustomHeading>
 
                 <Box
                     sx={{
-                        display: { xs: 'block', md: 'flex' },
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
+                        my: 3
                     }}
-                    alignItems="center"
-                >
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center'
-                        }}
-                    >
-                        <Typography
-                            variant="h4"
-                            color={theme.palette.text.primary}
-                            fontWeight="400"
-                            sx={{
-                                mr: 1
-                            }}
-                        >
-                            Show
-                        </Typography>
-                        <input
-                            type="number"
-                            style={{
-                                width: '40px'
-                            }}
-                        />
-                        <Typography
-                            sx={{
-                                ml: 1
-                            }}
-                            variant="h4"
-                            color={theme.palette.text.primary}
-                            fontWeight="400"
-                        >
-                            Entries
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center'
-                        }}
-                    >
-                        <Typography
-                            variant="h4"
-                            color={theme.palette.text.primary}
-                            fontWeight="400"
-                            sx={{
-                                mr: 1
-                            }}
-                            onChange={(e) => setSearchText(e.target.value)}
-                        >
-                            Search
-                        </Typography>
-                        <CustomTextField size="small" />
-                    </Box>
-                </Box>
-                <Box
-                    sx={
-                        {
-                            // display: 'flex',
-                            // alignItems: 'end'
-                        }
-                    }
                     // alignItems='center'
                 >
                     <MultiPurposeTable headCells={headCells}>
@@ -151,7 +77,7 @@ const SearchStudentsData = ({ data }) => {
     );
 };
 
-export default SearchStudentsData;
+export default ExpenseData;
 
 const Tag = () => {
     return (
