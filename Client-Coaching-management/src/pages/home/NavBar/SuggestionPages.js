@@ -79,6 +79,7 @@ export default function SuggestionPages({ LiStyled, menuNavItems, pages }) {
                         <Paper>
                             <ClickAwayListener onClickAway={handleClose}>
                                 <MenuList
+                                    sx={{ fontSize: '15px' }}
                                     autoFocusItem={open}
                                     id="composition-menu"
                                     aria-labelledby="composition-button"

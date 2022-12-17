@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchBarOption from './SearchBarOption';
+import Banner from './Banner';
 
 const index = () => {
     return (
         <div>
-            <SearchBarOption></SearchBarOption>
+            <Banner />
         </div>
     );
 };

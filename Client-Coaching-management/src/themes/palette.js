@@ -28,6 +28,7 @@ const Palette = (mode) => {
     ];
     const greyAscent = ['#fafafa', '#bfbfbf', '#434343', '#1f1f1f'];
     const greyConstant = ['#fafafb', '#e6ebf1'];
+    const deepBlue = ['#03002e', '#010048', '#010057', '#02006c', '#090088'];
 
     colors.grey = [...greyPrimary, ...greyAscent, ...greyConstant];
 
