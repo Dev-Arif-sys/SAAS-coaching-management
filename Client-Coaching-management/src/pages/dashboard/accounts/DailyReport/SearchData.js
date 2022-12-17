@@ -4,12 +4,11 @@ import CustomSelect from 'components/ui/CustomSelect';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
 import DatePicker from 'components/ui/DatePicker';
 import CustomTextField from 'components/ui/CustomTextField';
-import ExamDetails from 'pages/dashboard/exams/ExamMarkEntry/ExamDetails';
 import SearchStudentsData from 'pages/dashboard/exams/ExamMarkEntry/SearchStudentsData';
-import ExpenseData from './ExpenseData';
+import InocomeAndExpenseData from './InocomeAndExpenseData';
 import CustomHeading from 'components/ui/CustomHeading';
 
-const SearchExpense = () => {
+const SearchData = () => {
     const theme = useTheme();
     const [fromDate, setFromDate] = useState('');
     const [toDate, setToDate] = useState('');
@@ -28,13 +27,12 @@ const SearchExpense = () => {
                     p: '50px'
                 }}
             >
-                <CustomHeading>Search Expense Data</CustomHeading>
+                <CustomHeading>Search Income And Expense Data</CustomHeading>
 
                 <Box
                     sx={{
                         display: { xs: 'block', md: 'flex' },
-                        alignItems: 'end',
-                        mt: 3
+                        alignItems: 'end'
                     }}
                 >
                     <DatePicker
@@ -58,7 +56,7 @@ const SearchExpense = () => {
                 </Box>
                 {show ? (
                     <>
-                        <ExpenseData data={[fromDate, toDate]} />{' '}
+                        <InocomeAndExpenseData data={[fromDate, toDate]} />{' '}
                     </>
                 ) : (
                     ''
@@ -68,4 +66,4 @@ const SearchExpense = () => {
     );
 };
 
-export default SearchExpense;
+export default SearchData;

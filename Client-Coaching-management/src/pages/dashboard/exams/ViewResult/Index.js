@@ -1,5 +1,13 @@
+import Heading from './Heading';
+import SearchExams from './SearchExams';
+
 const ViewResult = () => {
-    return <div>View Result</div>;
+    return (
+        <div>
+            <Heading />
+            <SearchExams />
+        </div>
+    );
 };
 
 export default ViewResult;

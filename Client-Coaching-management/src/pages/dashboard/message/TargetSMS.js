@@ -14,7 +14,7 @@ const TextWrap = {
     resize: 'none',
     '&:focus': {
         color: 'white',
-        backgroundColor: 'black',
+        backgroundColor: 'black'
     }
 };
 

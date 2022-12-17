@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody, Button } from '@mui/material';
 import CustomTextField from 'components/ui/CustomTextField';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
+import CustomHeading from 'components/ui/CustomHeading';
 
 const headCells = [
     {
@@ -53,26 +54,15 @@ const ExpenseData = ({ data }) => {
     const [searchText, setSearchText] = useState('');
     return (
         <Box>
-            <Box sx={{}}>
-                <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        my: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Expense Details : From : {fromDate} To : {toDate}
-                    </Typography>
-                </Box>
+            <Box sx={{ my: 2 }}>
+                <CustomHeading>
+                    Expense Details : From : {fromDate} To : {toDate}
+                </CustomHeading>
 
                 <Box
-                    sx={
-                        {
-                            // display: 'flex',
-                            // alignItems: 'end'
-                        }
-                    }
+                    sx={{
+                        my: 3
+                    }}
                     // alignItems='center'
                 >
                     <MultiPurposeTable headCells={headCells}>
