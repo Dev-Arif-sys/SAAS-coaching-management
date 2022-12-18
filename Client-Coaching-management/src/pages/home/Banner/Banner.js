@@ -1,12 +1,9 @@
-import React from 'react';
-import { Grid, Box, Typography, useTheme } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import { PlayCircleOutlined } from '@ant-design/icons';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { Box, Grid, useTheme } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
+import IconButton from '@mui/material/IconButton';
+import { styled } from '@mui/material/styles';
+import TrackVisibility from 'react-on-screen';
 
 const BannerContainerStyle = styled('section')(({ theme }) => ({
     backgroundImage:
