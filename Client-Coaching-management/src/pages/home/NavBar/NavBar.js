@@ -5,20 +5,31 @@ import LogoSection from 'components/Logo/index';
 import Menu from './Menu';
 import SuggestionPages from './SuggestionPages';
 import NavMobile from './NavMobile';
+import Profile from '../../../layout/MainLayout/Header/HeaderContent/Profile/index';
 
+const Header = styled('header')(({ theme }) => ({
+    position: 'fixed',
+    zIndex: '999',
+    // width: '100%',
+    top: '40px',
+    width: '1280px',
+    maxWidth: '90%',
+    margin: '0 auto',
+    transition: 'all 300ms ease',
+    color: 'white'
+}));
 const LayStyled = styled('div')(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: '40px',
-    marginBottom: '100px'
+    alignItems: 'center'
 }));
 const UlStyled = styled('div')(({ theme }) => ({
     display: 'flex',
     justifyContent: 'space-between',
-    gap: '30px'
+    gap: '30px',
+    alignItems: 'center'
 }));
-const LiStyled = styled('p')(({ theme }) => ({
+const LiStyled = styled('small')(({ theme }) => ({
     listStyleType: 'none',
     margin: 0,
     cursor: 'pointer'
@@ -44,10 +55,10 @@ const NavBar = () => {
     const blogPages = ['Blog', 'Single Blog', 'Testimonial'];
 
     return (
-        <header>
+        <Header>
             <LayStyled sx={{ ...mystery }}>
                 <div>
-                    <LogoSection />
+                    <LogoSection style={{ color: 'white' }} />
                 </div>
                 <UlStyled>
                     <LiStyled>Home</LiStyled>
@@ -57,7 +68,8 @@ const NavBar = () => {
                     <SuggestionPages LiStyled={LiStyled} menuNavItems={menuNavItems[2]} pages={blogPages} />
                     <LiStyled>Contact</LiStyled>
                 </UlStyled>
-                <Menu />
+                {/* <Menu /> */}
+                <Profile />
             </LayStyled>
             <LayStyled sx={{ ...mysteryActive }}>
                 <NavMobile
@@ -69,7 +81,7 @@ const NavBar = () => {
                     LayStyled={LayStyled}
                 />
             </LayStyled>
-        </header>
+        </Header>
     );
 };
 

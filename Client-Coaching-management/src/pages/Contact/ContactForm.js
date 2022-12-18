@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { BiEdit } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import { FaPortrait } from 'react-icons/fa';
-import { HiOutlineMail } from 'react-icons/hi';
+// import { HiOutlineMail } from 'react-icons/hi';
 
 const StyledBox = styled(Box)(({ theme }) => ({
     marginTop: '50px',

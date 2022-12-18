@@ -3,13 +3,7 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout/index';
-import ExamMarkEntry from 'pages/dashboard/exams/ExamMarkEntry/index';
-import ViewResult from 'pages/dashboard/exams/ViewResult/Index';
-import DueOverview from 'pages/dashboard/payment/DueOverview/index';
-import FeeOverview from 'pages/dashboard/payment/FeeOverview/index';
-import ManagePayment from 'pages/dashboard/payment/ManagePayment/index';
-import PayDue from 'pages/dashboard/payment/PayDue/index';
-import PayFee from 'pages/dashboard/payment/PayFee/index';
+import SalesProduct from 'pages/dashboard/SalesProduct';
 import FormTest from 'pages/FormTest';
 
 // render - dashboard
@@ -23,6 +17,31 @@ const Typography = Loadable(lazy(() => import('pages/components-overview/Typogra
 const Color = Loadable(lazy(() => import('pages/components-overview/Color')));
 const Shadow = Loadable(lazy(() => import('pages/components-overview/Shadow')));
 const AntIcons = Loadable(lazy(() => import('pages/components-overview/AntIcons')));
+
+// render sections
+//exam
+const ExamMarkEntry = Loadable(lazy(() => import('pages/dashboard/exams/ExamMarkEntry/index')));
+const ViewResult = Loadable(lazy(() => import('pages/dashboard/exams/ViewResult/Index')));
+//payment
+const PayFee = Loadable(lazy(() => import('pages/dashboard/payment/PayFee/index')));
+const PayDue = Loadable(lazy(() => import('pages/dashboard/payment/PayDue/index')));
+const DueOverview = Loadable(lazy(() => import('pages/dashboard/payment/DueOverview/index')));
+const FeeOverview = Loadable(lazy(() => import('pages/dashboard/payment/FeeOverview/index')));
+const ManagePayment = Loadable(lazy(() => import('pages/dashboard/payment/ManagePayment/index')));
+//message
+const MessageAbsent = Loadable(lazy(() => import('pages/dashboard/message/MessageAbsent')));
+const SMSNotice = Loadable(lazy(() => import('pages/dashboard/message/SMSNotice')));
+const TargetSMS = Loadable(lazy(() => import('pages/dashboard/message/TargetSMS')));
+const Advertising = Loadable(lazy(() => import('pages/dashboard/message/Advertising')));
+// accounts
+const ExpenseEntry = Loadable(lazy(() => import('pages/dashboard/accounts/ExpenseEntry/index')));
+const ExpenseDetails = Loadable(lazy(() => import('pages/dashboard/accounts/ExpenseDetails/index')));
+const IncomeVsExpense = Loadable(lazy(() => import('pages/dashboard/accounts/IncomeVsExpense/index')));
+const DailyReport = Loadable(lazy(() => import('pages/dashboard/accounts/DailyReport/index')));
+// setting
+const ManageUser = Loadable(lazy(() => import('pages/dashboard/setting/ManageUser/index')));
+const AddUser = Loadable(lazy(() => import('pages/dashboard/setting/AddUser/index')));
+const ChangePassword = Loadable(lazy(() => import('pages/dashboard/setting/ChangePassword/index')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -59,6 +78,10 @@ const MainRoutes = {
             element: <FormTest />
         },
         {
+            path: 'table',
+            element: <SalesProduct />
+        },
+        {
             path: 'exam-mark',
             element: <ExamMarkEntry />
         },
@@ -85,6 +108,50 @@ const MainRoutes = {
         {
             path: 'manage-payment',
             element: <ManagePayment />
+        },
+        {
+            path: 'sms-absent',
+            element: <MessageAbsent />
+        },
+        {
+            path: 'target-sms',
+            element: <TargetSMS />
+        },
+        {
+            path: 'advertising',
+            element: <Advertising />
+        },
+        {
+            path: 'sms',
+            element: <SMSNotice />
+        },
+        {
+            path: 'expense-entry',
+            element: <ExpenseEntry />
+        },
+        {
+            path: 'expense-details',
+            element: <ExpenseDetails />
+        },
+        {
+            path: 'income-vs-expense',
+            element: <IncomeVsExpense />
+        },
+        {
+            path: 'daily-report',
+            element: <DailyReport />
+        },
+        {
+            path: 'manage-user',
+            element: <ManageUser />
+        },
+        {
+            path: 'add-user',
+            element: <AddUser />
+        },
+        {
+            path: 'change-password',
+            element: <ChangePassword />
         }
     ]
 };

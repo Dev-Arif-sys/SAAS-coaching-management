@@ -1,5 +1,14 @@
+import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
+import Heading from './Heading';
+import SearchStudents from './SearchStudents';
 const ExamMarkEntry = () => {
-    return <div> Exam Mark Entry</div>;
+    const theme = useTheme();
+    return (
+        <div>
+            <Heading />
+            <SearchStudents />
+        </div>
+    );
 };
 
 export default ExamMarkEntry;

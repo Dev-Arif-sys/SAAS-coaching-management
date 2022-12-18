@@ -2,8 +2,9 @@ import { Box } from '@mui/material';
 import HomeLayout from 'layout/HomeLayout.js/Index';
 
 import Footer from 'pages/shared/footer/Footer';
-import NavBar from './NavBar/NavBar';
 
+import Banner from './Banner/Banner';
+import NavBar from './NavBar/index';
 import IdealogySection from './idealogy/index';
 import Power from './power/index';
 
@@ -12,27 +13,26 @@ import Testimonial from './testimonial/index';
 
 const Home = () => {
     return (
-        <HomeLayout>
-            <Box
-                sx={{
-                    overflowX: 'hidden'
-                }}
-            >
+        <>
+            <HomeLayout>
                 <NavBar />
-                <Pricing />
-                <Testimonial />
-                <Footer />
-
-                <NavBar />
-                <Pricing />
+            </HomeLayout>
+            <Banner />
+            <HomeLayout>
+                <Box
+                    sx={{
+                        overflowX: 'hidden'
+                    }}
+                >
+                    <Pricing />
+                </Box>
 
                 <IdealogySection />
-                <Power />
-
                 <Testimonial />
+                <Power />
                 <Footer />
-            </Box>
-        </HomeLayout>
+            </HomeLayout>
+        </>
     );
 };
 
