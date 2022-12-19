@@ -11,20 +11,19 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
             >
                 {label} {required && '*'}{' '}
             </InputLabel>
-            <input
+            <TextField
                 type="date"
-                style={{
-                    fontSize: '18px',
-                    background: 'none',
-                    marginTop: '0px',
-                    marginRight: '10px',
-                    border: '2px solid #ebecf0',
-                    color: '#9a9a9a',
-                    padding: '5px',
-                    borderRadius: '5px',
-                    width: '250px'
-                }}
+                // sx={{
+                //     fontSize: '18px',
+                //     background: 'none',
+                //     marginTop: '0px',
+                //     border: '1px solid #80808040',
+                //     color: '#80808040',
+                //     padding: '0.5rem',
+                //     borderRadius: '5px'
+                // }}
                 {...others}
+                sx={{ '& .MuiInputBase-input': { py: 0.99, minWidth: '50px', fontSize: '14px' } }}
             />
         </Stack>
     );

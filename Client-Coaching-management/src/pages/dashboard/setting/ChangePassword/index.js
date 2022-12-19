@@ -1,5 +1,7 @@
+import ChangeInputItem from './ChangeInputItem';
+
 const ChangePassword = () => {
-    return <div>change password</div>;
+    return <ChangeInputItem />;
 };
 
 export default ChangePassword;

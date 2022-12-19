@@ -10,6 +10,7 @@ import Power from './power/index';
 
 import Pricing from './pricing/index';
 import Testimonial from './testimonial/index';
+import DoesItWorks from './DoesItWorks/DoesItWorks';
 
 const Home = () => {
     return (

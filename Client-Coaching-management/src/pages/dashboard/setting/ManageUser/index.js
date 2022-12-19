@@ -1,5 +1,7 @@
+import ManageUserTable from './ManageUserTable';
+
 const ManageUser = () => {
-    return <div>Manage User</div>;
+    return <ManageUserTable />;
 };
 
 export default ManageUser;

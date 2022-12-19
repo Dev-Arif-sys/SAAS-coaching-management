@@ -1,5 +1,7 @@
+import MPSearchBarOption from './MPSearchBarOption';
+
 const ManagePayment = () => {
-    return <div>Manage Payment</div>;
+    return <MPSearchBarOption />;
 };
 
 export default ManagePayment;
