@@ -126,7 +126,7 @@ const ContactForm = () => {
                         sx={{ marginY: '16px' }}
                     />
 
-                    <CustomUpdateButtonadd type="submit" handle={onSubmit} buttonText="Send"></CustomUpdateButton>
+                    <CustomUpdateButton type="submit" handle={onSubmit} buttonText="Send" />
                 </Box>
             </form>
         </StyledBox>
