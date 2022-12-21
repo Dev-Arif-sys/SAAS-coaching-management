@@ -1,12 +1,11 @@
+import { useTheme } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useTheme } from '@mui/material';
 
 // material-ui
 import { Box, Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 // third-party
-import NumberFormat from 'react-number-format';
 import MultiPurposeSearch from 'components/search/MultiPurposeSearch';
 
 function descendingComparator(a, b, orderBy) {
@@ -38,15 +37,23 @@ function stableSort(array, comparator) {
 // ==============================|| ORDER TABLE - HEADER ||============================== //
 
 function OrderTableHead({ order, orderBy, headCells }) {
+    const theme = useTheme();
     return (
         <TableHead>
-            <TableRow>
+            <TableRow
+                sx={{
+                    borderRadius: '4px'
+                }}
+            >
                 {headCells.map((headCell, index) => (
                     <TableCell
                         key={index}
                         align={headCell.align}
                         padding={headCell.disablePadding ? 'none' : 'normal'}
                         sortDirection={orderBy === headCell.id ? order : false}
+                        sx={{
+                            py: '12px'
+                        }}
                     >
                         {headCell.label}
                     </TableCell>
@@ -70,9 +77,8 @@ export default function MultiPurposeTable({ headCells, children, setSearchTerm, 
     const [selected] = useState([]);
     const container = {
         backgroundColor: theme.palette.common.white,
-        p: 2,
-        borderRadius: '10px',
-        boxShadow: 1
+        p: { md: 2, xs: 0 },
+        borderRadius: '10px'
     };
     return (
         <Box sx={{ ...container }}>
@@ -84,7 +90,8 @@ export default function MultiPurposeTable({ headCells, children, setSearchTerm, 
                     position: 'relative',
                     display: 'block',
                     maxWidth: '100%',
-                    '& td, & th': { whiteSpace: 'nowrap' }
+                    '& td, & th': { whiteSpace: 'nowrap' },
+                    mt: 2
                 }}
             >
                 <Table

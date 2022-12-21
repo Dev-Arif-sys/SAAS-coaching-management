@@ -8,7 +8,7 @@ export default function OutlinedInput(theme) {
         MuiOutlinedInput: {
             styleOverrides: {
                 input: {
-                    padding: '10.5px 14px 10.5px 12px'
+                    padding: '8.5px 14px 8.5px 12px'
                 },
                 notchedOutline: {
                     borderColor: theme.palette.grey[300]

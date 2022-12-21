@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
-import CustomSelect from 'components/ui/CustomSelect';
+import { Box, Typography, useTheme } from '@mui/material';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
-import SearchStudentsData from './SearchStudentsData';
+import CustomSelect from 'components/ui/CustomSelect';
+import { useState } from 'react';
 import ExamDetails from './ExamDetails';
+import SearchStudentsData from './SearchStudentsData';
 
 const classData = [
     {
@@ -154,37 +154,38 @@ const SearchStudents = () => {
                 <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
                     Search Students
                 </Typography>
-
-                <Box
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'end'
-                    }}
-                    // alignItems='center'
-                >
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={classData}
-                        label="Class"
-                        required={true}
-                        onChange={(e) => setClasses(e.target.value)}
-                    />
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={batchData}
-                        label="Batch"
-                        required={true}
-                        onChange={(e) => setBatch(e.target.value)}
-                    />
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={yearData}
-                        label="Year"
-                        required={true}
-                        onChange={(e) => setYear(e.target.value)}
-                    />
-                    <CustomSearchButton handle={searchHandle} />
-                </Box>
+                <form onSubmit={searchHandle}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'end'
+                        }}
+                        // alignItems='center'
+                    >
+                        <CustomSelect
+                            style={{ marginRight: '10px' }}
+                            options={classData}
+                            label="Class"
+                            required={true}
+                            onChange={(e) => setClasses(e.target.value)}
+                        />
+                        <CustomSelect
+                            style={{ marginRight: '10px' }}
+                            options={batchData}
+                            label="Batch"
+                            required={true}
+                            onChange={(e) => setBatch(e.target.value)}
+                        />
+                        <CustomSelect
+                            style={{ marginRight: '10px' }}
+                            options={yearData}
+                            label="Year"
+                            required={true}
+                            onChange={(e) => setYear(e.target.value)}
+                        />
+                        <CustomSearchButton type="submit" />
+                    </Box>
+                </form>
 
                 {show ? (
                     <>

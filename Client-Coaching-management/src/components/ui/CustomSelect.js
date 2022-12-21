@@ -4,7 +4,7 @@ const CustomSelect = ({ options, label, required, ...others }) => {
         <Stack spacing={0.25}>
             <InputLabel
                 sx={{
-                    fontSize: '14px'
+                    fontSize: { xs: '13px', md: '15px' }
                 }}
             >
                 {label} {required && '*'}{' '}
@@ -12,11 +12,12 @@ const CustomSelect = ({ options, label, required, ...others }) => {
             <TextField
                 id="standard-select-currency"
                 select
+                required={required ? true : false}
                 {...others}
                 sx={{ '& .MuiInputBase-input': { py: 0.88, minWidth: '50px', fontSize: '14px' } }}
             >
                 {options.map((option) => (
-                    <MenuItem sx={{ fontSize: '14px' }} key={option.value} value={option.value}>
+                    <MenuItem sx={{ fontSize: { xs: '12px', md: '14px' } }} key={option.value} value={option.value}>
                         {option.label}
                     </MenuItem>
                 ))}

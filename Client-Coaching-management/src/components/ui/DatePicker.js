@@ -1,5 +1,4 @@
-import React from 'react';
-import { InputLabel, MenuItem, Stack, TextField } from '@mui/material';
+import { InputLabel, Stack } from '@mui/material';
 const DatePicker = ({ label, required, lablegaping, ...others }) => {
     return (
         <Stack spacing={0.25}>
@@ -22,7 +21,7 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
                     color: '#9a9a9a',
                     padding: '5px',
                     borderRadius: '5px',
-                    width: '250px'
+                    maxWidth: '250px'
                 }}
                 {...others}
             />
