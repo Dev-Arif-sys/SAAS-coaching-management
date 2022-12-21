@@ -4,13 +4,13 @@ import HomeLayout from 'layout/HomeLayout.js/Index';
 import Footer from 'pages/shared/footer/Footer';
 
 import Banner from './Banner/Banner';
-import NavBar from './NavBar/index';
 import IdealogySection from './idealogy/index';
+import NavBar from './NavBar/index';
 import Power from './power/index';
 
+import DoesItWorks from './DoesItWorks/DoesItWorks';
 import Pricing from './pricing/index';
 import Testimonial from './testimonial/index';
-import DoesItWorks from './DoesItWorks/DoesItWorks';
 
 const Home = () => {
     return (

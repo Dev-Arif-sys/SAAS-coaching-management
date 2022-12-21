@@ -1,10 +1,9 @@
-import React from 'react';
+import { IconButton, useTheme } from '@mui/material';
 import { BiSearchAlt } from 'react-icons/bi';
-import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
-const CustomSearchButton = ({ handle }) => {
+const CustomSearchButton = ({ handle, ...others }) => {
     const theme = useTheme();
     return (
-        <div
+        <IconButton
             style={{
                 background: theme.palette.text.heading,
                 padding: '7px',
@@ -17,6 +16,7 @@ const CustomSearchButton = ({ handle }) => {
             tabIndex={0}
             onClick={handle}
             onKeyDown={handle}
+            {...others}
         >
             <BiSearchAlt
                 style={{
@@ -25,7 +25,7 @@ const CustomSearchButton = ({ handle }) => {
                     fontSize: '28px'
                 }}
             />
-        </div>
+        </IconButton>
     );
 };
 

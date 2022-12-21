@@ -3,7 +3,11 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout/index';
+import RegisterInstitution from 'pages/dashboard/InstitutionManagement/RegisterInstitution/index';
 import SalesProduct from 'pages/dashboard/SalesProduct';
+import CurrentStudents from 'pages/dashboard/student/currentStudents/index';
+import PromoteStudents from 'pages/dashboard/student/promoteStudents/index';
+import RegisterStudents from 'pages/dashboard/student/RegisterStudents/index';
 import FormTest from 'pages/FormTest';
 
 // render - dashboard
@@ -81,6 +85,21 @@ const MainRoutes = {
             path: 'table',
             element: <SalesProduct />
         },
+        // -----------student-----------//
+        {
+            path: 'students',
+            element: <CurrentStudents />
+        },
+        {
+            path: 'register-students',
+            element: <RegisterStudents />
+        },
+        {
+            path: 'promote',
+            element: <PromoteStudents />
+        },
+
+        // -----------exam-----------//
         {
             path: 'exam-mark',
             element: <ExamMarkEntry />
@@ -89,6 +108,7 @@ const MainRoutes = {
             path: 'view-result',
             element: <ViewResult />
         },
+        // -----------payment-----------//
         {
             path: 'pay-fees',
             element: <PayFee />
@@ -109,6 +129,7 @@ const MainRoutes = {
             path: 'manage-payment',
             element: <ManagePayment />
         },
+        // -----------message-----------//
         {
             path: 'sms-absent',
             element: <MessageAbsent />
@@ -125,6 +146,7 @@ const MainRoutes = {
             path: 'sms',
             element: <SMSNotice />
         },
+        // -----------accounts-----------//
         {
             path: 'expense-entry',
             element: <ExpenseEntry />
@@ -141,6 +163,7 @@ const MainRoutes = {
             path: 'daily-report',
             element: <DailyReport />
         },
+        // -----------setting-----------//
         {
             path: 'manage-user',
             element: <ManageUser />
@@ -152,6 +175,11 @@ const MainRoutes = {
         {
             path: 'change-password',
             element: <ChangePassword />
+        },
+        // -----------setting-----------//
+        {
+            path: 'register-institution',
+            element: <RegisterInstitution />
         }
     ]
 };

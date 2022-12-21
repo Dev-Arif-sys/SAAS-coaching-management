@@ -5,11 +5,11 @@ import { Box, Grid } from '@mui/material';
 
 // project import
 import AuthCard from './AuthCard';
-import Logo from 'components/Logo';
-import AuthFooter from 'components/cards/AuthFooter';
 
 // assets
 import AuthBackground from 'assets/images/auth/AuthBackground';
+import NavBar from 'pages/home/NavBar/NavBar';
+import Footer from 'pages/shared/footer/Footer';
 
 // ==============================|| AUTHENTICATION - WRAPPER ||============================== //
 
@@ -25,7 +25,7 @@ const AuthWrapper = ({ children }) => (
             }}
         >
             <Grid item xs={12} sx={{ ml: 3, mt: 3 }}>
-                <Logo />
+                <NavBar />
             </Grid>
             <Grid item xs={12}>
                 <Grid
@@ -42,7 +42,7 @@ const AuthWrapper = ({ children }) => (
                 </Grid>
             </Grid>
             <Grid item xs={12} sx={{ m: 3, mt: 1 }}>
-                <AuthFooter />
+                <Footer />
             </Grid>
         </Grid>
     </Box>
