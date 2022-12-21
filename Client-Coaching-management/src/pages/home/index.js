@@ -10,6 +10,7 @@ import Power from './power/index';
 
 import Pricing from './pricing/index';
 import Testimonial from './testimonial/index';
+import DoesItWorks from './DoesItWorks/DoesItWorks';
 
 const Home = () => {
     return (
@@ -19,6 +20,9 @@ const Home = () => {
             </HomeLayout>
             <Banner />
             <HomeLayout>
+                <IdealogySection />
+                <Power />
+                <DoesItWorks />
                 <Box
                     sx={{
                         overflowX: 'hidden'
@@ -27,9 +31,8 @@ const Home = () => {
                     <Pricing />
                 </Box>
 
-                <IdealogySection />
                 <Testimonial />
-                <Power />
+
                 <Footer />
             </HomeLayout>
         </>

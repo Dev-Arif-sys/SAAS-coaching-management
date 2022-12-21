@@ -6,10 +6,11 @@ const CustomSearchButton = ({ handle, ...others }) => {
         <IconButton
             style={{
                 background: theme.palette.text.heading,
-                padding: '5px',
+                padding: '7px',
                 borderRadius: '5px',
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                maxWidth: '45px'
             }}
             role={'button'}
             tabIndex={0}

@@ -10,7 +10,7 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
             >
                 {label} {required && '*'}{' '}
             </InputLabel>
-            <input
+            <TextField
                 type="date"
                 style={{
                     fontSize: '18px',
@@ -24,6 +24,7 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
                     maxWidth: '250px'
                 }}
                 {...others}
+                sx={{ '& .MuiInputBase-input': { py: 0.99, minWidth: '50px', fontSize: '14px' } }}
             />
         </Stack>
     );

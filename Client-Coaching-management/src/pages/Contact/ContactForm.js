@@ -1,13 +1,14 @@
 import { Button, Stack, styled, TextField, Typography, useTheme } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { Box } from '@mui/system';
+import CustomUpdateButton from 'components/ui/CustomUpdateButton';
 
 import React, { useState } from 'react';
 
 import { BiEdit } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import { FaPortrait } from 'react-icons/fa';
-// import { HiOutlineMail } from 'react-icons/hi';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const StyledBox = styled(Box)(({ theme }) => ({
     marginTop: '50px',
@@ -125,7 +126,7 @@ const ContactForm = () => {
                         sx={{ marginY: '16px' }}
                     />
 
-                    <Button type="submit">Post a comment</Button>
+                    <CustomUpdateButton type="submit" handle={onSubmit} buttonText="Send" />
                 </Box>
             </form>
         </StyledBox>

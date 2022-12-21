@@ -1,5 +1,8 @@
-const PayDue = () => {
-    return <div>Pay due</div>;
+import React from 'react';
+import DueSearchBarOption from './DueSearchBarOption';
+
+const index = () => {
+    return <DueSearchBarOption />;
 };
 
-export default PayDue;
+export default index;

@@ -6,7 +6,7 @@ import Menu from './Menu';
 import SuggestionPages from './SuggestionPages';
 import NavMobile from './NavMobile';
 import Profile from '../../../layout/MainLayout/Header/HeaderContent/Profile/index';
-
+import { useNavigate } from 'react-router-dom';
 const Header = styled('header')(({ theme }) => ({
     position: 'fixed',
     zIndex: '999',
@@ -53,7 +53,7 @@ const NavBar = () => {
     const pages = ['Services', 'Team', 'Testimonial'];
     const systemPages = ['404 Error', 'Reset Pass', 'Search Result', 'Achievement', 'Coming Soon', 'Institute'];
     const blogPages = ['Blog', 'Single Blog', 'Testimonial'];
-
+    const navigate = useNavigate();
     return (
         <Header>
             <LayStyled sx={{ ...mystery }}>
@@ -62,7 +62,8 @@ const NavBar = () => {
                 </div>
                 <UlStyled>
                     <LiStyled>Home</LiStyled>
-                    <LiStyled>About</LiStyled>
+                    <LiStyled onClick={() => navigate(`/auth/about`)}>About</LiStyled>
+                    <LiStyled onClick={() => navigate(`/auth/contact`)}>Contact</LiStyled>
                     <SuggestionPages LiStyled={LiStyled} menuNavItems={menuNavItems[0]} pages={pages} />
                     <SuggestionPages LiStyled={LiStyled} menuNavItems={menuNavItems[1]} pages={systemPages} />
                     <SuggestionPages LiStyled={LiStyled} menuNavItems={menuNavItems[2]} pages={blogPages} />

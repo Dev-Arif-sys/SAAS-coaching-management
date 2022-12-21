@@ -1,5 +1,12 @@
-const PayFee = () => {
-    return <div>pay fees</div>;
+import React from 'react';
+import SearchBarOption from './SearchBarOption';
+
+const index = () => {
+    return (
+        <div>
+            <SearchBarOption></SearchBarOption>
+        </div>
+    );
 };
 
-export default PayFee;
+export default index;

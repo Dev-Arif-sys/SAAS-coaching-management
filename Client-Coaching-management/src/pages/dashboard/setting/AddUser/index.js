@@ -1,5 +1,7 @@
+import UserInformation from './UserInformation';
+
 const AddUser = () => {
-    return <div>add user</div>;
+    return <UserInformation />;
 };
 
 export default AddUser;

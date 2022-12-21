@@ -46,13 +46,13 @@ const AvatarWrapper = styled('div')(({ theme }) => ({
 const DoesItWorks = () => {
     const theme = useTheme();
     return (
-        <Grid container maxWidth="lg" sx={{ mx: 'auto' }} rowSpacing={4.5} columnSpacing={2.75}>
+        <Grid container maxWidth="lg" sx={{ mx: 'auto', py: 7 }} rowSpacing={4.4}>
             {/* row 1 */}
             <Grid item xs={12} sx={{ mb: -2.25, textAlign: 'center' }}>
                 <Typography variant="h1" color={theme.palette.text.heading}>
                     How does it works?
                 </Typography>
-                <Typography variant="body1">
+                <Typography variant="subtitle1">
                     Hit your coverage goals without boxing people into pre- <br />
                     defined work that makes fine-tuning easy.
                 </Typography>
@@ -73,8 +73,8 @@ const DoesItWorks = () => {
                                 alt="The house from the offer."
                                 src="https://thepixelcurve.com/html/xipper/assets/img/icon/1.png"
                             />
-                            <Typography variant="h4">Create Account</Typography>
-                            <Typography variant="body2">
+                            <Typography variant="h3">Create Account</Typography>
+                            <Typography variant="body1">
                                 Hit your coverage goals without boxing people into pre-defined work that makes fine-tuning easy.
                             </Typography>
                         </Box>
@@ -98,8 +98,8 @@ const DoesItWorks = () => {
                                     alt="The house from the offer."
                                     src="https://thepixelcurve.com/html/xipper/assets/img/icon/1.png"
                                 />
-                                <Typography variant="h4">Make a Schedule</Typography>
-                                <Typography variant="body2">
+                                <Typography variant="h3">Make a Schedule</Typography>
+                                <Typography variant="body1">
                                     Hit your coverage goals without boxing people into pre-defined work that makes fine-tuning easy.
                                 </Typography>
                             </Box>
@@ -122,8 +122,8 @@ const DoesItWorks = () => {
                                 alt="The house from the offer."
                                 src="https://thepixelcurve.com/html/xipper/assets/img/icon/1.png"
                             />
-                            <Typography variant="h4">Get Notify</Typography>
-                            <Typography variant="body2">
+                            <Typography variant="h3">Get Notify</Typography>
+                            <Typography variant="body1">
                                 Hit your coverage goals without boxing people into pre-defined work that makes fine-tuning easy.
                             </Typography>
                         </Box>

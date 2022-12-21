@@ -7,6 +7,7 @@ const About = () => {
         <>
             <Box container maxWidth="lg" sx={{ mx: 'auto' }}>
                 <AboutAndDetails></AboutAndDetails>
+
                 <AboutTopBar></AboutTopBar>
             </Box>
         </>

@@ -1,5 +1,7 @@
+import DueOverviewSearchBarOption from './DueOverviewSearchBarOption';
+
 const DueOverview = () => {
-    return <div>Due overview</div>;
+    return <DueOverviewSearchBarOption />;
 };
 
 export default DueOverview;
