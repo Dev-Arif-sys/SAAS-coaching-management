@@ -20,6 +20,9 @@ const Home = () => {
             </HomeLayout>
             <Banner />
             <HomeLayout>
+                <IdealogySection />
+                <Power />
+                <DoesItWorks />
                 <Box
                     sx={{
                         overflowX: 'hidden'
@@ -28,9 +31,8 @@ const Home = () => {
                     <Pricing />
                 </Box>
 
-                <IdealogySection />
                 <Testimonial />
-                <Power />
+
                 <Footer />
             </HomeLayout>
         </>

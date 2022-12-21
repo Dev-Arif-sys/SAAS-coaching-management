@@ -1,5 +1,5 @@
 import { PlayCircleOutlined } from '@ant-design/icons';
-import { Box, Grid, useTheme } from '@mui/material';
+import { Box, Grid, useTheme, Typography } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
@@ -115,9 +115,9 @@ const Banner = () => {
                             Startup makes <br />
                             Life Easier
                         </H1>
-                        <Small>
+                        <Typography variant="subtitle1" color={theme.palette.common.white}>
                             The most flexible way of combine practice and analyzing startup projects to maximize its effectiveness.
-                        </Small>
+                        </Typography>
                         <Lay>
                             <IconButton style={{ ...PlayIcon }} aria-label="play">
                                 <PlayCircleOutlined />
