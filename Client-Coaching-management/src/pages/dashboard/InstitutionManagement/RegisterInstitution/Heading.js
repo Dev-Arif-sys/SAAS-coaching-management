@@ -1,12 +1,11 @@
 import { Typography } from '@mui/material';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
-import { BsFillPeopleFill } from 'react-icons/bs';
-
+import { FaSchool } from 'react-icons/fa';
 const Heading = () => {
     return (
         <CustomMainHeading>
             {' '}
-            <BsFillPeopleFill
+            <FaSchool
                 style={{
                     marginRight: '5px',
                     fontSize: '18px'
@@ -14,7 +13,7 @@ const Heading = () => {
             />
             <Typography sx={{ fontWeight: '700', fontSize: '20px' }} variant="h4">
                 {' '}
-                Current Students
+                Register Institution
             </Typography>
         </CustomMainHeading>
     );

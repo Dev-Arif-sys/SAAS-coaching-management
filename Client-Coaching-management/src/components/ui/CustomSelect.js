@@ -4,7 +4,7 @@ const CustomSelect = ({ options, label, required, ...others }) => {
         <Stack spacing={0.25}>
             <InputLabel
                 sx={{
-                    fontSize: { xs: '13px', md: '15px' }
+                    fontSize: { xs: '12px', md: '14px' }
                 }}
             >
                 {label} {required && '*'}{' '}

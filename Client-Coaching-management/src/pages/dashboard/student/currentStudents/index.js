@@ -1,4 +1,5 @@
-import { Box, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
+import ContentContainer from 'components/ui/ContentContainer';
 import Heading from './Heading';
 import SearchStudents from './SearchStudents';
 import StudentTable from './StudentTable';
@@ -9,19 +10,11 @@ const CurrentStudents = () => {
         <div>
             <Heading />
 
-            <Box
-                sx={{
-                    backgroundColor: theme.palette.common.white,
-                    padding: '15px 8px',
-                    border: `1px solid ${theme.palette.divider}`,
-                    borderRadius: '4px',
-                    zIndex: 1
-                }}
-            >
+            <ContentContainer>
                 <SearchStudents />
 
                 <StudentTable />
-            </Box>
+            </ContentContainer>
         </div>
     );
 };

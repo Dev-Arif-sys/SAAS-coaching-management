@@ -7,12 +7,35 @@ import Loadable from 'components/Loadable';
 const Home = Loadable(lazy(() => import('pages/home/index')));
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 const AuthRegister = Loadable(lazy(() => import('pages/authentication/Register')));
+const Contact = Loadable(lazy(() => import('pages/Contact/Contact')));
+const About = Loadable(lazy(() => import('pages/About/About')));
 
 // ==============================|| AUTH ROUTING ||============================== //
 
 const HomeRoutes = {
     path: '/',
-    element: <Home />
+    children: [
+        {
+            path: '',
+            element: <Home />
+        },
+        {
+            path: 'login',
+            element: <AuthLogin />
+        },
+        {
+            path: '/register',
+            element: <AuthRegister />
+        },
+        {
+            path: 'contact',
+            element: <Contact />
+        },
+        {
+            path: 'about',
+            element: <About />
+        }
+    ]
 };
 
 export default HomeRoutes;

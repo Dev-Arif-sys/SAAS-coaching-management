@@ -51,7 +51,8 @@ const Palette = (mode) => {
             },
             action: {
                 primary: paletteColor.primary.main,
-                disabled: paletteColor.grey[300]
+                disabled: paletteColor.grey[300],
+                warning: paletteColor.warning.main
             },
             divider: paletteColor.grey[200],
             background: {

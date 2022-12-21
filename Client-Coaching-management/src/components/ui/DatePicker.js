@@ -1,4 +1,4 @@
-import { InputLabel, Stack } from '@mui/material';
+import { InputLabel, Stack, TextField } from '@mui/material';
 const DatePicker = ({ label, required, lablegaping, ...others }) => {
     return (
         <Stack spacing={0.25}>
@@ -17,11 +17,11 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
                     background: 'none',
                     marginTop: '0px',
                     marginRight: '10px',
-                    border: '2px solid #ebecf0',
+
                     color: '#9a9a9a',
                     padding: '5px',
                     borderRadius: '5px',
-                    maxWidth: '250px'
+                    minWidth: '50px'
                 }}
                 {...others}
                 sx={{ '& .MuiInputBase-input': { py: 0.99, minWidth: '50px', fontSize: '14px' } }}

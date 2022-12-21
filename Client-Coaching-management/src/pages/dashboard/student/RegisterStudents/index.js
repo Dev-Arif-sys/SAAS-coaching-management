@@ -1,4 +1,5 @@
-import { Box, Button, Typography, useTheme } from '@mui/material';
+import { Button, Typography, useTheme } from '@mui/material';
+import ContentContainer from 'components/ui/ContentContainer';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
 import { useFormik } from 'formik';
@@ -62,15 +63,7 @@ const RegisterStudents = () => {
                     Register Student
                 </Typography>
             </CustomMainHeading>
-            <Box
-                sx={{
-                    backgroundColor: theme.palette.common.white,
-                    padding: '15px 8px',
-                    border: `1px solid ${theme.palette.divider}`,
-                    borderRadius: '4px',
-                    zIndex: 1
-                }}
-            >
+            <ContentContainer>
                 <form onSubmit={formik.handleSubmit}>
                     <CustomHeading>Student Information</CustomHeading>
                     <StudentInformation formik={formik} />
@@ -81,7 +74,7 @@ const RegisterStudents = () => {
 
                     <Button type="submit">Submit </Button>
                 </form>
-            </Box>
+            </ContentContainer>
         </>
     );
 };

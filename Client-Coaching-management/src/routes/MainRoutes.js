@@ -3,6 +3,7 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout/index';
+import RegisterInstitution from 'pages/dashboard/InstitutionManagement/RegisterInstitution/index';
 import SalesProduct from 'pages/dashboard/SalesProduct';
 import CurrentStudents from 'pages/dashboard/student/currentStudents/index';
 import PromoteStudents from 'pages/dashboard/student/promoteStudents/index';
@@ -174,6 +175,11 @@ const MainRoutes = {
         {
             path: 'change-password',
             element: <ChangePassword />
+        },
+        // -----------setting-----------//
+        {
+            path: 'register-institution',
+            element: <RegisterInstitution />
         }
     ]
 };
