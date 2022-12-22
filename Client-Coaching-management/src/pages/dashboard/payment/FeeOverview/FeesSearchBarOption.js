@@ -1,20 +1,14 @@
 import CustomSelect from 'components/ui/CustomSelect';
 import React, { useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
+import { Box, Stack, Grid, Typography, Container, useTheme, Button } from '@mui/material';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
 import DatePicker from 'components/ui/DatePicker';
 
 import { styled } from '@mui/material/styles';
-
+import { HiSearch } from 'react-icons/hi';
 import FeesOverviewDetails from './FeesOverviewDetails';
+import CustomHeading from 'components/ui/CustomHeading';
 
-const DisItemWrapper = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'end',
-    [theme.breakpoints.down('md')]: {
-        display: 'block'
-    }
-}));
 const FeesSearchBarOption = () => {
     const theme = useTheme();
 
@@ -22,11 +16,11 @@ const FeesSearchBarOption = () => {
     const [toDate, setToDate] = useState('');
     const [show, setShow] = useState(false);
 
-    const searchHandle = () => {
+    const searchHandle = (e) => {
+        e.preventDefault();
         console.log('ravi');
         setShow(true);
     };
-
     return (
         <Box>
             <Box
@@ -34,25 +28,39 @@ const FeesSearchBarOption = () => {
                     p: '50px'
                 }}
             >
-                <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
-                    Student Payment Due
-                </Typography>
-
-                <DisItemWrapper>
-                    <DatePicker
-                        style={{ marginRight: '10px' }}
-                        label="From Date "
-                        required={true}
-                        onChange={(e) => setfromDate(e.target.value)}
-                    />
-                    <DatePicker
-                        style={{ marginRight: '10px' }}
-                        label="To Date "
-                        required={true}
-                        onChange={(e) => setToDate(e.target.value)}
-                    />
-                    <CustomSearchButton handle={searchHandle} />
-                </DisItemWrapper>
+                <div>
+                    <CustomHeading>search student</CustomHeading>
+                    <form onSubmit={searchHandle}>
+                        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="From Date "
+                                    required={true}
+                                    onChange={(e) => setfromDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="To Date "
+                                    required={true}
+                                    onChange={(e) => setToDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <Button
+                                    type="submit"
+                                    size="small"
+                                    variant="contained"
+                                    sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}
+                                >
+                                    <HiSearch style={{ fontSize: '26px' }} />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
 
                 {show ? (
                     <>

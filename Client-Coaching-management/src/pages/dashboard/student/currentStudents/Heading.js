@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
 import { BsFillPeopleFill } from 'react-icons/bs';
 
-const Heading = () => {
+const Heading = ({ title }) => {
     return (
         <CustomMainHeading>
             {' '}
@@ -13,8 +13,7 @@ const Heading = () => {
                 }}
             />
             <Typography sx={{ fontWeight: '700', fontSize: '20px' }} variant="h4">
-                {' '}
-                Current Students
+                {title}
             </Typography>
         </CustomMainHeading>
     );

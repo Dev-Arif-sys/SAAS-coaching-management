@@ -1,10 +1,12 @@
 import CustomSelect from 'components/ui/CustomSelect';
 import React, { useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
+import { Box, Stack, Grid, Typography, Container, useTheme, Button } from '@mui/material';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
 import DatePicker from 'components/ui/DatePicker';
 import PaymentDetails from './PaymentDetails';
 import { styled } from '@mui/material/styles';
+import CustomHeading from 'components/ui/CustomHeading';
+import { HiSearch } from 'react-icons/hi';
 const classData = [
     {
         label: 'Class 1',
@@ -146,13 +148,48 @@ const PaymentType = [
     }
 ];
 
-const DisItemWrapper = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'end',
-    [theme.breakpoints.down('md')]: {
-        display: 'black'
+const status = [
+    {
+        value: '',
+        label: 'Select'
+    },
+    {
+        value: 'today',
+        label: 'Today'
+    },
+    {
+        value: '11',
+        label: '11'
+    },
+    {
+        value: 'play',
+        label: 'Play'
+    },
+    {
+        value: 'Nursery',
+        label: 'Nursery'
+    },
+    {
+        value: '1',
+        label: '1'
+    },
+    {
+        value: '2',
+        label: '2'
+    },
+    {
+        value: '3',
+        label: '3'
+    },
+    {
+        value: '4',
+        label: '4'
+    },
+    {
+        value: '5',
+        label: '5'
     }
-}));
+];
 const SearchBarOption = () => {
     const theme = useTheme();
     const [classes, setClasses] = useState('');
@@ -163,7 +200,8 @@ const SearchBarOption = () => {
     const [toDate, setToDate] = useState('');
     const [show, setShow] = useState(false);
 
-    const searchHandle = () => {
+    const searchHandle = (e) => {
+        e.preventDefault();
         console.log('ravi');
         setShow(true);
     };
@@ -175,53 +213,75 @@ const SearchBarOption = () => {
                     p: '50px'
                 }}
             >
-                <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
-                    Student Payment
-                </Typography>
-
-                <DisItemWrapper>
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={classData}
-                        label="Class"
-                        required={true}
-                        onChange={(e) => setClasses(e.target.value)}
-                    />
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={batchData}
-                        label="Batch"
-                        required={true}
-                        onChange={(e) => setBatch(e.target.value)}
-                    />
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={yearData}
-                        label="Batch Year"
-                        required={true}
-                        onChange={(e) => setYear(e.target.value)}
-                    />
-                    <CustomSelect
-                        style={{ marginRight: '10px' }}
-                        options={PaymentType}
-                        label="Payment Type"
-                        required={true}
-                        onChange={(e) => setpaymentType(e.target.value)}
-                    />
-                    <DatePicker
-                        style={{ marginRight: '10px' }}
-                        label="From Date "
-                        required={true}
-                        onChange={(e) => setfromDate(e.target.value)}
-                    />
-                    <DatePicker
-                        style={{ marginRight: '10px' }}
-                        label="To Date "
-                        required={true}
-                        onChange={(e) => setToDate(e.target.value)}
-                    />
-                    <CustomSearchButton handle={searchHandle} />
-                </DisItemWrapper>
+                <div>
+                    <CustomHeading>search student</CustomHeading>
+                    <form onSubmit={searchHandle}>
+                        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomSelect
+                                    style={{ marginRight: '10px' }}
+                                    options={classData}
+                                    label="Class"
+                                    required={true}
+                                    onChange={(e) => setClasses(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomSelect
+                                    style={{ marginRight: '10px' }}
+                                    options={batchData}
+                                    label="Batch"
+                                    required={true}
+                                    onChange={(e) => setBatch(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomSelect
+                                    style={{ marginRight: '10px' }}
+                                    options={yearData}
+                                    label="Batch Year"
+                                    required={true}
+                                    onChange={(e) => setYear(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomSelect
+                                    style={{ marginRight: '10px' }}
+                                    options={PaymentType}
+                                    label="Payment Type"
+                                    required={true}
+                                    onChange={(e) => setpaymentType(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="From Date "
+                                    required={true}
+                                    onChange={(e) => setfromDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="To Date "
+                                    required={true}
+                                    onChange={(e) => setToDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <Button
+                                    type="submit"
+                                    size="small"
+                                    variant="contained"
+                                    sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}
+                                >
+                                    <HiSearch style={{ fontSize: '26px' }} />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
 
                 {show ? (
                     <>

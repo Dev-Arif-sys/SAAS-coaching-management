@@ -2,6 +2,9 @@ import React from 'react';
 import { Box, Grid, Button, useTheme, Divider } from '@mui/material';
 import CustomSelect from 'components/ui/CustomSelect';
 import { HiSearch } from 'react-icons/hi';
+import Heading from '../student/currentStudents/Heading';
+import ContentContainer from 'components/ui/ContentContainer';
+import CustomHeading from 'components/ui/CustomHeading';
 
 // sales report status
 const status = [
@@ -77,56 +80,60 @@ const Advertising = () => {
         }
     };
     return (
-        <Box sx={{ ...container }}>
-            <Box sx={{ ...heading }}>
-                <small>
-                    <strong>Send SMS To Targeted Students</strong>
-                </small>
-            </Box>
-            <br />
-            <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
-                <Grid item xs={6} sm={4} md={4}>
-                    <CustomSelect
-                        options={status}
-                        id="standard-select-currency"
-                        size="small"
-                        select
-                        label="Class"
-                        // value={value}
-                        // onChange={(e) => setValue(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={6} sm={4} md={4}>
-                    <CustomSelect
-                        options={status}
-                        id="standard-select-currency"
-                        size="small"
-                        select
-                        label="Batch"
-                        // value={value}
-                        // onChange={(e) => setValue(e.target.value)}
-                    />
-                </Grid>
-                <Grid item xs={6} sm={4} md={4}>
-                    <Button size="small" variant="contained" sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}>
-                        <HiSearch style={{ fontSize: '26px' }} />
-                    </Button>
-                </Grid>
-            </Grid>
-            <Divider sx={{ my: 2 }} />
-            <label htmlFor="textarea" style={{ margin: '5px 2px' }}>
-                Write Message Here
-            </label>
-            <textarea style={{ ...TextWrap }}>Hello Students</textarea>
-            <div style={{ gap: '10px', display: 'flex', margin: '10px 0' }}>
-                <Button size="small" variant="contained" sx={{ textTransform: 'capitalize' }}>
-                    Send SMS
-                </Button>
-                <Button size="small" color="error" variant="contained" sx={{ textTransform: 'capitalize' }}>
-                    Reset Info
-                </Button>
-            </div>
-        </Box>
+        <>
+            <Heading title="Send SMS To Targeted Students" />
+            <ContentContainer>
+                <Box>
+                    <CustomHeading>Write Message Here</CustomHeading>
+                    <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                        <Grid item xs={6} sm={4} md={4}>
+                            <CustomSelect
+                                options={status}
+                                id="standard-select-currency"
+                                size="small"
+                                select
+                                label="Class"
+                                // value={value}
+                                // onChange={(e) => setValue(e.target.value)}
+                            />
+                        </Grid>
+                        <Grid item xs={6} sm={4} md={4}>
+                            <CustomSelect
+                                options={status}
+                                id="standard-select-currency"
+                                size="small"
+                                select
+                                label="Batch"
+                                // value={value}
+                                // onChange={(e) => setValue(e.target.value)}
+                            />
+                        </Grid>
+                        <Grid item xs={6} sm={4} md={4}>
+                            <Button
+                                size="small"
+                                variant="contained"
+                                sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}
+                            >
+                                <HiSearch style={{ fontSize: '26px' }} />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <Divider sx={{ my: 2 }} />
+
+                    <CustomHeading>Write Message Here</CustomHeading>
+
+                    <textarea style={{ ...TextWrap }}>Hello Students</textarea>
+                    <div style={{ gap: '10px', display: 'flex', margin: '10px 0' }}>
+                        <Button size="small" variant="contained" sx={{ textTransform: 'capitalize' }}>
+                            Send SMS
+                        </Button>
+                        <Button size="small" color="error" variant="contained" sx={{ textTransform: 'capitalize' }}>
+                            Reset Info
+                        </Button>
+                    </div>
+                </Box>
+            </ContentContainer>
+        </>
     );
 };
 

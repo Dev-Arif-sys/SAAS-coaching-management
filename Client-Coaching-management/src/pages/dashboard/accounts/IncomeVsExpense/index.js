@@ -1,12 +1,16 @@
+import ContentContainer from 'components/ui/ContentContainer';
+import Heading from 'pages/dashboard/student/currentStudents/Heading';
 import React from 'react';
-import Heading from './Heading';
+
 import SearchData from './SearchData';
 
 const IncomeVsExpense = () => {
     return (
         <div>
-            <Heading />
-            <SearchData />
+            <Heading title="fee Overview" />
+            <ContentContainer>
+                <SearchData />
+            </ContentContainer>
         </div>
     );
 };

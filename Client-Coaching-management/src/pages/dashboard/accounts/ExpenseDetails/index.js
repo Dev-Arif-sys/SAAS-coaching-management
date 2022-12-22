@@ -1,12 +1,16 @@
 import React from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
-import Heading from './Heading';
+
 import SearchExpense from './SearchExpense';
+import Heading from 'pages/dashboard/student/currentStudents/Heading';
+import ContentContainer from 'components/ui/ContentContainer';
 const ExpenseDetails = () => {
     return (
         <div>
-            <Heading />
-            <SearchExpense />
+            <Heading title="Expense Details" />
+            <ContentContainer>
+                <SearchExpense />
+            </ContentContainer>
         </div>
     );
 };
