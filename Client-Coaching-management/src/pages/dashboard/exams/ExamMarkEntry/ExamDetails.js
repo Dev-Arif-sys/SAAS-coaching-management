@@ -38,55 +38,62 @@ const ExamDetails = ({ data }) => {
                             mt: 3
                         }}
                     >
-                        <CustomTextField
-                            label="Subject"
-                            required={true}
-                            size="small"
-                            style={{
-                                marginRight: '10px'
-                            }}
-                            onChange={(e) => setSubject(e.target.value)}
-                        />
-                        <CustomTextField
-                            label="Title"
-                            required={true}
-                            size="small"
-                            style={{
-                                marginRight: '10px'
-                            }}
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
-                        <CustomSelect
-                            style={{ marginRight: '10px' }}
-                            options={examData}
-                            label="Exam Type"
-                            required={true}
-                            onChange={(e) => setExams(e.target.value)}
-                        />
-                    </Box>
-                    <Box
-                        sx={{
-                            display: { xs: 'block', md: 'flex' },
-                            mt: 3
-                        }}
-                    >
-                        <CustomTextField
-                            label="CQ Mark"
-                            size="small"
-                            style={{
-                                marginRight: '10px'
-                            }}
-                            onChange={(e) => setCqMark(e.target.value)}
-                        />
-                        <CustomTextField
-                            label="MCQ Mark"
-                            size="small"
-                            style={{
-                                marginRight: '10px'
-                            }}
-                            onChange={(e) => setMCqMark(e.target.value)}
-                        />
-                        <DatePicker label={'Select Date'} required={true} onChange={(e) => setDate(e.target.value)} />
+                        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="Subject"
+                                    required={true}
+                                    size="small"
+                                    style={{
+                                        marginRight: '10px'
+                                    }}
+                                    onChange={(e) => setSubject(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="Title"
+                                    required={true}
+                                    size="small"
+                                    style={{
+                                        marginRight: '10px'
+                                    }}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomSelect
+                                    style={{ marginRight: '10px' }}
+                                    options={examData}
+                                    label="Exam Type"
+                                    required={true}
+                                    onChange={(e) => setExams(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="CQ Mark"
+                                    size="small"
+                                    style={{
+                                        marginRight: '10px'
+                                    }}
+                                    onChange={(e) => setCqMark(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="MCQ Mark"
+                                    size="small"
+                                    style={{
+                                        marginRight: '10px'
+                                    }}
+                                    onChange={(e) => setMCqMark(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker label={'Select Date'} required={true} onChange={(e) => setDate(e.target.value)} />
+                            </Grid>
+                        </Grid>
                     </Box>
                 </Box>
             </Box>

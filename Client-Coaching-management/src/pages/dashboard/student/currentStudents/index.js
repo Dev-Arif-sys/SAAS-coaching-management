@@ -8,7 +8,7 @@ const CurrentStudents = () => {
     const theme = useTheme();
     return (
         <div>
-            <Heading />
+            <Heading title=" Current Students" />
 
             <ContentContainer>
                 <SearchStudents />

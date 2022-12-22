@@ -1,21 +1,15 @@
-import CustomSelect from 'components/ui/CustomSelect';
-import React, { useState } from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
-import CustomSearchButton from 'components/ui/CustomSearchButton';
-import DatePicker from 'components/ui/DatePicker';
+import CustomTextField from 'components/ui/CustomTextField';
 
+import React, { useState } from 'react';
+import { Box, Stack, Grid, Typography, Container, useTheme, Button } from '@mui/material';
+
+import { HiSearch } from 'react-icons/hi';
 import { styled } from '@mui/material/styles';
 
 import MPDetails from './MPDetails';
-import CustomTextField from 'components/ui/CustomTextField';
 
-const DisItemWrapper = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'end',
-    [theme.breakpoints.down('md')]: {
-        display: 'black'
-    }
-}));
+import CustomHeading from 'components/ui/CustomHeading';
+
 const MPSearchBarOption = () => {
     const theme = useTheme();
 
@@ -23,7 +17,8 @@ const MPSearchBarOption = () => {
 
     const [show, setShow] = useState(false);
 
-    const searchHandle = () => {
+    const searchHandle = (e) => {
+        e.preventDefault();
         console.log('ravi');
         setShow(true);
     };
@@ -35,21 +30,30 @@ const MPSearchBarOption = () => {
                     p: '50px'
                 }}
             >
-                <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
-                    Add Payment Type *
-                </Typography>
+                <div>
+                    <CustomHeading>search student</CustomHeading>
+                    <form onSubmit={searchHandle}>
+                        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField size="small" onChange={(e) => setAddPay(e.target.value)} />
+                            </Grid>
 
-                <DisItemWrapper>
-                    <CustomTextField size="small" onChange={(e) => setAddPay(e.target.value)} />
-                    <CustomSearchButton handle={searchHandle} />
-                </DisItemWrapper>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <Button
+                                    type="submit"
+                                    size="small"
+                                    variant="contained"
+                                    sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}
+                                >
+                                    <HiSearch style={{ fontSize: '26px' }} />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
 
                 {show ? (
                     <>
-                        {/* {' '}
-                    <ExamDetails data={[classes, batch, year]} />
-                    <hr />
-                    <SearchStudentsData data={[classes, batch, year]} />{' '} */}
                         <MPDetails data={[addPay, addPay]}></MPDetails>
                     </>
                 ) : (

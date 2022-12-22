@@ -5,7 +5,7 @@ import CustomSearchButton from 'components/ui/CustomSearchButton';
 import DatePicker from 'components/ui/DatePicker';
 import CustomTextField from 'components/ui/CustomTextField';
 import CustomHeading from 'components/ui/CustomHeading';
-
+import { HiSearch } from 'react-icons/hi';
 const AddExpense = () => {
     const theme = useTheme();
     const [issue, setIssue] = useState('');
@@ -13,9 +13,9 @@ const AddExpense = () => {
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState('');
 
-    const searchHandle = () => {
+    const searchHandle = (e) => {
+        e.preventDefault();
         console.log('ravi');
-        setShow(true);
     };
 
     return (
@@ -25,71 +25,66 @@ const AddExpense = () => {
                     p: '50px'
                 }}
             >
-                {/* <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        mb: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Add Expense Data
-                    </Typography>
-                </Box> */}
-
-                <CustomHeading>Add Expense Data</CustomHeading>
-
-                <Box
-                    sx={
-                        {
-                            // display: 'flex',
-                            // alignItems: 'end'
-                        }
-                    }
-                    // alignItems='center'
-                >
-                    <DatePicker
-                        label={'Expense Date'}
-                        required={true}
-                        lablegaping={'10px 0px'}
-                        // style={{
-                        //     width: '250px'
-                        // }}
-                        onChange={(e) => setDate(e.target.value)}
-                    />
-                    <CustomTextField
-                        label="Expense Issue"
-                        size="small"
-                        lablegaping={'10px 0px'}
-                        style={{
-                            width: '250px'
-                        }}
-                        required={true}
-                        onChange={(e) => setIssue(e.target.value)}
-                    />
-                    <CustomTextField
-                        label="Quantity"
-                        size="small"
-                        lablegaping={'10px 0px'}
-                        style={{
-                            width: '250px'
-                        }}
-                        onChange={(e) => setQuantity(e.target.value)}
-                    />
-                    <CustomTextField
-                        label="Expense Amount"
-                        size="small"
-                        lablegaping={'10px 0px'}
-                        style={{
-                            width: '250px'
-                        }}
-                        required={true}
-                        onChange={(e) => setAmount(e.target.value)}
-                    />
-                    <Button sx={{ my: 2 }} target="_blank" href="" variant="contained" color="success" size="small">
-                        Submit
-                    </Button>
-                </Box>
+                <div>
+                    <CustomHeading>Add Expense Data</CustomHeading>
+                    <form onSubmit={searchHandle}>
+                        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="From Date "
+                                    required={true}
+                                    onChange={(e) => setfromDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="Expense Issue"
+                                    size="small"
+                                    lablegaping={'10px 0px'}
+                                    style={{
+                                        width: '250px'
+                                    }}
+                                    required={true}
+                                    onChange={(e) => setIssue(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="Quantity"
+                                    size="small"
+                                    lablegaping={'10px 0px'}
+                                    style={{
+                                        width: '250px'
+                                    }}
+                                    onChange={(e) => setQuantity(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <CustomTextField
+                                    label="Expense Amount"
+                                    size="small"
+                                    lablegaping={'10px 0px'}
+                                    style={{
+                                        width: '250px'
+                                    }}
+                                    required={true}
+                                    onChange={(e) => setAmount(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <Button
+                                    type="submit"
+                                    size="small"
+                                    variant="contained"
+                                    sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}
+                                >
+                                    <HiSearch style={{ fontSize: '26px' }} />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
             </Box>
         </Box>
     );
