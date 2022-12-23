@@ -3,7 +3,10 @@ import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow,
 import CustomTextField from 'components/ui/CustomTextField';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
-
+import { AiFillDelete, AiOutlineFolderView } from 'react-icons/ai';
+import { FaRegArrowAltCircleUp, FaSms } from 'react-icons/fa';
+import { FiEdit } from 'react-icons/fi';
+import CustomModal from 'components/ui/CustomModal';
 const headCells = [
     {
         id: 'ID',
@@ -73,7 +76,7 @@ const rows = [
 
 const ManageUserTableItem = () => {
     const theme = useTheme();
-
+    const [openModal, setOpenModal] = useState(false);
     const [searchText, setSearchText] = useState('');
     return (
         <Box>
@@ -143,8 +146,9 @@ const ManageUserTableItem = () => {
                 </Box>
                 <Box>
                     <MultiPurposeTable headCells={headCells}>
-                        <Tag />
+                        <Tag openModal={openModal} setOpenModal={setOpenModal} />
                     </MultiPurposeTable>
+                    <CustomModal open={openModal} setOpen={setOpenModal} />
                 </Box>
             </Box>
         </Box>
@@ -153,7 +157,17 @@ const ManageUserTableItem = () => {
 
 export default ManageUserTableItem;
 
-const Tag = () => {
+const Tag = ({ setOpenModal, openModal }) => {
+    const [selectedStudent, setSelectedStudent] = useState({});
+    const handleModalOpen = (data) => {
+        setOpenModal(true);
+        setSelectedStudent(data);
+    };
+    const iconStyle = {
+        fontSize: '26px',
+        marginLeft: '7px',
+        cursor: 'pointer'
+    };
     return (
         <TableBody>
             {rows.map((row, index) => (
@@ -167,10 +181,9 @@ const Tag = () => {
                     <TableCell align="left">{row.role}</TableCell>
 
                     <TableCell align="left">
-                        <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-                            <CustomSearchButton />
-                            <CustomSearchButton />
-                        </Box>
+                        <FaSms style={{ ...iconStyle }} />
+                        <FaRegArrowAltCircleUp style={{ ...iconStyle }} onClick={() => handleModalOpen(row)} />
+                        <AiOutlineFolderView style={{ ...iconStyle }} />
                     </TableCell>
                 </TableRow>
             ))}
