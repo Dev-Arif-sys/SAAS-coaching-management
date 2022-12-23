@@ -2,20 +2,21 @@ import { Typography } from '@mui/material';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
 import { BsFillPeopleFill } from 'react-icons/bs';
 
-const Heading = ({ title }) => {
+const Heading = ({ title, icon }) => {
     return (
-        <CustomMainHeading>
-            {' '}
-            <BsFillPeopleFill
-                style={{
-                    marginRight: '5px',
-                    fontSize: '18px'
-                }}
+        <>
+            <CustomMainHeading
+                title="fee Overview"
+                icon={
+                    <BsFillPeopleFill
+                        style={{
+                            marginRight: '5px',
+                            fontSize: '18px'
+                        }}
+                    />
+                }
             />
-            <Typography sx={{ fontWeight: '700', fontSize: '20px' }} variant="h4">
-                {title}
-            </Typography>
-        </CustomMainHeading>
+        </>
     );
 };
 

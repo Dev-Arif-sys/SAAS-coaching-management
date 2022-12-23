@@ -39,9 +39,6 @@ const UserInformation = () => {
                     maxWidth: '500px'
                 }}
             >
-                <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
-                    Manage User
-                </Typography>
                 <CustomTextField label="Name *" size="small" />
                 <CustomTextField label="Email *" size="small" />
                 <CustomSelect
