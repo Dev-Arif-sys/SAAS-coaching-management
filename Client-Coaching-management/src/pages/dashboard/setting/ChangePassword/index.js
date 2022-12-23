@@ -1,6 +1,7 @@
 import ContentContainer from 'components/ui/ContentContainer';
 import Heading from 'pages/dashboard/student/currentStudents/Heading';
 import ChangeInputItem from './ChangeInputItem';
+import SuperAdmin from './SuperAdmin/SuperAdmin';
 
 const ChangePassword = () => {
     return (
@@ -9,6 +10,7 @@ const ChangePassword = () => {
             <ContentContainer>
                 <ChangeInputItem />
             </ContentContainer>
+            <SuperAdmin />
         </>
     );
 };
