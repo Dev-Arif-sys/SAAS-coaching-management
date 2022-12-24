@@ -1,15 +1,16 @@
 const express =require('express');
-const { registerInstitution } = require('../controllers/institution.controller');
+const { registerInstitution, getAllInstitution, deleteInstitution } = require('../controllers/institution.controller');
 const router = express.Router();
 
 
 
 router.route('/')
               .post(registerInstitution)
+              .get(getAllInstitution)
 router.route('/:id') 
               .get()
               .put()
-              .delete()
+              .delete(deleteInstitution)
                       
 
 

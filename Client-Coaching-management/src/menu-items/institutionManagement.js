@@ -20,6 +20,13 @@ const institutionManagement = {
             type: 'item',
             url: '/register-institution',
             icon: icons.ChromeOutlined
+        },
+        {
+            id: 'manage-institution',
+            title: 'Manage Institution',
+            type: 'item',
+            url: '/manage-institution',
+            icon: icons.ChromeOutlined
         }
     ]
 };

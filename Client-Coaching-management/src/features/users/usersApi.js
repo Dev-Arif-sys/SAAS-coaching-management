@@ -7,8 +7,7 @@ export const usersApi = apiSlice.injectEndpoints({
                 url: '/auth/register',
                 method: 'POST',
                 body: data
-            }),
-            
+            })
         })
     })
 });

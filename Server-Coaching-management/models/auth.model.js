@@ -57,6 +57,6 @@ userSchema.methods.getJwtToken = function (JWT_Secret, JWT_Expiration) {
   );
 };
 
-const User = mongoose.model("USER", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

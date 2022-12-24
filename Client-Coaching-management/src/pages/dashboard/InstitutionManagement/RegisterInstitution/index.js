@@ -1,6 +1,7 @@
 import { Button } from '@mui/material';
 import ContentContainer from 'components/ui/ContentContainer';
 import CustomHeading from 'components/ui/CustomHeading';
+import CustomSnackbar from 'components/ui/CustomSnackbar';
 import { useAddInstitutionMutation } from 'features/institution/institutionApi';
 import { useFormik } from 'formik';
 import Heading from './Heading';
@@ -33,7 +34,11 @@ const RegisterInstitution = () => {
             addInstitution(values);
         }
     });
-    console.log(error, data);
+
+    // decide what alert to show
+    let alert = '';
+    if (isError) alert = <CustomSnackbar status="error" message={error?.data?.error} />;
+    if (!isError && isSuccess) alert = <CustomSnackbar status="success" message={data?.message} />;
     return (
         <div>
             <Heading />
@@ -45,6 +50,7 @@ const RegisterInstitution = () => {
                     <UserInformation formik={formik} />
                     <Button type="submit">Submit</Button>
                 </form>
+                {alert}
             </ContentContainer>
         </div>
     );
