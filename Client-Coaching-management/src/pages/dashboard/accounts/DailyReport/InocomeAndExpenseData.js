@@ -232,29 +232,14 @@ const InocomeAndExpenseData = ({ data }) => {
                     <Typography variant="h4" color={theme.palette.text.primary} fontWeight="400">
                         Showing 1 to 1 of 1 entries
                     </Typography>
-                    <Typography
-                        sx={{
-                            mb: 2
-                        }}
-                        variant="h4"
-                        color={theme.palette.text.primary}
-                        fontWeight="400"
-                    >
-                        Income-Due Details
-                    </Typography>
+
+                    <CustomHeading>Income-Due Details</CustomHeading>
+
                     <MultiPurposeTable headCells={headCells2}>
                         <Tag2 />
                     </MultiPurposeTable>
-                    <Typography
-                        sx={{
-                            my: 2
-                        }}
-                        variant="h4"
-                        color={theme.palette.text.primary}
-                        fontWeight="400"
-                    >
-                        Expense Details
-                    </Typography>
+                    <CustomHeading>Expense Details</CustomHeading>
+
                     <MultiPurposeTable headCells={headCells3}>
                         <Tag3 />
                     </MultiPurposeTable>

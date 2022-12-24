@@ -1,26 +1,27 @@
+import CustomSelect from 'components/ui/CustomSelect';
 import React, { useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme, Button } from '@mui/material';
-import CustomSelect from 'components/ui/CustomSelect';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
 import DatePicker from 'components/ui/DatePicker';
-import CustomTextField from 'components/ui/CustomTextField';
-import ExamDetails from 'pages/dashboard/exams/ExamMarkEntry/ExamDetails';
-import SearchStudentsData from 'pages/dashboard/exams/ExamMarkEntry/SearchStudentsData';
-import ExpenseData from './ExpenseData';
+
+import { styled } from '@mui/material/styles';
+import { HiSearch } from 'react-icons/hi';
+
 import CustomHeading from 'components/ui/CustomHeading';
+import ExpenseData from './ExpenseData';
 
 const SearchExpense = () => {
     const theme = useTheme();
-    const [fromDate, setFromDate] = useState('');
-    const [toDate, setToDate] = useState('');
 
+    const [fromDate, setfromDate] = useState('');
+    const [toDate, setToDate] = useState('');
     const [show, setShow] = useState(false);
 
-    const searchHandle = () => {
+    const searchHandle = (e) => {
+        e.preventDefault();
         console.log('ravi');
         setShow(true);
     };
-
     return (
         <Box>
             <Box
@@ -28,37 +29,47 @@ const SearchExpense = () => {
                     p: '50px'
                 }}
             >
-                <CustomHeading>Search Expense Data</CustomHeading>
+                <div>
+                    <CustomHeading>search student</CustomHeading>
+                    <form onSubmit={searchHandle}>
+                        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'end', mb: 3 }}>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="From Date "
+                                    required={true}
+                                    onChange={(e) => setfromDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <DatePicker
+                                    style={{ marginRight: '10px' }}
+                                    label="To Date "
+                                    required={true}
+                                    onChange={(e) => setToDate(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={6} sm={6} md={3}>
+                                <Button
+                                    type="submit"
+                                    size="small"
+                                    variant="contained"
+                                    sx={{ textTransform: 'capitalize', height: '2.2rem', paddingBottom: '1px' }}
+                                >
+                                    <HiSearch style={{ fontSize: '26px' }} />
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
 
-                <Box
-                    sx={{
-                        display: { xs: 'block', md: 'flex' },
-                        alignItems: 'end',
-                        mt: 3
-                    }}
-                >
-                    <DatePicker
-                        label={'From Date'}
-                        required={true}
-                        // style={{
-                        //     width: '250px'
-                        // }}
-                        onChange={(e) => setFromDate(e.target.value)}
-                    />
-                    <DatePicker
-                        label={'To Date'}
-                        required={true}
-                        // style={{
-                        //     width: '250px'
-                        // }}
-                        onChange={(e) => setToDate(e.target.value)}
-                    />
-
-                    <CustomSearchButton handle={searchHandle} />
-                </Box>
                 {show ? (
                     <>
-                        <ExpenseData data={[fromDate, toDate]} />{' '}
+                        {/* {' '}
+                    <ExamDetails data={[classes, batch, year]} />
+                    <hr />
+                    <SearchStudentsData data={[classes, batch, year]} />{' '} */}
+                        <ExpenseData data={[fromDate, toDate]} />
                     </>
                 ) : (
                     ''

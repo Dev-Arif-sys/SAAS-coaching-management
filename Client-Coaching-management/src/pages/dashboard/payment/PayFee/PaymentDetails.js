@@ -3,7 +3,10 @@ import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow,
 import CustomTextField from 'components/ui/CustomTextField';
 import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
 import CustomSearchButton from 'components/ui/CustomSearchButton';
-
+import CustomModal from 'components/ui/CustomModal';
+import { AiFillDelete, AiOutlineFolderView } from 'react-icons/ai';
+import { FaRegArrowAltCircleUp, FaSms } from 'react-icons/fa';
+import { FiEdit } from 'react-icons/fi';
 const headCells = [
     {
         id: 'ID',
@@ -90,21 +93,11 @@ const PaymentDetails = ({ data }) => {
     const theme = useTheme();
     const [classes, batch, year] = data;
     const [searchText, setSearchText] = useState('');
+    const [openModal, setOpenModal] = useState(false);
+
     return (
         <Box>
             <Box sx={{}}>
-                {/* <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        mt: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Students Of Class {classes} , Batch {batch}, Year {year}
-                    </Typography>
-                </Box> */}
-
                 <Box
                     sx={{
                         display: 'flex',
@@ -168,18 +161,11 @@ const PaymentDetails = ({ data }) => {
                         <CustomTextField size="small" />
                     </Box>
                 </Box>
-                <Box
-                    sx={
-                        {
-                            // display: 'flex',
-                            // alignItems: 'end'
-                        }
-                    }
-                    // alignItems='center'
-                >
+                <Box>
                     <MultiPurposeTable headCells={headCells}>
-                        <Tag />
+                        <Tag openModal={openModal} setOpenModal={setOpenModal} />
                     </MultiPurposeTable>
+                    <CustomModal open={openModal} setOpen={setOpenModal} />
                 </Box>
             </Box>
         </Box>
@@ -188,7 +174,17 @@ const PaymentDetails = ({ data }) => {
 
 export default PaymentDetails;
 
-const Tag = () => {
+const Tag = ({ setOpenModal, openModal }) => {
+    const [selectedStudent, setSelectedStudent] = useState({});
+    const handleModalOpen = (data) => {
+        setOpenModal(true);
+        setSelectedStudent(data);
+    };
+    const iconStyle = {
+        fontSize: '26px',
+        marginLeft: '7px',
+        cursor: 'pointer'
+    };
     return (
         <TableBody>
             {rows.map((row, index) => (
@@ -209,12 +205,11 @@ const Tag = () => {
                         <CustomTextField size="small" />
                     </TableCell>
                     <TableCell align="left">
-                        <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-                            <CustomSearchButton />
-                            <CustomSearchButton />
-                            <CustomSearchButton />
-                            <CustomSearchButton />
-                        </Box>
+                        <FaSms style={{ ...iconStyle }} />
+                        <FaRegArrowAltCircleUp style={{ ...iconStyle }} onClick={() => handleModalOpen(row)} />
+                        <AiOutlineFolderView style={{ ...iconStyle }} />
+                        <FiEdit style={{ ...iconStyle }} />
+                        <AiFillDelete style={{ ...iconStyle }} />
                     </TableCell>
                 </TableRow>
             ))}

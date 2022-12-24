@@ -7,37 +7,25 @@ import DatePicker from 'components/ui/DatePicker';
 import { styled } from '@mui/material/styles';
 
 import ManageUserTableItem from './ManageUserTableItem';
+import Heading from 'pages/dashboard/student/currentStudents/Heading';
+import ContentContainer from 'components/ui/ContentContainer';
 
-// const DisItemWrapper = styled('div')(({ theme }) => ({
-//     display: 'flex',
-//     alignItems: 'end',
-//     [theme.breakpoints.down('md')]: {
-//         display: 'black'
-//     }
-// }));
 const ManageUserTable = () => {
     const theme = useTheme();
 
     return (
-        <Box>
-            <Box
-                sx={{
-                    p: '50px'
-                }}
-            >
-                <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
-                    Manage User
-                </Typography>
-
-                <>
-                    {/* {' '}
-                    <ExamDetails data={[classes, batch, year]} />
-                    <hr />
-                {' '} */}
+        <>
+            <Heading title="Manage User" />
+            <ContentContainer>
+                <Box
+                    sx={{
+                        p: '50px'
+                    }}
+                >
                     <ManageUserTableItem></ManageUserTableItem>
-                </>
-            </Box>
-        </Box>
+                </Box>
+            </ContentContainer>
+        </>
     );
 };
 

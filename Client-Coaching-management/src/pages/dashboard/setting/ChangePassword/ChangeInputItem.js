@@ -28,10 +28,6 @@ const ChangeInputItem = () => {
                     maxWidth: '500px'
                 }}
             >
-                <Typography variant="h2" Typography color={theme.palette.text.heading} mb={2}>
-                    Change Password
-                </Typography>
-
                 <CustomTextField label="Password *" size="small" />
                 <CustomTextField label="RE-Enter Password *" size="small" style={{ marginbottom: '10px' }} />
                 <Box

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Grid, Button, useTheme } from '@mui/material';
 import { styled } from '@mui/styles';
+import Heading from '../student/currentStudents/Heading';
+import ContentContainer from 'components/ui/ContentContainer';
 
 const TextWrap = {
     width: '100%',
@@ -20,32 +22,31 @@ const TextWrap = {
 
 const TargetSMS = () => {
     const theme = useTheme();
-    /* Css */
-    const container = {
-        backgroundColor: theme.palette.common.white,
-        p: 2,
-        borderRadius: '10px',
-        boxShadow: 1
-    };
+
     return (
-        <Box sx={{ ...container }}>
-            <label htmlFor="textarea" style={{ margin: '5px 2px' }}>
-                Enter Phone Number
-            </label>
-            <textarea style={{ ...TextWrap }} placeholder="0187891**50, 0153236**43, 0187891**50"></textarea>
-            <label htmlFor="textarea" style={{ margin: '5px 2px' }}>
-                Write Message Here
-            </label>
-            <textarea style={{ ...TextWrap }}>Hello Students</textarea>
-            <div style={{ gap: '10px', display: 'flex', margin: '10px 0' }}>
-                <Button size="small" variant="contained" sx={{ textTransform: 'capitalize' }}>
-                    Send SMS
-                </Button>
-                <Button size="small" color="error" variant="contained" sx={{ textTransform: 'capitalize' }}>
-                    Reset Info
-                </Button>
-            </div>
-        </Box>
+        <>
+            <Heading title="Target Sms" />
+            <ContentContainer>
+                <Box>
+                    <label htmlFor="textarea" style={{ margin: '5px 2px' }}>
+                        Enter Phone Number
+                    </label>
+                    <textarea style={{ ...TextWrap }} placeholder="0187891**50, 0153236**43, 0187891**50"></textarea>
+                    <label htmlFor="textarea" style={{ margin: '5px 2px' }}>
+                        Write Message Here
+                    </label>
+                    <textarea style={{ ...TextWrap }}>Hello Students</textarea>
+                    <div style={{ gap: '10px', display: 'flex', margin: '10px 0' }}>
+                        <Button size="small" variant="contained" sx={{ textTransform: 'capitalize' }}>
+                            Send SMS
+                        </Button>
+                        <Button size="small" color="error" variant="contained" sx={{ textTransform: 'capitalize' }}>
+                            Reset Info
+                        </Button>
+                    </div>
+                </Box>
+            </ContentContainer>
+        </>
     );
 };
 

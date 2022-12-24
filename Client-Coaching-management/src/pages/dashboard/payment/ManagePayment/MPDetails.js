@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody, Button } from '@mui/material';
-import CustomTextField from 'components/ui/CustomTextField';
-import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
-import CustomSearchButton from 'components/ui/CustomSearchButton';
 
+import MultiPurposeTable from 'components/propsTable/MultiPurposeTable';
+
+import CustomModal from 'components/ui/CustomModal';
+
+import { FaRegArrowAltCircleUp, FaSms } from 'react-icons/fa';
+import { FiEdit } from 'react-icons/fi';
 const headCells = [
     {
         id: 'ID',
@@ -60,96 +63,15 @@ const MPDetails = ({ data }) => {
     const theme = useTheme();
     const [classes, batch, year] = data;
     const [searchText, setSearchText] = useState('');
+    const [openModal, setOpenModal] = useState(false);
     return (
         <Box>
             <Box sx={{}}>
-                {/* <Box
-                    sx={{
-                        background: theme.palette.text.heading,
-                        mt: '10px',
-                        p: '3px'
-                    }}
-                >
-                    <Typography variant="h2" color={'white'}>
-                        Students Of Class {classes} , Batch {batch}, Year {year}
-                    </Typography>
-                </Box> */}
-
-                {/* <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center'
-                    }}
-                    alignItems="center"
-                >
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center'
-                        }}
-                    >
-                        <Typography
-                            variant="h4"
-                            color={theme.palette.text.primary}
-                            fontWeight="400"
-                            sx={{
-                                mr: 1
-                            }}
-                        >
-                            Show
-                        </Typography>
-                        <input
-                            type="number"
-                            style={{
-                                width: '40px'
-                            }}
-                        />
-                        <Typography
-                            sx={{
-                                ml: 1
-                            }}
-                            variant="h4"
-                            color={theme.palette.text.primary}
-                            fontWeight="400"
-                        >
-                            Entries
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center'
-                        }}
-                    >
-                        <Typography
-                            variant="h4"
-                            color={theme.palette.text.primary}
-                            fontWeight="400"
-                            sx={{
-                                mr: 1
-                            }}
-                            onChange={(e) => setSearchText(e.target.value)}
-                        >
-                            Search
-                        </Typography>
-                        <CustomTextField size="small" />
-                    </Box>
-                </Box> */}
-                <Box
-                    sx={
-                        {
-                            // display: 'flex',
-                            // alignItems: 'end'
-                        }
-                    }
-                    // alignItems='center'
-                >
+                <Box>
                     <MultiPurposeTable headCells={headCells}>
-                        <Tag />
+                        <Tag openModal={openModal} setOpenModal={setOpenModal} />
                     </MultiPurposeTable>
+                    <CustomModal open={openModal} setOpen={setOpenModal} />
                 </Box>
             </Box>
         </Box>
@@ -158,7 +80,17 @@ const MPDetails = ({ data }) => {
 
 export default MPDetails;
 
-const Tag = () => {
+const Tag = ({ setOpenModal, openModal }) => {
+    const [selectedStudent, setSelectedStudent] = useState({});
+    const handleModalOpen = (data) => {
+        setOpenModal(true);
+        setSelectedStudent(data);
+    };
+    const iconStyle = {
+        fontSize: '26px',
+        marginLeft: '7px',
+        cursor: 'pointer'
+    };
     return (
         <TableBody>
             {rows.map((row, index) => (
@@ -168,10 +100,8 @@ const Tag = () => {
                     </TableCell>
                     <TableCell align="left">{row.paymentType}</TableCell>
                     <TableCell align="left">
-                        <Box sx={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                            <CustomSearchButton />
-                            <CustomSearchButton />
-                        </Box>
+                        <FaSms style={{ ...iconStyle }} />
+                        <FaRegArrowAltCircleUp style={{ ...iconStyle }} onClick={() => handleModalOpen(row)} />
                     </TableCell>
                 </TableRow>
             ))}

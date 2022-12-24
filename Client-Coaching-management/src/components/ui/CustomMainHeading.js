@@ -1,5 +1,5 @@
-import { Box, Stack, useTheme } from '@mui/material';
-const CustomMainHeading = ({ children }) => {
+import { Box, Stack, useTheme, Typography } from '@mui/material';
+const CustomMainHeading = ({ icon, title }) => {
     const theme = useTheme();
     return (
         <Box
@@ -18,8 +18,12 @@ const CustomMainHeading = ({ children }) => {
             }}
         >
             <Stack direction="row" alignItems="center">
-                {' '}
-                {children}
+                {icon}
+
+                <Typography sx={{ fontWeight: '700', fontSize: '20px' }} variant="h4">
+                    {title}
+                </Typography>
+                {/* {children} */}
             </Stack>
         </Box>
     );
