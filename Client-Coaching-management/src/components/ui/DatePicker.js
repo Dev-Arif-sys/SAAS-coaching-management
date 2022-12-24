@@ -4,7 +4,7 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
         <Stack spacing={0.25}>
             <InputLabel
                 sx={{
-                    fontSize: '14px',
+                    fontSize: { xs: '12px', md: '14px' },
                     margin: lablegaping
                 }}
             >
@@ -12,8 +12,8 @@ const DatePicker = ({ label, required, lablegaping, ...others }) => {
             </InputLabel>
             <TextField
                 type="date"
-                style={{
-                    fontSize: '18px',
+                sx={{
+                    fontSize: { xs: '12px', md: '14px' },
                     background: 'none',
                     marginTop: '0px',
                     marginRight: '10px',

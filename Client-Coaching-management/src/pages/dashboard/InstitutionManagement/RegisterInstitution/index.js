@@ -1,12 +1,15 @@
 import { Button } from '@mui/material';
 import ContentContainer from 'components/ui/ContentContainer';
 import CustomHeading from 'components/ui/CustomHeading';
+import { useAddInstitutionMutation } from 'features/institution/institutionApi';
 import { useFormik } from 'formik';
 import Heading from './Heading';
 import InstitutionInformation from './InstitutionInformation';
 import UserInformation from './UserInformation';
 
 const RegisterInstitution = () => {
+    const [addInstitution, { isSuccess, isLoading, isError, data, error }] = useAddInstitutionMutation();
+
     const formik = useFormik({
         initialValues: {
             institution_name: '',
@@ -27,9 +30,10 @@ const RegisterInstitution = () => {
             user_password: ''
         },
         onSubmit: (values) => {
-            console.log(values);
+            addInstitution(values);
         }
     });
+    console.log(error, data);
     return (
         <div>
             <Heading />
