@@ -1,6 +1,5 @@
-import { Box, Typography, useTheme, Grid, Button } from '@mui/material';
+import { Box, Button, Grid, useTheme } from '@mui/material';
 import CustomHeading from 'components/ui/CustomHeading';
-import CustomSearchButton from 'components/ui/CustomSearchButton';
 import CustomSelect from 'components/ui/CustomSelect';
 import { useState } from 'react';
 import { HiSearch } from 'react-icons/hi';
@@ -65,11 +64,7 @@ const SearchStudents = () => {
 
     return (
         <Box>
-            <Box
-                sx={{
-                    p: '50px'
-                }}
-            >
+            <Box>
                 <div>
                     <CustomHeading>search student</CustomHeading>
                     <form onSubmit={searchHandle}>

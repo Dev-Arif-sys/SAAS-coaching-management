@@ -1,17 +1,17 @@
 import CustomMainHeading from 'components/ui/CustomMainHeading';
-import { FaSchool } from 'react-icons/fa';
+import { MdManageAccounts } from 'react-icons/md';
 const Heading = () => {
     return (
         <CustomMainHeading
             icon={
-                <FaSchool
+                <MdManageAccounts
                     style={{
                         marginRight: '5px',
-                        fontSize: '18px'
+                        fontSize: '20px'
                     }}
                 />
             }
-            title={' Register Institution'}
+            title={' Manage Institution'}
         />
     );
 };
