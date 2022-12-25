@@ -1,10 +1,12 @@
-import { Box, Button, Grid, Typography } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Box, Grid, Typography } from '@mui/material';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomSnackbar from 'components/ui/CustomSnackbar';
 import CustomTextField from 'components/ui/CustomTextField';
 import { useAddUserMutation } from 'features/users/usersApi';
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { AiOutlineSave } from 'react-icons/ai';
 
 const RegForm = () => {
     const [showError, setShowError] = useState(false);
@@ -118,9 +120,18 @@ const RegForm = () => {
                     </Grid>
                 </Grid>
 
-                <Button disabled={isLoading} variant="contained" type="submit">
+                <LoadingButton
+                    size="small"
+                    color="primary"
+                    loading={isLoading}
+                    loadingPosition="end"
+                    type="submit"
+                    variant="contained"
+                    endIcon={<AiOutlineSave />}
+                    disabled={isLoading}
+                >
                     Save
-                </Button>
+                </LoadingButton>
             </form>
             {alert}
         </Box>
