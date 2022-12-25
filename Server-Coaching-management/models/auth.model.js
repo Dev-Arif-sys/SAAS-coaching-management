@@ -7,10 +7,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, "User name is required"],
   },
-  institution_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Institution",
-  },
+
   number: {
     type: String,
     unique: true,
@@ -27,6 +24,10 @@ const userSchema = new Schema({
     type: "string",
     default: "",
     required: [true, "Role is required"],
+  },
+  institution_id: {
+    type: Schema.Types.ObjectId,
+    ref: "Institution",
   },
 });
 

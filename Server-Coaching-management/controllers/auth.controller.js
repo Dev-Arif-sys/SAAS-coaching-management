@@ -18,7 +18,13 @@ const sendToken = (user, statusCode, res) => {
 
   //sending access token to the client with username and email
   res.status(statusCode).json({
-    user,
+    user: {
+      name: user?.name,
+      role: user?.role,
+      institution: user?.institution_id,
+      _id: user._id,
+      number: user?.number,
+    },
     token: accessToken,
   });
 };
@@ -29,11 +35,10 @@ const sendToken = (user, statusCode, res) => {
 
 const register = async (req, res, next) => {
   try {
-    console.log(req.body)
     const user = await User.create({
       ...req.body,
     });
-
+    console.log(user);
     if (req.body?.institution_id) {
       const updatedInstitution = await Institution.updateOne(
         { _id: req.body.institution_id },
@@ -61,20 +66,24 @@ const login = async (req, res, next) => {
 
     // check user inputs
     if (!number || !password) {
-      return next(new ErrorResponse("All fields are required", 400));
+      throw next(new ErrorResponse("All fields are required", 400));
+      return;
     }
 
-    const foundUser = await User.findOne({ number }).select('-password').populate('institution_id');
+    const foundUser = await User.findOne({ number }).populate("institution_id");
 
     if (!foundUser?.number) {
-      return new ErrorResponse("Invalid number or password", 401);
+      throw new ErrorResponse("Invalid number or password", 401);
+      return;
     }
 
     //check match passwords
     const isMatch = await foundUser.matchPassword(password);
 
+    console.log({ isMatch });
     if (!isMatch) {
-      return new ErrorResponse("Invalid number or password", 401);
+      throw new ErrorResponse("Invalid number or password", 401);
+      return;
     }
 
     sendToken(foundUser, 200, res);
@@ -111,8 +120,13 @@ const refresh = async (req, res, next) => {
         );
 
         res.status(200).json({
-          name: foundUser.name,
-          email: foundUser.email,
+          user: {
+            name: foundUser?.name,
+            role: foundUser?.role,
+            institution: foundUser?.institution_id,
+            _id: foundUser._id,
+            number: foundUser?.number,
+          },
           token: accessToken,
         });
       }

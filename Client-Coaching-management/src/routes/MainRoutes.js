@@ -2,9 +2,11 @@ import { lazy } from 'react';
 
 // project import
 import Loadable from 'components/Loadable';
+import PersistLogin from 'features/users/PersistLogin';
 import MainLayout from 'layout/MainLayout/index';
 import ManageInstitution from 'pages/dashboard/InstitutionManagement/ManageInstitution/index';
 import RegisterInstitution from 'pages/dashboard/InstitutionManagement/RegisterInstitution/index';
+import RegisterSuperAdmin from 'pages/dashboard/InstitutionManagement/RegisterSuperAdmin/index';
 import SalesProduct from 'pages/dashboard/SalesProduct';
 import CurrentStudents from 'pages/dashboard/student/currentStudents/index';
 import PromoteStudents from 'pages/dashboard/student/promoteStudents/index';
@@ -55,136 +57,145 @@ const MainRoutes = {
     element: <MainLayout />,
     children: [
         {
-            path: '',
-            element: <DashboardDefault />
-        },
-        {
-            path: 'color',
-            element: <Color />
-        },
-        {
-            path: 'sample-page',
-            element: <SamplePage />
-        },
-        {
-            path: 'shadow',
-            element: <Shadow />
-        },
-        {
-            path: 'typography',
-            element: <Typography />
-        },
-        {
-            path: 'icons/ant',
-            element: <AntIcons />
-        },
-        {
-            path: 'form-test',
-            element: <FormTest />
-        },
-        {
-            path: 'table',
-            element: <SalesProduct />
-        },
-        // -----------student-----------//
-        {
-            path: 'students',
-            element: <CurrentStudents />
-        },
-        {
-            path: 'register-students',
-            element: <RegisterStudents />
-        },
-        {
-            path: 'promote',
-            element: <PromoteStudents />
-        },
+            element: <PersistLogin />,
+            children: [
+                {
+                    path: '',
+                    element: <DashboardDefault />
+                },
+                {
+                    path: 'color',
+                    element: <Color />
+                },
+                {
+                    path: 'sample-page',
+                    element: <SamplePage />
+                },
+                {
+                    path: 'shadow',
+                    element: <Shadow />
+                },
+                {
+                    path: 'typography',
+                    element: <Typography />
+                },
+                {
+                    path: 'icons/ant',
+                    element: <AntIcons />
+                },
+                {
+                    path: 'form-test',
+                    element: <FormTest />
+                },
+                {
+                    path: 'table',
+                    element: <SalesProduct />
+                },
+                // -----------student-----------//
+                {
+                    path: 'students',
+                    element: <CurrentStudents />
+                },
+                {
+                    path: 'register-students',
+                    element: <RegisterStudents />
+                },
+                {
+                    path: 'promote',
+                    element: <PromoteStudents />
+                },
 
-        // -----------exam-----------//
-        {
-            path: 'exam-mark',
-            element: <ExamMarkEntry />
-        },
-        {
-            path: 'view-result',
-            element: <ViewResult />
-        },
-        // -----------payment-----------//
-        {
-            path: 'pay-fees',
-            element: <PayFee />
-        },
-        {
-            path: 'pay-due',
-            element: <PayDue />
-        },
-        {
-            path: 'fee-overview',
-            element: <FeeOverview />
-        },
-        {
-            path: 'due-overview',
-            element: <DueOverview />
-        },
-        {
-            path: 'manage-payment',
-            element: <ManagePayment />
-        },
-        // -----------message-----------//
-        {
-            path: 'sms-absent',
-            element: <MessageAbsent />
-        },
-        {
-            path: 'target-sms',
-            element: <TargetSMS />
-        },
-        {
-            path: 'advertising',
-            element: <Advertising />
-        },
-        {
-            path: 'sms',
-            element: <SMSNotice />
-        },
-        // -----------accounts-----------//
-        {
-            path: 'expense-entry',
-            element: <ExpenseEntry />
-        },
-        {
-            path: 'expense-details',
-            element: <ExpenseDetails />
-        },
-        {
-            path: 'income-vs-expense',
-            element: <IncomeVsExpense />
-        },
-        {
-            path: 'daily-report',
-            element: <DailyReport />
-        },
-        // -----------setting-----------//
-        {
-            path: 'manage-user',
-            element: <ManageUser />
-        },
-        {
-            path: 'add-user',
-            element: <AddUser />
-        },
-        {
-            path: 'change-password',
-            element: <ChangePassword />
-        },
-        // -----------super admin setting-----------//
-        {
-            path: 'register-institution',
-            element: <RegisterInstitution />
-        },
-        {
-            path: 'manage-institution',
-            element: <ManageInstitution />
+                // -----------exam-----------//
+                {
+                    path: 'exam-mark',
+                    element: <ExamMarkEntry />
+                },
+                {
+                    path: 'view-result',
+                    element: <ViewResult />
+                },
+                // -----------payment-----------//
+                {
+                    path: 'pay-fees',
+                    element: <PayFee />
+                },
+                {
+                    path: 'pay-due',
+                    element: <PayDue />
+                },
+                {
+                    path: 'fee-overview',
+                    element: <FeeOverview />
+                },
+                {
+                    path: 'due-overview',
+                    element: <DueOverview />
+                },
+                {
+                    path: 'manage-payment',
+                    element: <ManagePayment />
+                },
+                // -----------message-----------//
+                {
+                    path: 'sms-absent',
+                    element: <MessageAbsent />
+                },
+                {
+                    path: 'target-sms',
+                    element: <TargetSMS />
+                },
+                {
+                    path: 'advertising',
+                    element: <Advertising />
+                },
+                {
+                    path: 'sms',
+                    element: <SMSNotice />
+                },
+                // -----------accounts-----------//
+                {
+                    path: 'expense-entry',
+                    element: <ExpenseEntry />
+                },
+                {
+                    path: 'expense-details',
+                    element: <ExpenseDetails />
+                },
+                {
+                    path: 'income-vs-expense',
+                    element: <IncomeVsExpense />
+                },
+                {
+                    path: 'daily-report',
+                    element: <DailyReport />
+                },
+                // -----------setting-----------//
+                {
+                    path: 'manage-user',
+                    element: <ManageUser />
+                },
+                {
+                    path: 'add-user',
+                    element: <AddUser />
+                },
+                {
+                    path: 'change-password',
+                    element: <ChangePassword />
+                },
+                // -----------super admin setting-----------//
+                {
+                    path: 'register-institution',
+                    element: <RegisterInstitution />
+                },
+                {
+                    path: 'manage-institution',
+                    element: <ManageInstitution />
+                },
+                {
+                    path: 'register-super-admin',
+                    element: <RegisterSuperAdmin />
+                }
+            ]
         }
     ]
 };

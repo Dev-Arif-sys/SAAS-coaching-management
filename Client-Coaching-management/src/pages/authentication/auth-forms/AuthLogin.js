@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 // material-ui
@@ -9,56 +9,72 @@ import {
     FormControlLabel,
     FormHelperText,
     Grid,
-    Link,
     IconButton,
     InputAdornment,
     InputLabel,
+    Link,
     OutlinedInput,
     Stack,
     Typography
 } from '@mui/material';
 
 // third party
-import * as Yup from 'yup';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 // project import
-import FirebaseSocial from './FirebaseSocial';
 import AnimateButton from 'components/@extended/AnimateButton';
+import FirebaseSocial from './FirebaseSocial';
 
 // assets
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import CustomSnackbar from 'components/ui/CustomSnackbar';
+import { useLoginMutation } from 'features/users/usersApi';
+import usePersist from 'hooks/userPersist';
+import { useNavigate } from 'react-router-dom';
 
 // ============================|| FIREBASE - LOGIN ||============================ //
 
 const AuthLogin = () => {
-    const [checked, setChecked] = React.useState(false);
-
+    const [login, { isSuccess, isError, error, data }] = useLoginMutation();
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = React.useState(false);
+    const [persist, setPersist] = usePersist();
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
 
+    // navigating the screen
+    useEffect(() => {
+        if (isSuccess) {
+            navigate('/dashboard');
+        }
+    }, [isSuccess]);
+    console.log(error, data);
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+    const handleToggle = () => setPersist((prev) => !prev);
+    // decide what alert to show
+    let alert = '';
+    if (isError) alert = <CustomSnackbar status="error" message={error?.data?.error || error?.error} />;
 
     return (
         <>
             <Formik
                 initialValues={{
-                    email: 'info@codedthemes.com',
-                    password: '123456',
-                    submit: null
+                    number: '',
+                    password: ''
                 }}
                 validationSchema={Yup.object().shape({
-                    email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
+                    number: Yup.string().min(11, 'Number must be 11 characters').required('Number is required'),
                     password: Yup.string().max(255).required('Password is required')
                 })}
                 onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         setStatus({ success: false });
                         setSubmitting(false);
+                        login(values);
                     } catch (err) {
                         setStatus({ success: false });
                         setErrors({ submit: err.message });
@@ -71,21 +87,21 @@ const AuthLogin = () => {
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="email-login">Email Address</InputLabel>
+                                    <InputLabel htmlFor="email-login">Number</InputLabel>
                                     <OutlinedInput
                                         id="email-login"
-                                        type="email"
-                                        value={values.email}
-                                        name="email"
+                                        type="text"
+                                        value={values.number}
+                                        name="number"
                                         onBlur={handleBlur}
                                         onChange={handleChange}
-                                        placeholder="Enter email address"
+                                        placeholder="Enter number"
                                         fullWidth
-                                        error={Boolean(touched.email && errors.email)}
+                                        error={Boolean(touched.number && errors.number)}
                                     />
-                                    {touched.email && errors.email && (
+                                    {touched.number && errors.number && (
                                         <FormHelperText error id="standard-weight-helper-text-email-login">
-                                            {errors.email}
+                                            {errors.number}
                                         </FormHelperText>
                                     )}
                                 </Stack>
@@ -130,8 +146,8 @@ const AuthLogin = () => {
                                     <FormControlLabel
                                         control={
                                             <Checkbox
-                                                checked={checked}
-                                                onChange={(event) => setChecked(event.target.checked)}
+                                                checked={persist}
+                                                onChange={handleToggle}
                                                 name="checked"
                                                 color="primary"
                                                 size="small"
@@ -176,6 +192,7 @@ const AuthLogin = () => {
                     </form>
                 )}
             </Formik>
+            {alert}
         </>
     );
 };
