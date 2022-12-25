@@ -1,6 +1,6 @@
 import { Box } from '../../../node_modules/@mui/material/index';
 import AboutAndDetails from './AboutAndDetails';
-import AboutTopBar from './AboutTopBar';
+import AboutTopBar from './Abouttopbar';
 
 const About = () => {
     return (
