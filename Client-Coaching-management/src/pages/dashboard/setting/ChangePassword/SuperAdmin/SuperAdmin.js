@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { HiSearch } from 'react-icons/hi';
+import { BsArrowBarDown, BsArrowBarUp } from 'react-icons/bs';
 
 const SuperAdmin = () => {
     return (
@@ -70,7 +71,7 @@ const Rowt = ({ row }) => {
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
                 <TableCell>
                     <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-                        {open ? <HiSearch /> : <HiSearch />}
+                        {open ? <BsArrowBarDown /> : <BsArrowBarUp />}
                     </IconButton>
                 </TableCell>
                 <TableCell component="th" scope="row">
