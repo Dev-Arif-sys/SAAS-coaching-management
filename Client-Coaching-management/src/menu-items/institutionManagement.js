@@ -27,6 +27,13 @@ const institutionManagement = {
             type: 'item',
             url: '/manage-institution',
             icon: icons.ChromeOutlined
+        },
+        {
+            id: 'register-super-admin',
+            title: 'Register Super-Admin',
+            type: 'item',
+            url: '/register-super-admin',
+            icon: icons.ChromeOutlined
         }
     ]
 };

@@ -1,7 +1,5 @@
 // material-ui
 import { styled } from '@mui/material/styles';
-import LinearProgress from '@mui/material/LinearProgress';
-import { pick } from 'lodash';
 
 // loader style
 const ButtonWrapper = styled('button')(({ theme }) => ({
@@ -51,6 +49,6 @@ const ButtonWrapper = styled('button')(({ theme }) => ({
 
 // ==============================|| Loader ||============================== //
 
-const CustomButton = () => <ButtonWrapper>Hover me</ButtonWrapper>;
+const CustomButton = ({ children }) => <ButtonWrapper>{children}</ButtonWrapper>;
 
 export default CustomButton;
