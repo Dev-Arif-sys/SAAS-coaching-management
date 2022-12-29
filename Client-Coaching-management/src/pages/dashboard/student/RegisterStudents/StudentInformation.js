@@ -45,7 +45,7 @@ const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
                         id="phone"
                         required={true}
                         name="std_phone"
-                        type="number"
+                        type="text"
                         label={'Phone No'}
                         value={formik.values.std_phone}
                         onChange={formik.handleChange}

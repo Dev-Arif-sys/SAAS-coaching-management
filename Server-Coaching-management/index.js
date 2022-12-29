@@ -39,7 +39,7 @@ app.get("/", async (req, res) => {
 
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/institutions", institution);
-app.use("api/v1/students", student);
+app.use("/api/v1/students", student);
 
 // error handler
 

@@ -1,6 +1,6 @@
 import { apiSlice } from 'features/apiSlice';
 
-const studentapi = apiSlice.injectEndpoints({
+const studentApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getStudents: builder.query({
             query: () => '/add_me',
@@ -12,14 +12,13 @@ const studentapi = apiSlice.injectEndpoints({
         }),
         addStudent: builder.mutation({
             query: (data) => ({
-                url: '/add_me',
+                url: '/students',
                 method: 'POST',
                 body: data
-            }),
-            invalidatesTags: ['Student']
+            })
         }),
         updateStudent: builder.mutation({
-            query: (id, ...data) => ({
+            query: ({ id, ...data }) => ({
                 url: `/add_me/${id}`,
                 method: 'PUT',
                 body: data
@@ -39,4 +38,4 @@ const studentapi = apiSlice.injectEndpoints({
 });
 
 export const { useGetStudentsQuery, useGetStudentQuery, useAddStudentMutation, useUpdateStudentMutation, useDeleteStudentMutation } =
-studentapi;
+    studentApi;
