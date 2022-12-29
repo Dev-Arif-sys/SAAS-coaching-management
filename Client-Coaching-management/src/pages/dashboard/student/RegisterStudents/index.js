@@ -1,8 +1,13 @@
-import { Button, Typography, useTheme } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Typography, useTheme } from '@mui/material';
 import ContentContainer from 'components/ui/ContentContainer';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
+import CustomSnackbar from 'components/ui/CustomSnackbar';
+import { useAddStudentMutation } from 'features/Student/studentApi';
 import { useFormik } from 'formik';
+import { useState } from 'react';
+import { AiOutlineSave } from 'react-icons/ai';
 import { FaRegListAlt } from 'react-icons/fa';
 import BrotherSisterInfo from './BrotherSisterInfo';
 import ParentsInformation from './ParentsInformation';
@@ -10,6 +15,12 @@ import StudentInformation from './StudentInformation';
 
 const RegisterStudents = () => {
     const theme = useTheme();
+    const [dynamicField, setDynamicField] = useState({
+        std_class: '',
+        std_batch: '',
+        std_batch_year: ''
+    });
+    const [addStudent, { isError, isLoading, isSuccess, error, data }] = useAddStudentMutation();
     const formik = useFormik({
         initialValues: {
             std_name: '',
@@ -44,10 +55,14 @@ const RegisterStudents = () => {
             std_bro3_institution: ''
         },
         onSubmit: (values) => {
-            console.log(values);
+            addStudent({ ...values, ...dynamicField });
         }
     });
 
+    // decide what alert to show
+    let alert = '';
+    if (isError) alert = <CustomSnackbar status="error" message={error?.data?.error || error?.error} />;
+    if (!isError && isSuccess) alert = <CustomSnackbar status="success" message={data?.message} />;
     return (
         <>
             <CustomMainHeading>
@@ -66,15 +81,30 @@ const RegisterStudents = () => {
             <ContentContainer>
                 <form onSubmit={formik.handleSubmit}>
                     <CustomHeading>Student Information</CustomHeading>
-                    <StudentInformation formik={formik} />
+                    <StudentInformation formik={formik} dynamicField={dynamicField} setDynamicField={setDynamicField} />
                     <CustomHeading>Parents Information</CustomHeading>
                     <ParentsInformation formik={formik} />
                     <CustomHeading>Brother's and Sister's Information</CustomHeading>
                     <BrotherSisterInfo formik={formik} />
 
-                    <Button type="submit">Submit </Button>
+                    <LoadingButton
+                        size="small"
+                        color="primary"
+                        loading={isLoading}
+                        loadingPosition="end"
+                        type="submit"
+                        variant="contained"
+                        endIcon={<AiOutlineSave />}
+                        disabled={isLoading}
+                        sx={{
+                            mt: 1
+                        }}
+                    >
+                        Save
+                    </LoadingButton>
                 </form>
             </ContentContainer>
+            {alert}
         </>
     );
 };

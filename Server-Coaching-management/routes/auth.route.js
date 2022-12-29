@@ -1,6 +1,6 @@
 const express =require('express')
 const router = express.Router();
-const {login,refresh,register,logout, protectTest} = require('../controllers/auth.controller');
+const {login,refresh,register,logout, protectTest, getAllSuperAdmin} = require('../controllers/auth.controller');
 const { protect } = require('../middlewares/protect');
 
 
@@ -10,6 +10,8 @@ router.route('/register')
               .post(register)
 router.route('/refresh')
               .get(refresh)
+router.route('/super-admin')
+               .get(getAllSuperAdmin)
 router.route('/logout')
               .post(logout)     
  router.route('/protect')

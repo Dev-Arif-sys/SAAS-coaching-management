@@ -1,9 +1,15 @@
 import { Box, Grid } from '@mui/material';
+import CustomAutocomplete from 'components/ui/CustomAutocomplete';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomTextField from 'components/ui/CustomTextField';
 import DatePicker from 'components/ui/DatePicker';
+import { useEffect, useState } from 'react';
 
-const StudentInformation = ({ formik }) => {
+const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
+    const [batch, setBatch] = useState(dynamicField.std_batch);
+    useEffect(() => {
+        setDynamicField((prev) => ({ ...prev, std_batch: batch }));
+    }, [batch]);
     return (
         <Box
             sx={{
@@ -39,7 +45,7 @@ const StudentInformation = ({ formik }) => {
                         id="phone"
                         required={true}
                         name="std_phone"
-                        type="number"
+                        type="text"
                         label={'Phone No'}
                         value={formik.values.std_phone}
                         onChange={formik.handleChange}
@@ -63,8 +69,8 @@ const StudentInformation = ({ formik }) => {
                         options={classData}
                         id="class"
                         name="std_class"
-                        value={formik.values.std_class}
-                        onChange={formik.handleChange}
+                        value={dynamicField.std_class}
+                        onChange={(e) => setDynamicField((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
                         label="Class"
                         required={true}
                     />
@@ -72,26 +78,18 @@ const StudentInformation = ({ formik }) => {
 
                 <Grid item xs={6} sm={3} md={2}>
                     <CustomSelect
-                        options={batchData}
-                        id="batch"
-                        name="std_batch"
-                        value={formik.values.std_batch}
-                        onChange={formik.handleChange}
-                        label="Batch"
+                        options={yearData}
+                        id="batch_year"
+                        name="std_batch_year"
+                        value={dynamicField.std_batch_year}
+                        onChange={(e) => setDynamicField((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                        label="Batch Year"
                         required={true}
                     />
                 </Grid>
 
                 <Grid item xs={6} sm={3} md={2}>
-                    <CustomSelect
-                        options={batchData}
-                        id="batch_year"
-                        name="std_batch_year"
-                        value={formik.values.std_batch_year}
-                        onChange={formik.handleChange}
-                        label="Batch Year"
-                        required={true}
-                    />
+                    <CustomAutocomplete required={true} givenOptions={['option1', 'option2']} value={batch} setValue={setBatch} />
                 </Grid>
 
                 <Grid item xs={6} sm={3} md={2}>

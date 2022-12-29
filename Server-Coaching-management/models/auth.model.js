@@ -29,7 +29,9 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Institution",
   },
-});
+},
+{ timestamps: true }
+);
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {

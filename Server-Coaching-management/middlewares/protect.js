@@ -12,8 +12,7 @@ const protect = async (req, res, next) => {
      console.log({decoded})
       const user = await User.findById(decoded.user.id).select("-password");
       console.log({user})
-      if (!user?._id)
-        return next(new ErrorResponse("Unauthorized to access", 401));
+      if (!user?._id){return next(new ErrorResponse("Unauthorized to access", 401));}
       req.user = user;
       next();
     }

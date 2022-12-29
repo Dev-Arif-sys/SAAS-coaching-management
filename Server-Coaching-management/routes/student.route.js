@@ -1,17 +1,17 @@
 const express =require('express');
-const { registerInstitution, getAllInstitution, deleteInstitution } = require('../controllers/institution.controller');
+const { registerStudent, getStudents } = require('../controllers/student.controller');
 const { protect } = require('../middlewares/protect');
 const router = express.Router();
 
 
 
 router.route('/')
-              .post(registerInstitution)
-              .get(protect,getAllInstitution)
+              .post(protect,registerStudent)
+              .get(getStudents)
 router.route('/:id') 
               .get()
               .put()
-              .delete(deleteInstitution)
+              .delete()
                       
 
 

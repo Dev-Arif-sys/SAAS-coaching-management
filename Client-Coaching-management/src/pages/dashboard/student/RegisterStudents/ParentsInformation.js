@@ -30,7 +30,7 @@ const ParentsInformation = ({ formik }) => {
                         id="std_father_phone"
                         name="std_father_phone"
                         label={'Phone No'}
-                        type="number"
+                        type="text"
                         value={formik.values.std_father_phone}
                         onChange={formik.handleChange}
                     />
@@ -63,7 +63,7 @@ const ParentsInformation = ({ formik }) => {
                         id="std_mother_phone"
                         name="std_mother_phone"
                         label={'Phone No'}
-                        type="number"
+                        type="text"
                         value={formik.values.std_mother_phone}
                         onChange={formik.handleChange}
                     />
