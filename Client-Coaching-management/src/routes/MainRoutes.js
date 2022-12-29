@@ -5,6 +5,7 @@ import Loadable from 'components/Loadable';
 import PersistLogin from 'features/users/PersistLogin';
 import MainLayout from 'layout/MainLayout/index';
 import ManageInstitution from 'pages/dashboard/InstitutionManagement/ManageInstitution/index';
+import ManageSuperAdmin from 'pages/dashboard/InstitutionManagement/ManageSuperAdmin/index';
 import RegisterInstitution from 'pages/dashboard/InstitutionManagement/RegisterInstitution/index';
 import RegisterSuperAdmin from 'pages/dashboard/InstitutionManagement/RegisterSuperAdmin/index';
 import SalesProduct from 'pages/dashboard/SalesProduct';
@@ -194,6 +195,10 @@ const MainRoutes = {
                 {
                     path: 'register-super-admin',
                     element: <RegisterSuperAdmin />
+                },
+                {
+                    path: 'manage-super-admin',
+                    element: <ManageSuperAdmin />
                 }
             ]
         }

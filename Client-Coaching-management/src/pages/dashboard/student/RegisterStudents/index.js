@@ -3,6 +3,7 @@ import ContentContainer from 'components/ui/ContentContainer';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import { FaRegListAlt } from 'react-icons/fa';
 import BrotherSisterInfo from './BrotherSisterInfo';
 import ParentsInformation from './ParentsInformation';
@@ -10,6 +11,11 @@ import StudentInformation from './StudentInformation';
 
 const RegisterStudents = () => {
     const theme = useTheme();
+    const [dynamicField, setDynamicField] = useState({
+        std_class: '',
+        std_batch: '',
+        std_batch_year: ''
+    });
     const formik = useFormik({
         initialValues: {
             std_name: '',
@@ -44,10 +50,11 @@ const RegisterStudents = () => {
             std_bro3_institution: ''
         },
         onSubmit: (values) => {
-            console.log(values);
+            console.log({ ...values, ...dynamicField });
         }
     });
 
+    console.log({ dynamicField });
     return (
         <>
             <CustomMainHeading>
@@ -66,7 +73,7 @@ const RegisterStudents = () => {
             <ContentContainer>
                 <form onSubmit={formik.handleSubmit}>
                     <CustomHeading>Student Information</CustomHeading>
-                    <StudentInformation formik={formik} />
+                    <StudentInformation formik={formik} dynamicField={dynamicField} setDynamicField={setDynamicField} />
                     <CustomHeading>Parents Information</CustomHeading>
                     <ParentsInformation formik={formik} />
                     <CustomHeading>Brother's and Sister's Information</CustomHeading>
