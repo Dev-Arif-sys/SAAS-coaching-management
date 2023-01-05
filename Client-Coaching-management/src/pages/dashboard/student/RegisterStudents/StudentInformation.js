@@ -3,12 +3,32 @@ import CustomAutocomplete from 'components/ui/CustomAutocomplete';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomTextField from 'components/ui/CustomTextField';
 import DatePicker from 'components/ui/DatePicker';
+import { useGetBatchesMutation } from 'features/Student/studentApi';
 import { useEffect, useState } from 'react';
 
 const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
-    const [batch, setBatch] = useState(dynamicField.std_batch);
+    const [batch, setBatch] = useState(formik.values.std_batch);
+    const [getBatches, { isError, isSuccess, isLoading, data }] = useGetBatchesMutation();
+    const { result: batches } = data || {};
+    const batchOptions = batches?.map((batch) => batch.batch);
+
     useEffect(() => {
-        setDynamicField((prev) => ({ ...prev, std_batch: batch }));
+        setBatch(formik.values.std_batch);
+    }, [formik.values.std_batch]);
+
+    useEffect(() => {
+        if (formik.values.std_batch_year !== '' && formik.values.std_class !== '') {
+            getBatches({
+                std_class: formik.values.std_class,
+                std_batch_year: formik.values.std_batch_year
+            });
+        }
+    }, [formik.values.std_batch_year, formik.values.std_class]);
+
+    useEffect(() => {
+        if (batch !== '') {
+            formik.setFieldValue('std_batch', batch);
+        }
     }, [batch]);
     return (
         <Box
@@ -69,8 +89,8 @@ const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
                         options={classData}
                         id="class"
                         name="std_class"
-                        value={dynamicField.std_class}
-                        onChange={(e) => setDynamicField((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                        value={formik.values.std_class}
+                        onChange={formik.handleChange}
                         label="Class"
                         required={true}
                     />
@@ -81,15 +101,15 @@ const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
                         options={yearData}
                         id="batch_year"
                         name="std_batch_year"
-                        value={dynamicField.std_batch_year}
-                        onChange={(e) => setDynamicField((prev) => ({ ...prev, [e.target.name]: e.target.value }))}
+                        value={formik.values.std_batch_year}
+                        onChange={formik.handleChange}
                         label="Batch Year"
                         required={true}
                     />
                 </Grid>
 
                 <Grid item xs={6} sm={3} md={2}>
-                    <CustomAutocomplete required={true} givenOptions={['option1', 'option2']} value={batch} setValue={setBatch} />
+                    <CustomAutocomplete required={true} givenOptions={batchOptions || []} value={batch} setValue={setBatch} />
                 </Grid>
 
                 <Grid item xs={6} sm={3} md={2}>
@@ -186,7 +206,7 @@ const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
                         id="thana"
                         name="std_thana"
                         label={'Thana'}
-                        value={formik.values.std_Thana}
+                        value={formik.values.std_thana}
                         onChange={formik.handleChange}
                     />
                 </Grid>
@@ -197,7 +217,7 @@ const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
                         id="zilla"
                         name="std_zilla"
                         label={'Zilla'}
-                        value={formik.values.std_Zilla}
+                        value={formik.values.std_zilla}
                         onChange={formik.handleChange}
                     />
                 </Grid>

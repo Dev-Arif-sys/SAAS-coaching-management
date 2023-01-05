@@ -6,7 +6,7 @@ const CustomLoader = () => {
             justifyContent="center"
             alignItems="Center"
             sx={{
-                height: '80vh'
+                height: '40vh'
             }}
         >
             <CircularProgress color="success" />

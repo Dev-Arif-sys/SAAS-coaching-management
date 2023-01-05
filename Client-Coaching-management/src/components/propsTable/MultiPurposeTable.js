@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { Box, Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
 // third-party
-import MultiPurposeSearch from 'components/search/MultiPurposeSearch';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -82,7 +81,6 @@ export default function MultiPurposeTable({ headCells, children, setSearchTerm, 
     };
     return (
         <Box sx={{ ...container }}>
-            <MultiPurposeSearch setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
             <TableContainer
                 sx={{
                     width: '100%',

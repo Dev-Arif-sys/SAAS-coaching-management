@@ -12,6 +12,7 @@ import SalesProduct from 'pages/dashboard/SalesProduct';
 import CurrentStudents from 'pages/dashboard/student/currentStudents/index';
 import PromoteStudents from 'pages/dashboard/student/promoteStudents/index';
 import RegisterStudents from 'pages/dashboard/student/RegisterStudents/index';
+import UpdateStudents from 'pages/dashboard/student/UpdateStudent/index';
 import FormTest from 'pages/FormTest';
 
 // render - dashboard
@@ -96,6 +97,10 @@ const MainRoutes = {
                 {
                     path: 'students',
                     element: <CurrentStudents />
+                },
+                {
+                    path: 'students/:id',
+                    element: <UpdateStudents />
                 },
                 {
                     path: 'register-students',
