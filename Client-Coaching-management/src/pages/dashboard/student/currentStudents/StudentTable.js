@@ -5,6 +5,7 @@ import { AiFillDelete, AiOutlineFolderView } from 'react-icons/ai';
 import { FaRegArrowAltCircleUp, FaSms } from 'react-icons/fa';
 import { FiEdit } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import DeleteAlertsBox from './DeleteAlertsBox';
 import PromoteModal from './PromoteModal';
 
 const headCells = [
@@ -167,7 +168,8 @@ const StudentTable = ({ students }) => {
 
                 <Tooltip title="Delete">
                     <IconButton aria-label="expand row" size="small">
-                        <AiFillDelete style={{ fontSize: '17px', color: 'red' }} />
+                        {/* <AiFillDelete style={{ fontSize: '17px', color: 'red' }} /> */}
+                        <DeleteAlertsBox id={row._id} />
                     </IconButton>
                 </Tooltip>
             </TableCell>

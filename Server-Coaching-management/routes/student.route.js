@@ -1,5 +1,5 @@
 const express =require('express');
-const { registerStudent, getStudents, getStudentsBatch, updateStudent, getStudent } = require('../controllers/student.controller');
+const { registerStudent, getStudents, getStudentsBatch, updateStudent, getStudent, deleteStudent } = require('../controllers/student.controller');
 const { protect } = require('../middlewares/protect');
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.route('/batch')
 router.route('/:id') 
               .get(protect,getStudent)
               .put(protect,updateStudent)
-              .delete()
+              .delete(protect,deleteStudent)
  
                       
 

@@ -147,10 +147,37 @@ const getStudentsBatch = async (req, res, next) => {
   }
 };
 
+
+// @desc  update students students
+// @route PUT /api/v1/students/id
+// @access admin
+
+const deleteStudent = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    console.log(id);
+    console.log(req.body)
+    const deletedStudent = await Student.deleteOne(
+      {
+        _id: id,
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Student has been Deleted",
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
 module.exports = {
   registerStudent,
   getStudents,
   getStudent,
   getStudentsBatch,
   updateStudent,
+  deleteStudent
 };

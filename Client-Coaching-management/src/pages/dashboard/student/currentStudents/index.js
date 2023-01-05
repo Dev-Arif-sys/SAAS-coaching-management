@@ -5,7 +5,7 @@ import CustomError from 'components/ui/CustomError';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomLoader from 'components/ui/CustomLoader';
 import NoItem from 'components/ui/NoItem';
-import { useGetStudentsQuery } from 'features/Student/studentApi';
+import { useGetStudentsQuery } from 'features/Student/studentapi';
 import { useEffect, useState } from 'react';
 import Heading from './Heading';
 import SearchStudents from './SearchStudents';

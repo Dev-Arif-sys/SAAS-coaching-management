@@ -40,7 +40,7 @@ const studentApi = apiSlice.injectEndpoints({
 
         deleteStudent: builder.mutation({
             query: (id) => ({
-                url: `/add_me/${id}`,
+                url: `/students/${id}`,
                 method: 'DELETE'
             }),
             invalidatesTags: ['Student']

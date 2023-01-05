@@ -9,7 +9,7 @@ import CustomAutocomplete from 'components/ui/CustomAutocomplete';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomSnackbar from 'components/ui/CustomSnackbar';
-import { useGetBatchesMutation, useUpdateStudentMutation } from 'features/Student/studentApi';
+import { useGetBatchesMutation, useUpdateStudentMutation } from 'features/Student/studentapi';
 import React, { useEffect, useState } from 'react';
 
 const yearData = [
