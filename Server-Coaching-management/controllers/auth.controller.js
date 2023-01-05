@@ -50,6 +50,13 @@ const register = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: "User has been registered successfully",
+      user: {
+        name: user?.name,
+        role: user?.role,
+        institution: user?.institution_id,
+        _id: user._id,
+        number: user?.number,
+      },
     });
   } catch (err) {
     next(err);
@@ -146,6 +153,22 @@ const logout = (req, res) => {
   res.json({ message: "Cookie cleared" });
 };
 
+// @desc retrieve super admins
+// @route POST api/v1/auth/super-admin
+// @access Super admins
+const getAllSuperAdmin = async (req, res, next) => {
+  try {
+    const users = await User.find({ role: "super-admin" }).select("-password");
+
+    res.status(200).json({
+      success: true,
+      message: "All institutions are found",
+      result: users,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 const protectTest = (req, res, next) => {
   try {
     res.json(req.user);
@@ -159,5 +182,6 @@ module.exports = {
   register,
   refresh,
   logout,
+  getAllSuperAdmin,
   protectTest,
 };

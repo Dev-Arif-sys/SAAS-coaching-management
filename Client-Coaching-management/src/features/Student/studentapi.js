@@ -1,31 +1,41 @@
 import { apiSlice } from 'features/apiSlice';
 
-const studentapi = apiSlice.injectEndpoints({
+const studentApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getStudents: builder.query({
-            query: () => '/add_me',
-            providesTags: ['Student']
+            query: ({ std_class, std_batch_year, std_batch, search }) => {
+                let url = `/students?std_class=${std_class}&std_batch_year=${std_batch_year}&std_batch=${std_batch}`;
+                if (search && search !== '') {
+                    url = url + `&search=${search}`;
+                }
+                return url;
+            },
+            providesTags: ['Students']
         }),
         getStudent: builder.query({
-            query: (id) => `/add_me/${id}`,
+            query: (id) => `/students/${id}`,
             providesTags: ['Student']
         }),
         addStudent: builder.mutation({
             query: (data) => ({
-                url: '/add_me',
+                url: '/students',
                 method: 'POST',
                 body: data
-            }),
-            invalidatesTags: ['Student']
+            })
+        }),
+        getBatches: builder.mutation({
+            query: ({ std_class, std_batch_year }) => ({
+                url: `/students/batch?std_class=${std_class}&std_batch_year=${std_batch_year}`,
+                method: 'GET'
+            })
         }),
         updateStudent: builder.mutation({
-            query: (id, ...data) => ({
-                url: `/add_me/${id}`,
+            query: ({ id, ...data }) => ({
+                url: `/students/${id}`,
                 method: 'PUT',
                 body: data
             }),
-
-            invalidatesTags: ['Student']
+            invalidatesTags: ['Students', 'Student']
         }),
 
         deleteStudent: builder.mutation({
@@ -38,5 +48,11 @@ const studentapi = apiSlice.injectEndpoints({
     })
 });
 
-export const { useGetStudentsQuery, useGetStudentQuery, useAddStudentMutation, useUpdateStudentMutation, useDeleteStudentMutation } =
-studentapi;
+export const {
+    useGetStudentsQuery,
+    useGetStudentQuery,
+    useAddStudentMutation,
+    useUpdateStudentMutation,
+    useDeleteStudentMutation,
+    useGetBatchesMutation
+} = studentApi;

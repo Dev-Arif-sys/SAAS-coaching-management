@@ -5,12 +5,14 @@ import Loadable from 'components/Loadable';
 import PersistLogin from 'features/users/PersistLogin';
 import MainLayout from 'layout/MainLayout/index';
 import ManageInstitution from 'pages/dashboard/InstitutionManagement/ManageInstitution/index';
+import ManageSuperAdmin from 'pages/dashboard/InstitutionManagement/ManageSuperAdmin/index';
 import RegisterInstitution from 'pages/dashboard/InstitutionManagement/RegisterInstitution/index';
 import RegisterSuperAdmin from 'pages/dashboard/InstitutionManagement/RegisterSuperAdmin/index';
 import SalesProduct from 'pages/dashboard/SalesProduct';
 import CurrentStudents from 'pages/dashboard/student/currentStudents/index';
 import PromoteStudents from 'pages/dashboard/student/promoteStudents/index';
 import RegisterStudents from 'pages/dashboard/student/RegisterStudents/index';
+import UpdateStudents from 'pages/dashboard/student/UpdateStudent/index';
 import FormTest from 'pages/FormTest';
 
 // render - dashboard
@@ -95,6 +97,10 @@ const MainRoutes = {
                 {
                     path: 'students',
                     element: <CurrentStudents />
+                },
+                {
+                    path: 'students/:id',
+                    element: <UpdateStudents />
                 },
                 {
                     path: 'register-students',
@@ -194,6 +200,10 @@ const MainRoutes = {
                 {
                     path: 'register-super-admin',
                     element: <RegisterSuperAdmin />
+                },
+                {
+                    path: 'manage-super-admin',
+                    element: <ManageSuperAdmin />
                 }
             ]
         }

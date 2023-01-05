@@ -9,16 +9,15 @@ const protect = async (req, res, next) => {
     if (authorization && authorization.startsWith("Bearer")) {
       const token = authorization.split(" ")[1];
       const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-     console.log({decoded})
+     
       const user = await User.findById(decoded.user.id).select("-password");
-      console.log({user})
-      if (!user?._id)
-        return next(new ErrorResponse("Unauthorized to access", 401));
+     
+      if (!user?._id){return next(new ErrorResponse("Unauthorized to access", 401));}
       req.user = user;
       next();
     }
   } catch (err) {
-    console.log(err)
+    
     next(new ErrorResponse("Unauthorized to access", 401));
   }
 };

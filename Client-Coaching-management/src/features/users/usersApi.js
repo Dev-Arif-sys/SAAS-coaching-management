@@ -24,7 +24,21 @@ export const usersApi = apiSlice.injectEndpoints({
                 url: '/auth/register',
                 method: 'POST',
                 body: data
-            })
+            }),
+            async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+                const { data } = await queryFulfilled;
+                const { user } = data || {};
+                console.log(user);
+                if (user?.institution?.length > 0) {
+                    dispatch(
+                        apiSlice.util.updateQueryData('getInstitutions', undefined, (draft) => {
+                            // console.log(current(draft));
+                            const InstitutionToEdit = draft.result.find((c) => c._id === user?.institution);
+                            InstitutionToEdit.users.push(user);
+                        })
+                    );
+                }
+            }
         }),
         refresh: builder.mutation({
             query: () => ({ url: '/auth/refresh', method: 'GET' }),
@@ -37,8 +51,14 @@ export const usersApi = apiSlice.injectEndpoints({
                     console.log(err);
                 }
             }
+        }),
+        getSuperAdmin: builder.query({
+            query: () => ({
+                url: '/auth/super-admin',
+                method: 'GET'
+            })
         })
     })
 });
 
-export const { useAddUserMutation, useLoginMutation, useRefreshMutation } = usersApi;
+export const { useAddUserMutation, useLoginMutation, useRefreshMutation, useGetSuperAdminQuery } = usersApi;

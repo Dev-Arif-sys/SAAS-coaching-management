@@ -9,22 +9,21 @@ const cookieParser = require("cookie-parser");
 const errorHandler = require("./middlewares/error");
 const auth = require("./routes/auth.route");
 const institution = require("./routes/institution.route");
+const student = require("./routes/student.route");
 
 const port = process.env.PORT || 8080;
 app.use(express.json());
-const whitelist = ['http://localhost:3000'];
+const whitelist = ["http://localhost:3000"];
 const corsOptions = {
   credentials: true, // This is important.
   origin: (origin, callback) => {
-    if(whitelist.includes(origin))
-      return callback(null, true)
+    if (whitelist.includes(origin)) return callback(null, true);
 
-      callback(new Error('Not allowed by CORS'));
-  }
-}
+    callback(new Error("Not allowed by CORS"));
+  },
+};
 
 app.use(cors(corsOptions));
-
 
 app.use(cookieParser());
 dotenv.config();
@@ -40,6 +39,7 @@ app.get("/", async (req, res) => {
 
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/institutions", institution);
+app.use("/api/v1/students", student);
 
 // error handler
 

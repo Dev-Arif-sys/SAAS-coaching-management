@@ -39,7 +39,8 @@ const Palette = (mode) => {
             mode,
             common: {
                 black: '#000',
-                white: '#fff'
+                white: '#fff',
+                red: '#F32013'
             },
             ...paletteColor,
             text: {

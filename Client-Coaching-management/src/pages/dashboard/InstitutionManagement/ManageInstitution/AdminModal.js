@@ -59,7 +59,7 @@ const AdminModal = ({ open, setOpen, institution }) => {
                     <DialogContentText id="alert-dialog-slide-description">
                         <form onSubmit={formik.handleSubmit}>
                             <Grid container spacing={{ xs: 1, md: 2 }} mb={1.5}>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={6} md={6}>
                                     <CustomTextField
                                         fullWidth
                                         required={true}
@@ -70,7 +70,7 @@ const AdminModal = ({ open, setOpen, institution }) => {
                                         onChange={formik.handleChange}
                                     />
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={6} md={6}>
                                     <CustomTextField
                                         fullWidth
                                         id="number"
@@ -80,7 +80,7 @@ const AdminModal = ({ open, setOpen, institution }) => {
                                         onChange={formik.handleChange}
                                     />
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={6} md={6}>
                                     <CustomSelect
                                         options={[
                                             {
@@ -100,7 +100,7 @@ const AdminModal = ({ open, setOpen, institution }) => {
                                         onChange={formik.handleChange}
                                     />
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={6} md={6}>
                                     <CustomTextField
                                         fullWidth
                                         required={true}

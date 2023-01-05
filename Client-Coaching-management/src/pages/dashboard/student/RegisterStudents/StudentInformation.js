@@ -1,9 +1,35 @@
 import { Box, Grid } from '@mui/material';
+import CustomAutocomplete from 'components/ui/CustomAutocomplete';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomTextField from 'components/ui/CustomTextField';
 import DatePicker from 'components/ui/DatePicker';
+import { useGetBatchesMutation } from 'features/Student/studentApi';
+import { useEffect, useState } from 'react';
 
-const StudentInformation = ({ formik }) => {
+const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
+    const [batch, setBatch] = useState(formik.values.std_batch);
+    const [getBatches, { isError, isSuccess, isLoading, data }] = useGetBatchesMutation();
+    const { result: batches } = data || {};
+    const batchOptions = batches?.map((batch) => batch.batch);
+
+    useEffect(() => {
+        setBatch(formik.values.std_batch);
+    }, [formik.values.std_batch]);
+
+    useEffect(() => {
+        if (formik.values.std_batch_year !== '' && formik.values.std_class !== '') {
+            getBatches({
+                std_class: formik.values.std_class,
+                std_batch_year: formik.values.std_batch_year
+            });
+        }
+    }, [formik.values.std_batch_year, formik.values.std_class]);
+
+    useEffect(() => {
+        if (batch !== '') {
+            formik.setFieldValue('std_batch', batch);
+        }
+    }, [batch]);
     return (
         <Box
             sx={{
@@ -39,7 +65,7 @@ const StudentInformation = ({ formik }) => {
                         id="phone"
                         required={true}
                         name="std_phone"
-                        type="number"
+                        type="text"
                         label={'Phone No'}
                         value={formik.values.std_phone}
                         onChange={formik.handleChange}
@@ -72,19 +98,7 @@ const StudentInformation = ({ formik }) => {
 
                 <Grid item xs={6} sm={3} md={2}>
                     <CustomSelect
-                        options={batchData}
-                        id="batch"
-                        name="std_batch"
-                        value={formik.values.std_batch}
-                        onChange={formik.handleChange}
-                        label="Batch"
-                        required={true}
-                    />
-                </Grid>
-
-                <Grid item xs={6} sm={3} md={2}>
-                    <CustomSelect
-                        options={batchData}
+                        options={yearData}
                         id="batch_year"
                         name="std_batch_year"
                         value={formik.values.std_batch_year}
@@ -92,6 +106,10 @@ const StudentInformation = ({ formik }) => {
                         label="Batch Year"
                         required={true}
                     />
+                </Grid>
+
+                <Grid item xs={6} sm={3} md={2}>
+                    <CustomAutocomplete required={true} givenOptions={batchOptions || []} value={batch} setValue={setBatch} />
                 </Grid>
 
                 <Grid item xs={6} sm={3} md={2}>
@@ -188,7 +206,7 @@ const StudentInformation = ({ formik }) => {
                         id="thana"
                         name="std_thana"
                         label={'Thana'}
-                        value={formik.values.std_Thana}
+                        value={formik.values.std_thana}
                         onChange={formik.handleChange}
                     />
                 </Grid>
@@ -199,7 +217,7 @@ const StudentInformation = ({ formik }) => {
                         id="zilla"
                         name="std_zilla"
                         label={'Zilla'}
-                        value={formik.values.std_Zilla}
+                        value={formik.values.std_zilla}
                         onChange={formik.handleChange}
                     />
                 </Grid>
