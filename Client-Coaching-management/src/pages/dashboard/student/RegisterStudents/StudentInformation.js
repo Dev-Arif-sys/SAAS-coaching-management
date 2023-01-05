@@ -6,7 +6,7 @@ import DatePicker from 'components/ui/DatePicker';
 import { useGetBatchesMutation } from 'features/Student/studentApi';
 import { useEffect, useState } from 'react';
 
-const StudentInformation = ({ formik, dynamicField, setDynamicField }) => {
+const StudentInformation = ({ formik }) => {
     const [batch, setBatch] = useState(formik.values.std_batch);
     const [getBatches, { isError, isSuccess, isLoading, data }] = useGetBatchesMutation();
     const { result: batches } = data || {};

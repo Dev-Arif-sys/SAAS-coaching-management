@@ -1,10 +1,7 @@
-import React from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme, TableCell, TableRow, TableBody } from '@mui/material';
-import CustomTextField from 'components/ui/CustomTextField';
+import { Box, Grid, useTheme } from '@mui/material';
 import CustomSelect from 'components/ui/CustomSelect';
-import { useState } from 'react';
+import CustomTextField from 'components/ui/CustomTextField';
 import DatePicker from 'components/ui/DatePicker';
-import CustomHeading from 'components/ui/CustomHeading';
 
 const examData = [
     { label: 'Theory (CQ)', value: 'Theory (CQ)' },
@@ -12,24 +9,13 @@ const examData = [
     { label: 'CQ and MCQ', value: 'CQ and MCQ' },
     { label: 'Quiz', value: 'Quiz' }
 ];
-const ExamDetails = ({ data }) => {
+const ExamDetails = ({ formik }) => {
     const theme = useTheme();
-    const [classes, batch, year] = data;
-
-    const [subject, setSubject] = useState('');
-    const [exams, setExams] = useState('');
-    const [title, setTitle] = useState('');
-    const [cqMark, setCqMark] = useState('');
-    const [mcqMark, setMCqMark] = useState('');
-    const [date, setDate] = useState('');
+    const { exam_subject, exam_title, exam_type, exam_cq_mark, exam_mcq_mark, exam_date } = formik.values;
 
     return (
         <Box>
             <Box sx={{ my: 2 }}>
-                <CustomHeading>
-                    Students Of Class {classes} , Batch {batch}, Year {year}
-                </CustomHeading>
-
                 <Box sx={{ my: 3 }}>
                     <Box
                         sx={{
@@ -47,7 +33,9 @@ const ExamDetails = ({ data }) => {
                                     style={{
                                         marginRight: '10px'
                                     }}
-                                    onChange={(e) => setSubject(e.target.value)}
+                                    name="exam_subject"
+                                    value={exam_subject}
+                                    onChange={formik.handleChange}
                                 />
                             </Grid>
                             <Grid item xs={6} sm={6} md={3}>
@@ -58,7 +46,9 @@ const ExamDetails = ({ data }) => {
                                     style={{
                                         marginRight: '10px'
                                     }}
-                                    onChange={(e) => setTitle(e.target.value)}
+                                    name="exam_title"
+                                    value={exam_title}
+                                    onChange={formik.handleChange}
                                 />
                             </Grid>
                             <Grid item xs={6} sm={6} md={3}>
@@ -67,7 +57,9 @@ const ExamDetails = ({ data }) => {
                                     options={examData}
                                     label="Exam Type"
                                     required={true}
-                                    onChange={(e) => setExams(e.target.value)}
+                                    name="exam_type"
+                                    value={exam_type}
+                                    onChange={formik.handleChange}
                                 />
                             </Grid>
                             <Grid item xs={6} sm={6} md={3}>
@@ -77,7 +69,9 @@ const ExamDetails = ({ data }) => {
                                     style={{
                                         marginRight: '10px'
                                     }}
-                                    onChange={(e) => setCqMark(e.target.value)}
+                                    name="exam_cq_mark"
+                                    value={exam_cq_mark}
+                                    onChange={formik.handleChange}
                                 />
                             </Grid>
                             <Grid item xs={6} sm={6} md={3}>
@@ -87,11 +81,19 @@ const ExamDetails = ({ data }) => {
                                     style={{
                                         marginRight: '10px'
                                     }}
-                                    onChange={(e) => setMCqMark(e.target.value)}
+                                    name="exam_mcq_mark"
+                                    value={exam_mcq_mark}
+                                    onChange={formik.handleChange}
                                 />
                             </Grid>
                             <Grid item xs={6} sm={6} md={3}>
-                                <DatePicker label={'Select Date'} required={true} onChange={(e) => setDate(e.target.value)} />
+                                <DatePicker
+                                    label={'Select Date'}
+                                    required={true}
+                                    name="exam_date"
+                                    value={exam_date}
+                                    onChange={formik.handleChange}
+                                />
                             </Grid>
                         </Grid>
                     </Box>
