@@ -73,6 +73,9 @@ const studentSchema = new Schema({
     type: String,
     validate: {
       validator: function (v) {
+        if (v === "") {
+          return true;
+        }
         return /^(?:(?:\+|00)88|01)?\d{11}$/.test(v);
       },
       message: (props) => `${props.value} is not a valid phone number!`,
@@ -88,6 +91,9 @@ const studentSchema = new Schema({
     type: String,
     validate: {
       validator: function (v) {
+        if (v === "") {
+          return true;
+        }
         return /^(?:(?:\+|00)88|01)?\d{11}$/.test(v);
       },
       message: (props) => `${props.value} is not a valid phone number!`,
@@ -120,7 +126,9 @@ const studentSchema = new Schema({
   std_bro3_institution: {
     type: String,
   },
-});
+},
+{ timestamps: true }
+);
 
 const Student = mongoose.model("Student", studentSchema);
 

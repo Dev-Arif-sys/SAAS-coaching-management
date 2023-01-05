@@ -59,6 +59,7 @@ const RegisterStudents = () => {
         }
     });
 
+    console.log({ formik });
     // decide what alert to show
     let alert = '';
     if (isError) alert = <CustomSnackbar status="error" message={error?.data?.error || error?.error} />;

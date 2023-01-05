@@ -48,7 +48,7 @@ const MainLayout = () => {
         <Box sx={{ display: 'flex', width: '100%' }}>
             <Header open={open} handleDrawerToggle={handleDrawerToggle} />
             <Drawer open={open} handleDrawerToggle={handleDrawerToggle} />
-            <Box component="main" sx={{ width: '100%', flexGrow: 1, py: { xs: 1, sm: 1 }, px: { xs: 2, sm: 3 } }}>
+            <Box component="main" sx={{ width: { lg: '1200px', xs: '100%' }, flexGrow: 1, py: { xs: 1, sm: 1 }, px: { xs: 2, sm: 3 } }}>
                 <Toolbar />
                 <Breadcrumbs navigation={navigation} title titleBottom card={false} divider={false} />
                 <Outlet />

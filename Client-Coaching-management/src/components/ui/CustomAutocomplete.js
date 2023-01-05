@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 const filter = createFilterOptions();
 
 export default function CustomAutocomplete({ required, givenOptions, value, setValue }) {
+    console.log({ value });
     return (
         <Stack spacing={0.25}>
             <InputLabel
@@ -42,9 +43,6 @@ export default function CustomAutocomplete({ required, givenOptions, value, setV
 
                     return filtered;
                 }}
-                selectOnFocus
-                clearOnBlur
-                handleHomeEndKeys
                 id="free-solo-with-text-demo"
                 options={givenOptions}
                 getOptionLabel={(option) => {
