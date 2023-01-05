@@ -1,12 +1,21 @@
-import React from 'react';
-import { Box, Stack, Grid, Typography, Container, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
+import CustomMainHeading from 'components/ui/CustomMainHeading';
+import { BsFillPeopleFill } from 'react-icons/bs';
 const Heading = () => {
     const theme = useTheme();
     return (
         <div>
-            <Typography variant="h1" Typography color={theme.palette.text.heading} mb={2}>
-                Exams Mark Entry
-            </Typography>
+            <CustomMainHeading
+                title="fee Overview"
+                icon={
+                    <BsFillPeopleFill
+                        style={{
+                            marginRight: '5px',
+                            fontSize: '18px'
+                        }}
+                    />
+                }
+            />
         </div>
     );
 };

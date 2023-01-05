@@ -5,10 +5,10 @@ import CustomError from 'components/ui/CustomError';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomLoader from 'components/ui/CustomLoader';
 import NoItem from 'components/ui/NoItem';
+import SearchStudents from 'components/ui/SearchStudents';
 import { useGetStudentsQuery } from 'features/Student/studentApi';
 import { useEffect, useState } from 'react';
 import Heading from './Heading';
-import SearchStudents from './SearchStudents';
 import StudentTable from './StudentTable';
 
 const CurrentStudents = () => {
