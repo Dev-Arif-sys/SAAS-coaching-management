@@ -15,10 +15,12 @@ import { useParams } from 'react-router-dom';
 import BrotherSisterInfo from '../RegisterStudents/BrotherSisterInfo';
 import ParentsInformation from '../RegisterStudents/ParentsInformation';
 import StudentInformation from '../RegisterStudents/StudentInformation';
-
+import { useSelector } from 'react-redux';
 const UpdateStudents = () => {
     const theme = useTheme();
     const { id } = useParams();
+    const hidden = useSelector((state) => state.student.value);
+    console.log(hidden);
     const [dynamicField, setDynamicField] = useState({
         std_class: '',
         std_batch: '',
@@ -97,22 +99,25 @@ const UpdateStudents = () => {
                     <ParentsInformation formik={formik} />
                     <CustomHeading>Brother's and Sister's Information</CustomHeading>
                     <BrotherSisterInfo formik={formik} />
-
-                    <LoadingButton
-                        size="small"
-                        color="primary"
-                        loading={isLoading}
-                        loadingPosition="end"
-                        type="submit"
-                        variant="contained"
-                        endIcon={<AiOutlineSave />}
-                        disabled={isLoading}
-                        sx={{
-                            mt: 1
-                        }}
-                    >
-                        Save
-                    </LoadingButton>
+                    {hidden === false ? (
+                        ''
+                    ) : (
+                        <LoadingButton
+                            size="small"
+                            color="primary"
+                            loading={isLoading}
+                            loadingPosition="end"
+                            type="submit"
+                            variant="contained"
+                            endIcon={<AiOutlineSave />}
+                            disabled={isLoading}
+                            sx={{
+                                mt: 1
+                            }}
+                        >
+                            Save
+                        </LoadingButton>
+                    )}
                 </form>
 
                 {alert}
@@ -121,17 +126,32 @@ const UpdateStudents = () => {
     }
     return (
         <>
-            <CustomMainHeading
-                title="Update Student"
-                icon={
-                    <FiEdit
-                        style={{
-                            marginRight: '5px',
-                            fontSize: '18px'
-                        }}
-                    />
-                }
-            />
+            {hidden === false ? (
+                <CustomMainHeading
+                    title="View Student"
+                    icon={
+                        <FiEdit
+                            style={{
+                                marginRight: '5px',
+                                fontSize: '18px'
+                            }}
+                        />
+                    }
+                />
+            ) : (
+                <CustomMainHeading
+                    title="Update Student"
+                    icon={
+                        <FiEdit
+                            style={{
+                                marginRight: '5px',
+                                fontSize: '18px'
+                            }}
+                        />
+                    }
+                />
+            )}
+
             <ContentContainer>
                 <CustomHeading>Student Information</CustomHeading>
                 {content}

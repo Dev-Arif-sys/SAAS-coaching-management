@@ -56,7 +56,7 @@ const RegisterStudents = () => {
             std_bro3_institution: ''
         },
         onSubmit: (values) => {
-            addStudent({ ...values, ...dynamicField });
+            addStudent({ ...values });
         }
     });
 
@@ -83,7 +83,7 @@ const RegisterStudents = () => {
             <ContentContainer>
                 <form onSubmit={formik.handleSubmit}>
                     <CustomHeading>Student Information</CustomHeading>
-                    <StudentInformation formik={formik} dynamicField={dynamicField} setDynamicField={setDynamicField} />
+                    <StudentInformation formik={formik} />
                     <CustomHeading>Parents Information</CustomHeading>
                     <ParentsInformation formik={formik} />
                     <CustomHeading>Brother's and Sister's Information</CustomHeading>

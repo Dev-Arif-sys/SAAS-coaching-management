@@ -5,9 +5,12 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
+import { useDeleteStudentMutation, useGetStudentsQuery } from 'features/Student/studentapi';
 const DeleteAlertsBox = ({ id }) => {
     const [open, setOpen] = useState(false);
-
+    const [deleteStudent, { isError, isLoading, isSuccess, error }] = useDeleteStudentMutation();
+    const { data, refetch } = useGetStudentsQuery();
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -15,23 +18,26 @@ const DeleteAlertsBox = ({ id }) => {
     const handleClose = () => {
         setOpen(false);
     };
+    const handleAgreeFun = (id) => {
+        console.log(id);
+        // console.log(deleteStudent);
+        deleteStudent(id);
+        data.refetch();
+        setOpen(false);
+    };
 
-    console.log(id);
     return (
         <div>
             {' '}
             <AiFillDelete style={{ fontSize: '17px', color: 'red' }} onClick={handleClickOpen} />
             <Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-                <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">Are You Sure Delete Your Student</DialogTitle>
                 <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are
-                        running.
-                    </DialogContentText>
+                    <DialogContentText id="alert-dialog-description">Click Yes or Cancel to delete your student</DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handleClose}>Agree</Button>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={() => handleAgreeFun(id)}>Yes</Button>
                 </DialogActions>
             </Dialog>
         </div>
