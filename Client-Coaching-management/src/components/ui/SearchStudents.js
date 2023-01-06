@@ -2,7 +2,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { Grid } from '@mui/material';
 import CustomHeading from 'components/ui/CustomHeading';
 import CustomSelect from 'components/ui/CustomSelect';
-import { useGetBatchesMutation } from 'features/Student/studentApi';
+import { useGetBatchesMutation } from 'features/Student/studentapi';
 import { useEffect } from 'react';
 import { HiSearch } from 'react-icons/hi';
 const classData = [

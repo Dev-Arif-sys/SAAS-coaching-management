@@ -3,7 +3,8 @@ import CustomAutocomplete from 'components/ui/CustomAutocomplete';
 import CustomSelect from 'components/ui/CustomSelect';
 import CustomTextField from 'components/ui/CustomTextField';
 import DatePicker from 'components/ui/DatePicker';
-import { useGetBatchesMutation } from 'features/Student/studentApi';
+import { useGetBatchesMutation } from 'features/Student/studentapi';
+// import { useGetBatchesMutation } from 'features/Student/studentApi';
 import { useEffect, useState } from 'react';
 
 const StudentInformation = ({ formik }) => {

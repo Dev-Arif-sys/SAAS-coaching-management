@@ -129,6 +129,7 @@ const PaymentDetails = ({ data }) => {
                                 width: '40px'
                             }}
                         />
+                        
                         <Typography
                             sx={{
                                 ml: 1

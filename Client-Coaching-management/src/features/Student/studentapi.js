@@ -1,6 +1,7 @@
 import { apiSlice } from 'features/apiSlice';
 
 const studentApi = apiSlice.injectEndpoints({
+    tagTypes: ['Students'],
     endpoints: (builder) => ({
         getStudents: builder.query({
             query: ({ std_class, std_batch_year, std_batch, search }) => {
@@ -14,14 +15,15 @@ const studentApi = apiSlice.injectEndpoints({
         }),
         getStudent: builder.query({
             query: (id) => `/students/${id}`,
-            providesTags: ['Student']
+            providesTags: ['Students']
         }),
         addStudent: builder.mutation({
             query: (data) => ({
                 url: '/students',
                 method: 'POST',
                 body: data
-            })
+            }),
+            invalidatesTags: ['Students']
         }),
         getBatches: builder.mutation({
             query: ({ std_class, std_batch_year }) => ({
@@ -40,10 +42,10 @@ const studentApi = apiSlice.injectEndpoints({
 
         deleteStudent: builder.mutation({
             query: (id) => ({
-                url: `/add_me/${id}`,
+                url: `/students/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['Student']
+            invalidatesTags: ['Students']
         })
     })
 });

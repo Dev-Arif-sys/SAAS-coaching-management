@@ -5,8 +5,10 @@ import { AiFillDelete, AiOutlineFolderView } from 'react-icons/ai';
 import { FaRegArrowAltCircleUp, FaSms } from 'react-icons/fa';
 import { FiEdit } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import DeleteAlertsBox from './DeleteAlertsBox';
 import PromoteModal from './PromoteModal';
-
+import { useDispatch } from 'react-redux';
+import { show } from 'features/Student/studentSlice';
 const headCells = [
     {
         id: 'Name',
@@ -112,18 +114,21 @@ const StudentTable = ({ students }) => {
     const [selectedStudent, setSelectedStudent] = useState({});
     const navigate = useNavigate();
     const theme = useTheme();
-
+    const dispatch = useDispatch();
     const handleModalOpen = (data) => {
         setOpenModal(true);
         setSelectedStudent(data);
     };
 
     const handleViewDetails = (id) => {
+        dispatch(show(false));
         navigate(`/dashboard/students/${id}`);
     };
     const handleEditDetails = (id) => {
+        dispatch(show(null));
         navigate(`/dashboard/students/${id}`);
     };
+
     const iconStyle = {
         fontSize: '26px',
         marginLeft: '7px',
@@ -167,7 +172,8 @@ const StudentTable = ({ students }) => {
 
                 <Tooltip title="Delete">
                     <IconButton aria-label="expand row" size="small">
-                        <AiFillDelete style={{ fontSize: '17px', color: 'red' }} />
+                        {/* <AiFillDelete style={{ fontSize: '17px', color: 'red' }} /> */}
+                        <DeleteAlertsBox id={row._id} />
                     </IconButton>
                 </Tooltip>
             </TableCell>
