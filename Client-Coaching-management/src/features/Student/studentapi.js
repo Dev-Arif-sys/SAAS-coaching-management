@@ -45,7 +45,7 @@ const studentApi = apiSlice.injectEndpoints({
                 url: `/students/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['Students']
+            invalidatesTags: ['Students', 'Student']
         })
     })
 });

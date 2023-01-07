@@ -11,36 +11,15 @@ import TableRow from '@mui/material/TableRow';
 import CustomHeading from 'components/ui/CustomHeading';
 import { useDeleteInstitutionMutation } from 'features/institution/institutionApi';
 import React, { useState } from 'react';
-import { AiFillDelete } from 'react-icons/ai';
-import { HiSearch } from 'react-icons/hi';
+import { AiFillDelete, AiOutlineFolderView } from 'react-icons/ai';
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
+
 import { MdPersonAdd } from 'react-icons/md';
 import AdminModal from './AdminModal';
-const rows = [
-    {
-        paymentType: 'Admission Fees',
-
-        amount: '100',
-        ID: 101
-    },
-    {
-        paymentType: 'Admission Fees',
-
-        amount: '100',
-        ID: 104
-    },
-    {
-        paymentType: 'Admission Fees',
-
-        amount: '100',
-        ID: 102
-    },
-    {
-        paymentType: 'Admission Fees',
-
-        amount: '100',
-        ID: 103
-    }
-];
+import { FiEdit } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { show } from 'features/Student/studentSlice';
 
 const InstitutionTable = ({ institutions }) => {
     const institutionList = institutions.map((institution) => <Row key={institution._id} institution={institution} />);
@@ -84,6 +63,8 @@ const Row = ({ institution }) => {
         users
     } = institution || {};
     const theme = useTheme();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const handleDelete = (id) => {
         if (confirm('Are your sure to delete')) {
             deleteInstitution(id);
@@ -94,7 +75,14 @@ const Row = ({ institution }) => {
         setOpenModal(true);
         setSelectedInt(institution);
     };
-
+    const handleEditDetails = (id) => {
+        dispatch(show(true));
+        navigate(`/dashboard/manage-institution/${id}`);
+    };
+    const handleViewDetails = (id) => {
+        dispatch(show(false));
+        navigate(`/dashboard/manage-institution/${id}`);
+    };
     // decide what to render in collapsed table
     let collapsedContent;
 
@@ -137,16 +125,26 @@ const Row = ({ institution }) => {
                 <TableCell align="left"> {contact_person_phone}</TableCell>
                 <TableCell align="left">{institution_head_name}</TableCell>
                 <TableCell align="left">{institution_head_phone}</TableCell>
+
                 <TableCell>
                     <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-                        {open ? <HiSearch /> : <HiSearch />}
+                        {open ? <FaAngleDown /> : <FaAngleUp />}
                     </IconButton>
                     <Tooltip title="Delete">
                         <IconButton aria-label="expand row" size="small" onClick={() => handleDelete(_id)}>
                             <AiFillDelete style={{ fontSize: '17px' }} />
                         </IconButton>
                     </Tooltip>
-
+                    <Tooltip title="Edit Details">
+                        <IconButton aria-label="expand row" size="small" onClick={() => handleEditDetails(_id)}>
+                            <FiEdit style={{ fontSize: '17px' }} />
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip title="View Details">
+                        <IconButton aria-label="expand row" size="small" onClick={() => handleViewDetails(_id)}>
+                            <AiOutlineFolderView style={{ fontSize: '17px' }} />
+                        </IconButton>
+                    </Tooltip>
                     <Tooltip title="Add an admin">
                         <IconButton aria-label="expand row" size="small" onClick={() => handleAddAdmin()}>
                             <MdPersonAdd style={{ fontSize: '17px' }} />

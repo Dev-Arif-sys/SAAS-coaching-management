@@ -148,7 +148,7 @@ const getStudentsBatch = async (req, res, next) => {
 };
 
 
-// @desc  update students students
+// @desc  Dtelet students students
 // @route PUT /api/v1/students/id
 // @access admin
 

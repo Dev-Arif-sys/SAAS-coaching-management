@@ -39,6 +39,60 @@ const getAllInstitution = async (req, res, next) => {
   }
 };
 
+
+// @desc  get single Institution buy id
+// @route Get /api/v1/institution/:id
+// @access admin
+
+const getInstitution = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    console.log({id})
+    const student = await Institution.findOne(
+      {
+        _id: id,
+      }
+    );
+    
+
+    res.status(200).json({
+      success: true,
+      message: "Institution has been found",
+      result: student
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+// @desc  update Institution 
+// @route PUT /api/v1/Institution/id
+// @access admin
+
+const updateInstitution = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    console.log(id);
+    console.log(req.body)
+    const updatedInstitution = await Institution.updateOne(
+      {
+        _id: id,
+      },
+      {
+        ...req.body,
+      }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "Institution has been updated",
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+
 // @desc delete Institution
 // @route POST /api/v1/institutions/:id
 // @access super admin
@@ -60,5 +114,7 @@ const deleteInstitution=async(req,res,next)=>{
 module.exports = {
   registerInstitution,
   getAllInstitution,
+  getInstitution,
+  updateInstitution,
   deleteInstitution
 };

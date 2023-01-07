@@ -125,7 +125,7 @@ const StudentTable = ({ students }) => {
         navigate(`/dashboard/students/${id}`);
     };
     const handleEditDetails = (id) => {
-        dispatch(show(null));
+        dispatch(show(true));
         navigate(`/dashboard/students/${id}`);
     };
 
