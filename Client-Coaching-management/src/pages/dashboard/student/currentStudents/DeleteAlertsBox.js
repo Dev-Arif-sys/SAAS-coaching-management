@@ -10,7 +10,7 @@ import { useDeleteStudentMutation, useGetStudentsQuery } from 'features/Student/
 const DeleteAlertsBox = ({ id }) => {
     const [open, setOpen] = useState(false);
     const [deleteStudent, { isError, isLoading, isSuccess, error }] = useDeleteStudentMutation();
-    const { data, refetch } = useGetStudentsQuery();
+    // const { data, refetch } = useGetStudentsQuery();
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -22,7 +22,7 @@ const DeleteAlertsBox = ({ id }) => {
         console.log(id);
         // console.log(deleteStudent);
         deleteStudent(id);
-        data.refetch();
+        // data.refetch();
         setOpen(false);
     };
 

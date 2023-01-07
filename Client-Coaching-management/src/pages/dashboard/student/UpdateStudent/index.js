@@ -6,7 +6,6 @@ import CustomLoader from 'components/ui/CustomLoader';
 import CustomMainHeading from 'components/ui/CustomMainHeading';
 import CustomSnackbar from 'components/ui/CustomSnackbar';
 import { useGetStudentQuery, useUpdateStudentMutation } from 'features/Student/studentapi';
-// import { useGetStudentQuery, useUpdateStudentMutation } from 'features/Student/studentApi';
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { AiOutlineSave } from 'react-icons/ai';
@@ -19,7 +18,7 @@ import { useSelector } from 'react-redux';
 const UpdateStudents = () => {
     const theme = useTheme();
     const { id } = useParams();
-    const hidden = useSelector((state) => state.student.value);
+    const hidden = useSelector((state) => state.student.IsUpdate);
     console.log(hidden);
     const [dynamicField, setDynamicField] = useState({
         std_class: '',
@@ -126,9 +125,9 @@ const UpdateStudents = () => {
     }
     return (
         <>
-            {hidden === false ? (
+            {hidden == true ? (
                 <CustomMainHeading
-                    title="View Student"
+                    title="Update Student"
                     icon={
                         <FiEdit
                             style={{
@@ -140,7 +139,7 @@ const UpdateStudents = () => {
                 />
             ) : (
                 <CustomMainHeading
-                    title="Update Student"
+                    title="View Student"
                     icon={
                         <FiEdit
                             style={{

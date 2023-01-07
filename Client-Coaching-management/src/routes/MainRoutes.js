@@ -14,6 +14,7 @@ import PromoteStudents from 'pages/dashboard/student/promoteStudents/index';
 import RegisterStudents from 'pages/dashboard/student/RegisterStudents/index';
 import UpdateStudents from 'pages/dashboard/student/UpdateStudent/index';
 import FormTest from 'pages/FormTest';
+import ManageInstitutionUpdate from 'pages/dashboard/InstitutionManagement/ManageInstitutionUpdate/index';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -204,6 +205,10 @@ const MainRoutes = {
                 {
                     path: 'manage-super-admin',
                     element: <ManageSuperAdmin />
+                },
+                {
+                    path: 'manage-institution/:id',
+                    element: <ManageInstitutionUpdate />
                 }
             ]
         }
